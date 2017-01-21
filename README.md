@@ -12,7 +12,7 @@
 *
 *LazyMan('Hank').sleepFirst(5).eat('supper'): 
 *       //等待5s
-*       wake up after 5
+*       wake up after 5 
 *       Hi This is Hank!
 *       eat dinner     
 */
