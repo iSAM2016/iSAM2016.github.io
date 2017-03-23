@@ -1,0 +1,160 @@
+ @charset "utf-8";
+
+$bgf5 :#f5f5f5 !default;
+
+body{
+  background-color:  $bgf5;
+
+}
+
+
+/*产品列表的样式*/
+@mixin prduct_content(){
+    border:1px solid #ccc;
+    text-align:left;
+   
+}
+
+.ol_content{
+     line-height:2;
+}
+
+.ol_contact_pr{
+    @include prduct_content;
+    font-size:0;
+    margin-bottom:1rem;
+    margin-right:0;
+    padding-bottom: 1rem;
+
+        .contants{
+            padding:1rem;
+            display:inline-block;
+                    img{
+                       position: relative;
+                       width: 120%;
+                       max-width: 10rem;
+                       top: 1rem;
+                       left: -1rem;
+                    }
+        }
+
+        .ol_content_detail{
+             @include prduct_content;
+                border: none;
+                padding:1rem;
+                display:inline-block;
+                font-size:14px;
+
+                    img{
+                       position: relative;
+                       width: 120%;
+                       max-width: 10rem;
+                       top: 1rem;
+                       left: -1rem;
+                    }
+                    .beyond{
+                        color:#333;
+                    }
+        }
+}
+
+
+@media (max-width:768px) { 
+.alltools {
+    img {
+        width: 4rem;
+    }
+  }
+ }
+@media (min-width:768px) { 
+.alltools {
+    img {
+        width: 10rem;
+      
+    }
+  }
+ }
+
+/* 中型设备（台式电脑，992px 起） */
+@media (min-width: 992px) { 
+.alltools {
+    img {
+        width: 10rem;
+    }
+  }
+
+}
+
+/* 大型设备（大台式电脑，1200px 起） */
+@media (min-width: 1200px) { 
+  .alltools {
+    img {
+        width: 14rem;
+    }
+  }
+ }
+
+
+
+.ol_img_cent{
+    text-align:center;
+}
+
+.ol_yes{
+  font-size: 60px;
+  
+}
+
+.ol_worldbreak{
+    display: inline-block;
+    overflow: hidden;
+    word-break: break-all;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%;
+}
+
+
+#ol_tc{
+    text-align:center
+}
+
+.tools-title{
+    padding-left:1rem;
+}
+
+.ol_p{
+    overflow: hidden;           
+    overflow-x: auto;
+}
+
+.ol_c{
+    min-width: 650px;
+    overflow-y: hidden;
+    overflow-x: auto;
+}
+
+
+#changeRow{
+    margin-right:0;
+}
+
+#appsearch{
+    position: relative;
+    left: 1rem;
+    width: 97%;
+    padding-right:15px;    
+ }
+      
+ 
+
+
+
+
+
+
+
+
+ 
+ 
+
