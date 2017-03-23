@@ -6,7 +6,6 @@
 [简历](https://github.com/iSAM2016/iSAM2016.github.io/issues/1)
 
 ### underscore 源码学习
->不会阅读源码的猿不是好产品
 
 [underscore源码阅读](https://github.com/iSAM2016/underscore)
 
