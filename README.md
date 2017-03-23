@@ -1,9 +1,9 @@
-#个人总结
-######不敢说是博客，只是记录学习的进程吧，结一番吧哈也是为写博客做准备吧！
+# 个人总结
+###### 不敢说是博客，只是记录学习的进程吧，结一番吧哈也是为写博客做准备吧！
 
-##总结
+## 总结
 ---
-##underscore 源码学习
+## underscore 源码学习
 >不会阅读源码的猿不是好产品
 
 [underscore源码阅读](https://github.com/iSAM2016/underscore)
@@ -13,7 +13,7 @@
 [Vue写的UI组件](https://github.com/iSAM2016/UI)
 
 
-###学习路径
+## 学习路径
 >网络上找到，感觉特别时候自己吧，大体上是 现代化、工程化、性能优化、插件开发、主要框架使用
 >[职业发展路径](https://github.com/f2e-journey/f2e-journey/blob/master/career-planning.md)
 
