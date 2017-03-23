@@ -14,7 +14,7 @@
 
 
 ### 学习路径
->网络上找到，感觉特别时候自己吧，大体上是 现代化、工程化、性能优化、插件开发、主要框架使用
+>网络上找到，感觉特别适合自己吧，大体上是 现代化、工程化、性能优化、插件开发、主要框架使用
 >[职业发展路径](https://github.com/f2e-journey/f2e-journey/blob/master/career-planning.md)
 
 1.  html、css和js较为扎实的基本功，尤其是js方面，能脱离jq/zepote干活，
