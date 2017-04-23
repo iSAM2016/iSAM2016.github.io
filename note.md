@@ -69,7 +69,7 @@
     * 系统掌握知识（css,dom, js），扩展知识
     * 个人知识管理
     * 所有的东西是需要经验可管理的阅读建议![管理](https://github.com/iSAM2016/iSAM2016.github.io/tree/master/img/v2-e65b17e7e682bfca044f773b09e36364_b.jpg)
-    * 阅读建议![如何阅读一本书](https://github.com/iSAM2016/iSAM2016.github.io/tree/master/img/v2-62dee35e7ae332e2581d6f7e4d918a3c_r.jpg)
+    * 阅读建议![如何阅读一本书](/img/v2-62dee35e7ae332e2581d6f7e4d918a3c_r.jpg)
 
 12. 内存泄漏，遇到的最多，有时候做的时候也许也不知道，应该如何查找？
     * review
