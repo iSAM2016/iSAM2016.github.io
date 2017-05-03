@@ -44,7 +44,7 @@
 
 *  源码阅读
     1. underscore.js是第一个选择，是工具方法，实现api方法，要背诵一些api,之后可以看看《JavaScript函数式编程》
-    2. zpote 源码阅读，把不懂的地方搞明白
+    2. zpote 源码阅读，把不懂的地方搞明白(你不知道的javascript 系列)
     3. backone.js此框架是以类jq和underscore为基础的mvc的框架，在这之前可以看《基于MVC的javascript Web富应用开发》
     4. 其他可以是一些插件的源码，比如bootstrap 可以敲。轮播、分页、下拉框。其中有两个插件是必须说的，**表格插件**  **webtreeview控件**
 
