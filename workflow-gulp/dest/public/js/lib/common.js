@@ -1,0 +1,1 @@
+function openWindow(o){window.location="/foods"}

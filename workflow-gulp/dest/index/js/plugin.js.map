@@ -1,0 +1,1 @@
+{"version":3,"sources":["index/js/plugin.js"],"names":["define","add","x","y"],"mappings":"AAAAA,OAAO,WAIH,OACIC,IAJM,SAASC,EAAGC,GAClB,MAAOD,GAAIC","file":"plugin.js","sourcesContent":["define(function() {　　　　\r\n    var add = function(x, y) {　　　　　　\r\n        return x + y;　　　　\r\n    };　　　　\r\n    return {　　　　　　\r\n        add: add　　　　\r\n    };　　\r\n});"]}

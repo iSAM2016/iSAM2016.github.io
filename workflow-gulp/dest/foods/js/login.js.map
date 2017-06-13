@@ -1,0 +1,1 @@
+{"version":3,"sources":["foods/js/login.js"],"names":["window","onload"],"mappings":"AAOAA,OAAOC,OAAS","file":"login.js","sourcesContent":["/*\n * @Author: huangzexia\n * @Date:   2017-01-11 15:49:29\n * @Last Modified by:   huangzexia\n * @Last Modified time: 2017-01-11 15:49:52\n */\n\nwindow.onload = function() {}"]}
