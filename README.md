@@ -10,7 +10,6 @@
 
 [underscore源码阅读](https://github.com/iSAM2016/underscore)
 
-
 ### Vue UI组件
 [Vue写的UI组件](https://github.com/iSAM2016/UI)
 
@@ -21,7 +20,7 @@
 >[职业发展路径](https://github.com/f2e-journey/f2e-journey/blob/master/career-planning.md)
 
 1.  html、css和js较为扎实的基本功，尤其是js方面，能脱离jq/zepote干活，
-    具有良好的面相对象的编程思想，能够书写较大规模的前端业务代码
+    具有良好的面相对象的编程思想，能够书写较大规模的前端业务代码.
 
 2.  熟练使用sass、less、stylus等css预处理器
 
