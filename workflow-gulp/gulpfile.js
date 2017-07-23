@@ -193,7 +193,6 @@ gulp.task('css', function() {
     .src('src/module/**/css/*.scss')
     .pipe(postcss(processors))
     .pipe(plumber(onError))
-    .pipe(sass())
     .pipe(sass().on('error', sass.logError))
     .pipe(autoprefixer(AUTOPREFIXER_BROWSERS))
     .pipe(minifycss())

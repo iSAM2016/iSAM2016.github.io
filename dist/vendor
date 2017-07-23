@@ -1,4 +1,4 @@
-webpackJsonp([33,34],[
+webpackJsonp([35,36],[
 /* 0 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -11,7 +11,7 @@ webpackJsonp([33,34],[
 /***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {/*!
-	 * Vue.js v2.3.3
+	 * Vue.js v2.3.4
 	 * (c) 2014-2017 Evan You
 	 * Released under the MIT License.
 	 */
@@ -4435,7 +4435,7 @@ webpackJsonp([33,34],[
 	  }
 	});
 
-	Vue$3.version = '2.3.3';
+	Vue$3.version = '2.3.4';
 
 	/*  */
 
@@ -4926,6 +4926,7 @@ webpackJsonp([33,34],[
 	  function initComponent (vnode, insertedVnodeQueue) {
 	    if (isDef(vnode.data.pendingInsert)) {
 	      insertedVnodeQueue.push.apply(insertedVnodeQueue, vnode.data.pendingInsert);
+	      vnode.data.pendingInsert = null;
 	    }
 	    vnode.elm = vnode.componentInstance.$el;
 	    if (isPatchable(vnode)) {

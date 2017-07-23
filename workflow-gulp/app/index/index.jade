@@ -1,0 +1,80 @@
+- var foo = "hello world"
+- var icons = ["icon-twitter",  "icon-github", 'icon-dribbble']
+
+include ../public/html/meta.jade
+    <!-- Magnific Popup -->
+    link(href="css/magnific-popup.css")
+    <!-- Owl Carousel  -->
+    link(href="css/owl.carousel.min.css")
+    link(rel="stylesheet", type="text/css",href="/rev/public/css/owl.theme.default.min.css")
+    <!-- Modernizr JS -->
+    link(rel="stylesheet", type="text/css", href="/rev/index/css/index.scss")
+    //- script(src="./js/modernizr-2.6.2.min.js")
+    title 中科升仪
+    <!-- Stellar Parallax -->
+body
+    //- nav navigation
+    div.loading(style="display: none")
+    div#page
+        nav.page__title(role='navigation')
+            div.page__title--warp
+                div.container
+                    div.row
+                        div.col-xs-12.test-right
+                            p.num Call: +01 123 456 7890
+                            ul.social
+                                each item, index in icons
+                                    li: a #{index}
+                                        i(class=item)
+            div.page__title--menu
+                div.container
+                    div.row
+                        div.col-xs-2
+                            div.logo
+                                a(href="index.html")朗恒安 ab
+                        div.col-xs-10.text-right.menu-1
+                            ul
+                                li.active: a(href="index.html") Home
+                                li: a(href='index') Home
+                                li.page__title--dropdown
+                                    a(href="#") Blog
+                                    ul.dropdown
+                                        li: a(href="#") 1
+                                        li: a(href="#") 2
+                                        li: a(href="#") 3
+                                        li: a(href="#") 4
+    //- 轮播图
+    header#carousel.carousel-cover(role='banner', style="background-image:url(images/img_bg_2.jpg?rev=@@hash)", data-stellar-background-ratio="0.5")
+        div.overly
+        div.container
+            div.row
+                div.col-md-8.col-md-offset-2.text-center
+                    div.display-t
+                        div.display-tc.animate-box(data-animate-effect="fadeIn")
+                            h1 Make it a lifestyle, not a duty
+                            h2 Free html5 templates Made by 
+                                a(href="#" target="_blank") freehtml5.co
+                            p
+                                a(class="btn btn-primary popup-vimeo") Watch Our Video
+
+    label first
+        input(type='checkbox',name="kl")
+    label second
+        input(type='checkbox',name="kl")
+    label three
+        input(type='checkbox',name="kl")
+    label fore
+        input(type='checkbox')
+
+
+
+
+    //- img(src="images/jjweizhan300.png")
+    //- div= foo
+    //- div #{foo}
+    //- if foo == 'hello world'
+        h1=foo
+    //- else 
+        h1=foo   
+script(src="../public/js/lib/jquery.stellar.min.js")
+script(src="/rev/index/js/index.js")
