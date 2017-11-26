@@ -1,4 +1,5 @@
 
+
 # 个人总结
 ###### 不敢说是博客，只是记录学习的进程吧，结一番吧哈也是为写博客做准备吧！
 
@@ -19,12 +20,22 @@
 >网络上找到，感觉特别适合自己吧，大体上是 现代化、工程化、性能优化、插件开发、主要框架使用
 >[职业发展路径](https://github.com/f2e-journey/f2e-journey/blob/master/career-planning.md)
 
+##计算机学习
+
+    算法数据结构
+        阅读《算法图解》
+        算法
+
+##js 学习
+
+最好是三次理论并且要实现
+
 1.  html、css和js较为扎实的基本功，尤其是js方面，能脱离jq/zepote干活，
     具有良好的面相对象的编程思想，能够书写较大规模的前端业务代码.
 
 2.  熟练使用sass、less、stylus等css预处理器
 
-3.  掌握至少一种前端模块化开发规范及其相关框架，比如AMD(require.js)或CMD(sea.js)
+3.  掌握至少一种前端模块化开发规范及其相关框架，比如AMD(require.js)或CMD(sea.js) Browserify
 
 4.  掌握一种MVC\MVVM框架，并有一个、两个项目实战项目
 
@@ -36,6 +47,11 @@
 
 8.  熟悉HTML5和css3，有H5网站开发的经验
 
+9.  react 学习
+
+10. RN学习
+
+
 
 *  移动端: 了解它与PC端的不同，比如不在移动端使用jq,开始使用zepto 
     了解touch事件。尝试写移动端的组件，无,如无限滚动、左右滑动插件，
@@ -46,9 +62,10 @@
     2. zpote 源码阅读，把不懂的地方搞明白(你不知道的javascript 系列)
     3. backone.js此框架是以类jq和underscore为基础的mvc的框架，在这之前可以看《基于MVC的javascript Web富应用开发》
     4. 其他可以是一些插件的源码，比如bootstrap 可以敲。轮播、分页、下拉框。其中有两个插件是必须说的，**表格插件**  **webtreeview控件**
+    5. CMD/AMD 模块化阅读 require.js, 了解common.js
 
-
-
+ * 构建工具
+    gulp  写一些插件   
 
 
 
