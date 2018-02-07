@@ -1,1 +1,0 @@
-{"version":3,"sources":["index/js/sum.js"],"names":["a","b"],"mappings":"oFAAe,SAACA,EAAGC,GAAJ,MAAUD,GAAIC","file":"sum.js","sourcesContent":["export default (a, b) => a + b;"]}

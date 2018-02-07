@@ -1,1 +1,0 @@
-function openWindow(o){var n=o+"index.html";console.log(n),window.location=n}
