@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="./js/index.js"></script>
+   
+</head>
+<body>
+    <canvas width="300" height="300" style="border: 1px solid red" id="tutorial">
+        current stock price: $3.15 +0.15
+    </canvas>
+    
+    <button onclick="draw()">开始</button>
+</body>
+</html>
+ <script>
+    
+    var canvas = document.getElementById('tutorial');
+    if (canvas.getContext){
+        /**
+         * 矩形
+         * fillReac(x,y,width,height) 绘制一个填充的矩形
+         * 
+         * @type {[type]}
+         */
+        var ctx = canvas.getContext('2d');
+
+        ctx.fillStyle = 'rgba(200,0,0)';
+        ctx.fillRect(10, 10, 55, 50);
+
+        ctx.fillStyle = 'rgba(0,0,200,0.5)';
+        ctx.fillRect(30,30,55,50);
+
+        /**
+         * 绘制一个矩形框
+         * strokeRect(x,y,width,height) 
+         */
+         ctx.strokeStyle="green";
+         ctx.strokeRect(10,10,100,100);
+
+         /**
+          * 清除矩形
+          * clearRect(x,y,width,height))
+          */
+         //ctx.clearRect(10, 10, 10, 10);
+
+         /**
+          * 画线
+          * beginPath()
+          * closePath() 闭合路径图形绘制命令又重新指向到上下文中。
+          * stroke() 通过线条来绘制图形轮廓
+          * fill() 通过填充乐静内容生成实心的图形
+          * 当你调用fill()函数时，所有没有闭合的形状都会自动闭合，所以你不需要调用closePath()函数。但是调用stroke()时不会自动闭合
+          */
+
+        ctx.beginPath();
+        ctx.moveTo(75,50);
+        ctx.lineTo(100,75);
+        ctx.lineTo(100,25);
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.arc(75,75,50,0, Math.PI*2, true);
+        ctx.moveTo(110,75);
+        ctx.arc(75,75,35,0, Math.PI, false);
+        ctx.moveTo(65,65);
+        ctx.arc(60,65,5,0, Math.PI*2, true);
+        ctx.moveTo(95,65);
+        ctx.arc(90,65,5,0,Math.PI*2,true);  // 右眼
+        ctx.stroke();
+
+        /**
+         * 三角形面
+         */
+        ctx.beginPath();
+        ctx.moveTo(125,125);
+        ctx.lineTo(105,125);
+        ctx.lineTo(125,105);
+        ctx.fill();
+
+        /**
+         * 三角形线
+         */
+        ctx.beginPath();
+        ctx.moveTo(200,200);
+        ctx.lineTo(250,250);
+        ctx.lineTo(195,250);
+        ctx.closePath();
+        ctx.stroke();
+    }
+        
+     
+ </script>

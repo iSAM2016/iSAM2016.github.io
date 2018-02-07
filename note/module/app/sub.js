@@ -1,8 +1,4 @@
 //我们这里使用CommonJS的风格
-export {
-    a
-}
-from './main.js';
 
 function generateText() {
     var element = document.createElement('h2');
@@ -11,5 +7,6 @@ function generateText() {
 }
 
 module.exports = {
-    generateText
+    generateText,
+    a: 123,
 };
