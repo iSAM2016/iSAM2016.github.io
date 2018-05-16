@@ -101,12 +101,23 @@
 2. [*方正的前端面试知识点汇总（一）](https://zhuanlan.zhihu.com/p/29012060?utm_source=wechat_session&utm_medium=social)
 
 ##### 性能优化
+
 1. [*[转载]JavaScript 的性能优化：加载和执行*](http://caibaojian.com/jsload.html)
+
 2. [*毫秒必争，前端网页性能最佳实践*](http://www.cnblogs.com/developersupport/p/3248695.html)
 
-#####http
-1. [*掌握 HTTP 缓存——从请求到响应过程的一切*](https://mp.weixin.qq.com/s?__biz=MjM5MTA1MjAxMQ==&mid=2651226616&idx=1&sn=c86d8390425501eac7a8e093d9c4edb8&chksm=bd49587c8a3ed16aa75f64b227c6a7335f4bb98f9ce04fa82756c0925f2a814048f359c6f172&mpshare=1&scene=23&srcid=0623Macwc6ph2grZza7Mv1fI#rd)
-2. [*http协议入门之缓存*](https://www.jianshu.com/p/6ffd3ae0e136)
+3. [JavaScript 启动性能瓶颈分析与解决方案](https://zhuanlan.zhihu.com/p/25221314)
+
+4. [如何评价页面的性能](http://taobaofed.org/blog/2015/11/09/web-performance/)
+
+5. [H5性能优化方案](http://ddtalk.github.io/blog/2015/09/07/dingding-first/)
+![](./static/img/youhua.jpg)
+
+6. 页面生成的过程
+
+
+##### http
+1. [我知道的HTTP请求](https://fed.renren.com/2018/02/03/http-request/?from=timeline)
 
 
 
