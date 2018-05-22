@@ -1,5 +1,6 @@
 # HTTP&fetch&跨域
 >[资料](https://segmentfault.com/a/1190000014134828)
+
 ## 目录
 *   [HTTP WEB 的基础](#basehttp)
 *   [HTTP报文](#HTTPword)
