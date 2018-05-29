@@ -2,7 +2,6 @@
 
 * [计算机基础知识](https://github.com/CyC2018/Interview-Notebook)
 
-### 面试点：
 #### HTML CSS
 > 见复习过程 第一步
 
