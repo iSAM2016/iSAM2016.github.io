@@ -396,6 +396,38 @@ web缓存的种类
 
 ***
 
+### 缓存的策略解释
+
+在阅读相关的文章的时候，我们看到缓存策略是个倒三角，对应的作用是不同的。从上到下可以概括为：
+
+* 缓存存储策略
+* 缓存过期策略
+* 缓存对比策略
+
+
+* 缓存存储策略
+
+这个策略的作用只有一个，用于决定 Http 响应内容是否可缓存到客户端
+
+对于 Cache-Control 头里的 Public、Private、no-cache、max-age 、no-store 他们都是用来指明响应内容是否可以被客户端存储的，其中前4个都会缓存文件数据（关于 no-cache 应理解为“不建议使用本地缓存”，其仍然会缓存数据到本地），后者 no-store 则不会在客户端缓存任何响应数据
+
+通过 Cache-Control：Public 设置我们可以将 Http 响应数据存储到本地，但此时并不意味着后续浏览器会直接从缓存中读取数据并使用，为啥？因为它无法确定本地缓存的数据是否可用（可能已经失效），还必须借助一套鉴别机制来确认才行， 这就是我们下面要讲到的“缓存过期策略”。
+
+* 缓存过期策略
+
+这个策略的作用也只有一个，那就是决定客户端是否可直接从本地缓存数据中加载数据并展示（否则就发请求到服务端获取）
+
+刚上面我们已经阐述了数据缓存到了本地后还需要经过判断才能使用，那么浏览器通过什么条件来判断呢？ 答案是：Expires，Expires 指名了缓存数据有效的绝对时间，告诉客户端到了这个时间点（比照客户端时间点）后本地缓存就作废了，在这个时间点内客户端可以认为缓存数据有效，可直接从缓存中加载展示。
+
+不过 Http 缓存头设计并没有想象的那么规矩，像上面提到的 Cache-Control（这个头是在Http1.1里加进来的）头里的 no-cache 和 max-age 就是特例，它们既包含缓存存储策略也包含缓存过期策略，以 max-age 为例，他实际上相当于：
+
+Cache-Control：public/private（这里不太确定具体哪个）
+Expires：当前客户端时间 + maxAge 。
+而 Cache-Control：no-cache 和 Cache-Control：max-age=0 （单位是秒）相当
+
+
+[cache 细节，缓存整体流程和细节](https://juejin.im/entry/58579599b123db00658292a0)
+
 #### 三次挥手四次握手
 
 [通俗大白话来理解TCP协议的三次握手和四次分手 #14](https://github.com/jawil/blog/issues/14)
@@ -570,3 +602,12 @@ CORS与JSONP相比，无疑更为先进、方便和可靠。
 ```
 修改document.domain的方法只适用于不同子域的框架间的交互。
 
+
+### 携带cookie 跨域
+
+* widthCredentials
+    * ajax 请求，ajax默认是不带cookie,所以有以下两种方案：
+        * 使用jsonp 格式发送
+        * ajax 请求中加上xhrFields:{widthCredentials: true},这样就可以携带cookie这样后台配置就出现了限制，需要配置Access-Control-Allow-Origin 的值为*；
+* 反向代理
+    *  利用nginx的反向代理来解决cookie 跨域问题，其实通过欺骗浏览器来实现的。通过nginx,我们可以将不同工程的cookie 放到nginx 域下，通过nginx 反向代理就可以获取到不同工程写入cookie,。    
