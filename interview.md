@@ -7,22 +7,22 @@
 
 
 #### HTML CSS
-> 见复习过程 第一步
+> 见复习过程第一步
 
 点击穿透事件就是如果点击一个浮层中的元素，然后浮层马上消失，原来福成遮住的元素也会触发click 事件，这与冒泡无关，没有父子关系间的元素也会发生这个现象。
 
 [](./img/static.InterviewMapMind.png)
 
-
-## 复习过程
 
-1. [HTML CSS] 阅读[前端开发面试题](https://juejin.im/entry/5781b8db0a2b58005765e628) HTML CSS 部分。
+## 复习过程
 
-2. [js基础知识] 阅读 [js基础知识](https://github.com/iSAM2016/iSAM2016.github.io/blob/master/content/jsbase.md) 
+1. [HTML CSS] 阅读[前端开发面试题](https://juejin.im/entry/5781b8db0a2b58005765e628) HTML CSS 部分。
+
+2. [js基础知识] 阅读 [js 基础知识](https://github.com/iSAM2016/iSAM2016.github.io/blob/master/content/jsbase.md) 
 
 3. [专题系列目录](https://github.com/mqyqingfeng/Blog)
 
-4. [js面试题目] 阅读[前端开发面试题](https://juejin.im/entry/5781b8db0a2b58005765e628) js 部分
+4. [js 面试题目] 阅读[前端开发面试题](https://juejin.im/entry/5781b8db0a2b58005765e628) js 部分
 
 * [前端面试题链接](https://github.com/qiu-deqing/FE-interview)
 * [面试题目](https://github.com/chenjinxinlove/javascriptInterview)
@@ -30,12 +30,12 @@
 
 
 
-## 专题补充
-> 补充了一些其他的面试题，暂时分为 js  css HTML 移动端
+## 专题补充
+> 补充了一些其他的面试题，暂时分为 js  css HTML 移动端
 
 ## js
 
-#####  模块化-AMD
+#####  模块化-AMD
 
 [JS模块加载器加载原理是怎么样的？](https://www.zhihu.com/question/21157540)
 
@@ -66,7 +66,7 @@
 
 #### HTTP
 
-* InterQues.md(协商缓存)(强缓存)
+* InterQues.md(协商缓存)(强缓存)
 [](https://blog.csdn.net/qmhball/article/details/7838989)
 
 
