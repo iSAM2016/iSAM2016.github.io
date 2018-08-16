@@ -10,6 +10,7 @@
 
  - /男/1993 
  - 本科
+ - 工业设计
  - 工作年限：2年
  - 技术博客：[简书](https://www.jianshu.com/u/90054b211055)  
  - Github: [iSAM2016](https://github.com/iSAM2016/iSAM2016.github.io)
@@ -20,7 +21,7 @@
 
 # 工作经历
 
-## 北京中科紫鑫有限责任公司 （ 2017年6月 ~  ）
+## 北京中科紫鑫有限责任公司 （ 2017年5月 ~ 2018年6月  ）
 
 职位： 前端负责人
 
@@ -38,13 +39,13 @@
 #### 项目描述：
 朗恒安网站是销售医疗的产品的网站，前台主要模块：1.用户的登录/注册模块 2. 购物车  3. 订单系统 4. 商品注册。整体的项目使用了gulp,Jquery.使用gulp组织项目，有开发流和打包流。运用gulp 插件实现特定的功能，比如 es6 转es5.、图片精灵、热加载，jade 解析、哈希值 等。同时也会使用技巧编写插件，完成数据对接和主流浏览器兼容性问题。 制定网站的界面框架，包括首页构图，及各页面间的关系。产生各栏目文件夹的结构图（一些公共文件夹如images、script、 style等需要固定存放，外链调用）。
 
-[地址](https://www.lunghealthbiotech.com/)
+[官网地址](https://www.lunghealthbiotech.com/)
 
 #### 公众号： 肺笛feidi
 
 公众号项目的开发基本是对官网的功能的实现，技术栈使用了 VUE 全家桶。解决移动端的兼容性和布局缩放问题，其中的难点是在微信支付对接，网页授权等其他的微信SDK.
 
-<img height=50 width=50 src="./static/img/1525875852.png">
+<img height=80 width=80 src="https://github.com/iSAM2016/iSAM2016.github.io/blob/master/static/img/1525875852.png">
 
 #### 官网后台管理
 
