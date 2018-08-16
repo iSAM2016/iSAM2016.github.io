@@ -18,11 +18,11 @@
 
 1. [HTML CSS] 阅读[前端开发面试题](https://juejin.im/entry/5781b8db0a2b58005765e628) HTML CSS 部分。
 
-2.  [js 基础知识](https://github.com/iSAM2016/iSAM2016.github.io/blob/master/content/jsbase.md) 
+2.  [js 基础知识](https://github.com/iSAM2016/iSAM2016.github.io/blob/master/content/js/jsbase.md) 
 
-    * 2.1  [js 面试题](https://github.com/iSAM2016/iSAM2016.github.io/blob/master/content/jsbaseques.md)
+    * 2.1  [js 面试题](https://github.com/iSAM2016/iSAM2016.github.io/blob/master/content/js/jsbaseques.md)
 
-    * 2.2 [promise](https://github.com/iSAM2016/iSAM2016.github.io/blob/master/content/promise.md)
+    * 2.2 [promise](https://github.com/iSAM2016/iSAM2016.github.io/blob/master/content/js/promise.md)
 
 3. [专题系列目录](https://github.com/mqyqingfeng/Blog)
 
