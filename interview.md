@@ -9,16 +9,15 @@
 #### HTML CSS
 > 见复习过程第一步
 
-点击穿透事件就是如果点击一个浮层中的元素，然后浮层马上消失，原来福成遮住的元素也会触发click 事件，这与冒泡无关，没有父子关系间的元素也会发生这个现象。
-
-[](./img/static.InterviewMapMind.png)
+![面试要点]](./img/static.InterviewMapMind.png)
 
 
 ## 复习过程
 
-1. [HTML CSS] 阅读[前端开发面试题](https://juejin.im/entry/5781b8db0a2b58005765e628) HTML CSS 部分。
+1. 阅读[前端开发面试题](https://juejin.im/entry/5781b8db0a2b58005765e628) HTML CSS 
+    >点击穿透事件就是如果点击一个浮层中的元素，然后浮层马上消失，原来福成遮住的元素也会触发click 事件，这与冒泡无关，没有父子关系间的元素也会发生这个现象。
 
-2.  [js 基础知识](https://github.com/iSAM2016/iSAM2016.github.io/blob/master/content/jsbase.md) 
+2. [js 基础知识](https://github.com/iSAM2016/iSAM2016.github.io/blob/master/content/jsbase.md) 
 
     * 2.1  [js 面试题](https://github.com/iSAM2016/iSAM2016.github.io/blob/master/content/jsbaseques.md)
 
