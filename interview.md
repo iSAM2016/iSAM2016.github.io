@@ -9,7 +9,7 @@
 #### HTML CSS
 > 见复习过程第一步
 
-![面试要点]](./img/static.InterviewMapMind.png)
+![面试要点](https://github.com/iSAM2016/iSAM2016.github.io/blob/master/img/InterviewMapMind.png)
 
 
 ## 复习过程
