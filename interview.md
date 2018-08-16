@@ -18,7 +18,7 @@
 
 1. [HTML CSS] 阅读[前端开发面试题](https://juejin.im/entry/5781b8db0a2b58005765e628) HTML CSS 部分。
 
-2. [js基础知识] 阅读 [js基础知识](https://github.com/iSAM2016/content/jsbase.md) 
+2. [js基础知识] 阅读 [js基础知识](https://github.com/iSAM2016/iSAM2016.github.io/blob/master/content/jsbase.md) 
 
 3. [专题系列目录](https://github.com/mqyqingfeng/Blog)
 
