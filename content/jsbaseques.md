@@ -1,4 +1,6 @@
 # js 基本题目
+>参考资料
+>[](https://github.com/forrany/Web-Project/blob/master/%E4%BA%8C%E3%80%81JavaScript%E6%8E%92%E5%9D%91%E6%8C%87%E5%8D%97(%E4%BA%8C).md)
 
 1. js 堆栈溢出
 [Javascript中递归造成的堆栈溢出及解决方案](http://www.zuojj.com/archives/1115.html)
@@ -251,3 +253,91 @@ async function test(){
 } 
 test();
 ```
+
+
+
+8. bind .call() 和 .apply() 的区别？
+
+[bind call](https://www.cnblogs.com/coco1s/p/4833199.html)
+
+
+
+9. 手写函数
+* promise
+* 数组去重
+* 快排序
+* 发布订阅模式
+* 事件注册
+* 拷贝
+* bind 实现
+* jsonp
+
+```
+if(window.XMLHttpRequest) {
+    xhr = new XMLHttpRequest();
+}else {
+    xhr = new ActiveXbject();
+}
+ xhr.open("GET", "data.txt", true)
+ xhr.send();
+ onreadystatechange
+ xhr.onreadystatechange = function() {
+     xhr.readyState === 4 {
+        xhr.state === 1 
+     }
+ }
+```
+```
+function deepcopy(obj) {
+    if(!obj || typeof obj !== 'object') {
+        throw Error('')
+    }
+    var target = Object.prototype.toString.call(obj) === '[Object object]' ? {} : [];
+     for( key in target) {
+         if(obj.hasOwnPropertype(key)) {
+             if( obj(key)) && Object.prototype.toString.call(obj) === '[Object object]') {
+                targetObj[keys] = deepClone(source[keys]);
+             }else {
+                target[key] = obj[key]
+             }
+         }
+     }
+     return targetobj
+}
+```
+
+10. 一个页面从输入URL到页面加载显示完成，这过程发生了什么
+
+1. DNS 解析
+2. TCP 链接
+3. 发送HTTP请求
+4. 服务器处理请求并返回HTTP报文
+5. 浏览器解析渲染页面
+6. 链接结束
+
+输入地址
+浏览器查找域名的 IP 地址 这一步包括 DNS 具体的查找过程，包括：浏览器缓存->系统缓存->路由器缓存...
+浏览器向 web 服务器发送一个 HTTP 请求
+服务器的永久重定向响应（从 http://example.com 到 http://www.example.com）
+浏览器跟踪重定向地址
+服务器处理请求
+服务器返回一个 HTTP 响应
+浏览器显示 HTML
+浏览器发送请求获取嵌入在 HTML 中的资源（如图片、音频、视频、CSS、JS等等）
+. 浏览器发送异步请求
+
+JSON.string JSON.parse 的实现
+
+
+#### 观察者模式和发布订阅区别
+
+ 1. 对于观察者模式的理解
+ 观察者模式： 一个对象（称为subject）维持一列依赖于它的对象（observer） 将有关状态的任何变动自动通知给他们观察者
+ 发布订阅： 基于一个主题/事件通道，希望接收通知的对象（subscriber）通过自定义事件订阅主题，被激活事件的对象（称为publisher）通过发布主题事件的范式被通知
+
+ 3. 两种模式之间的差异
+
+ * Observer模式要求观察者必须订阅内容改变的事件，定义一个一对多的依赖关系
+ * publish/subscribe 模式使用了一个主题/事件通道，这个通道结余订阅者和发布者之间
+ * 观察者可以是被迫执行的，而发布订阅可以自定义
+ * 观察者两个对象之间有很强的依赖关系， 发布订阅之间低耦合
