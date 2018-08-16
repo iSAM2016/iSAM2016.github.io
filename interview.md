@@ -18,7 +18,11 @@
 
 1. [HTML CSS] 阅读[前端开发面试题](https://juejin.im/entry/5781b8db0a2b58005765e628) HTML CSS 部分。
 
-2. [js基础知识] 阅读 [js 基础知识](https://github.com/iSAM2016/iSAM2016.github.io/blob/master/content/jsbase.md) 
+2.  [js 基础知识](https://github.com/iSAM2016/iSAM2016.github.io/blob/master/content/jsbase.md) 
+
+    * 2.1  [js 面试题](https://github.com/iSAM2016/iSAM2016.github.io/blob/master/content/jsbaseques.md)
+
+    * 2.2 [promise](https://github.com/iSAM2016/iSAM2016.github.io/blob/master/content/promise.md)
 
 3. [专题系列目录](https://github.com/mqyqingfeng/Blog)
 
@@ -43,17 +47,6 @@
 
 [浏览器解析](https://www.zhihu.com/question/20027966)
 
-
-
-#### 路由
-
-* 实现一个页面操作不会整页刷新的网站，并且能在浏览器前进、后退时正确响应。给出你的技术实现方案？
-    * history.pushState(state,title, url)
-
-* 对前端路由的理解？前后端路由的区别？
-    * [前端路由与后端路由](https://blog.csdn.net/gongzhuxiaoxin/article/details/52718298)
-    * onhashchange 事件
-    * historyAPI 
 
 ##### 移动端
 

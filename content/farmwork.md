@@ -25,3 +25,14 @@ React
 项目复杂的话用Redux、Mobx等全局状态管理管库
 用新的Context Api
 
+
+
+#### 路由
+
+* 实现一个页面操作不会整页刷新的网站，并且能在浏览器前进、后退时正确响应。给出你的技术实现方案？
+    * history.pushState(state,title, url)
+
+* 对前端路由的理解？前后端路由的区别？
+    * [前端路由与后端路由](https://blog.csdn.net/gongzhuxiaoxin/article/details/52718298)
+    * onhashchange 事件
+    * historyAPI 

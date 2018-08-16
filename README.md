@@ -59,20 +59,6 @@
 1. [实现一个属于我们自己的简易MVVM库](https://my.oschina.net/qiangdada/blog/906220)
 2. [如何监听一个数组的变化](https://juejin.im/entry/59361d22b123db00643536b1?utm_medium=hao.caibaojian.com&utm_source=hao.caibaojian.com)
 
-
-##### 源码
-1. [【requireJS源码学习01】了解整个requireJS的结构](http://www.cnblogs.com/yexiaochai/p/3632580.html)
-
-##### 面试
-1. [*中级前端工程师面试 我想问的几个问题](https://zhuanlan.zhihu.com/p/25701897?utm_source=wechat_session&utm_medium=social)
-2. [*方正的前端面试知识点汇总（一）](https://zhuanlan.zhihu.com/p/29012060?utm_source=wechat_session&utm_medium=social)
-3. [](https://github.com/forrany/Web-Project/blob/master/%E4%BA%8C%E3%80%81JavaScript%E6%8E%92%E5%9D%91%E6%8C%87%E5%8D%97(%E4%BA%8C).md)
-4. [前端资源系列（4）-前端学习资源分享&前端面试资源汇总](https://segmentfault.com/a/1190000007062464)
-
-
-##### http
-1. [我知道的HTTP请求](https://fed.renren.com/2018/02/03/http-request/?from=timeline)
-
 ##### jquery
 [前端JQuery系列](https://github.com/JsAaron/jQuery)
 
@@ -80,15 +66,9 @@
 
 [源码](http://bbs.miaov.com/forum.php?mod=viewthread&tid=7385)
 
-
-
 ##### 其他
 1. [*《美团旅行前端技术体系的思考与实践》知乎 live 文字稿](https://zhuanlan.zhihu.com/p/29373613?utm_source=wechat_session&utm_medium=social)
 2. [*一名合格的前端工程师的知识结构是怎样的？有插件推荐](https://www.zhihu.com/question/19588629/answer/152951340?utm_source=wechat_session&utm_medium=social)
 3. [*帮你打包前端之巅一整年好文！](https://zhuanlan.zhihu.com/p/27283922?utm_source=wechat_session&utm_medium=social)
 4. [*理解 javascript 观察者模式 (订阅者与发布者)*](https://juejin.im/entry/580b5553570c350068e6c2d6)
 5. [*一张图彻底掌握 scrollTop, offsetTop, scrollLeft, offsetLeft......*](https://juejin.im/entry/57cba52079bc440063ff0ae9/)
-
-
-
-

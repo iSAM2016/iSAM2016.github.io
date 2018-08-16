@@ -106,7 +106,7 @@ function isEven(n) {
      * @return {Boolean}     [description]
      */
     function isEvenInner (n) {
-        if (n === 0) {
+        if (n === 0) {   
             return true;
         }
 
