@@ -36,3 +36,19 @@ React
     * [前端路由与后端路由](https://blog.csdn.net/gongzhuxiaoxin/article/details/52718298)
     * onhashchange 事件
     * historyAPI 
+
+
+Vue双向数据绑定：xs
+我所理解的双向数据绑定无非就是在单向数据绑定的基础上给可输入元素，比如input和textarea添加监听事件来动态修改model和view，其最核心的方法就是通过Object.defineProperty()来实现对对属性的劫持，达到监听数据变化的目的。
+要实现mvvm双向数据版绑定， 我觉得需要实现以下几点：
+1.实现一个数据监听器Observer,能够对数据对象的所有属性进行监听，如有变动可以拿到最新值并通知订阅者。
+2.实现一个指令解析器Compiler，对每个元素节点的指令扫描并解析，根据指令模板替换数据，并且绑定相应的更新函数。
+3.实现一个watcher，其作为连接Observer和Compiler的桥梁，能够订阅并收到每个属性变动的通知，执行指令绑定的回调函数从而更新视图
+4.MVVM作为入口函数，整个以上三者
+
+
+
+### 文章
+[不好意思！耽误你的十分钟，让MVVM原理还给你](https://juejin.im/post/5abdd6f6f265da23793c4458?utm_source=gold_browser_extension)
+[【大型干货】手拉手带你过一遍vue部分源码](https://juejin.im/post/5adff30f518825672d33d596?utm_source=gold_browser_extension)
+[实现双向绑定Proxy比defineproperty优劣如何?](https://juejin.im/post/5acd0c8a6fb9a028da7cdfaf)

@@ -341,3 +341,17 @@ JSON.string JSON.parse 的实现
  * publish/subscribe 模式使用了一个主题/事件通道，这个通道结余订阅者和发布者之间
  * 观察者可以是被迫执行的，而发布订阅可以自定义
  * 观察者两个对象之间有很强的依赖关系， 发布订阅之间低耦合
+
+
+
+
+#### 基本的算法
+
+排序
+
+function(arr){
+    if(arr.leg)
+    
+    var middleItem = arr[Math.floor(arr.length)/2]  
+
+}

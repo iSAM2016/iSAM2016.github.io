@@ -28,15 +28,15 @@
 5. [框架](https://github.com/iSAM2016/iSAM2016.github.io/blob/master/content/farmwork.md)
 
 6. http
-    * [http](https://github.com/iSAM2016/iSAM2016.github.io/blob/master/content/http/httpques.md)
+    * [http基础](https://github.com/iSAM2016/iSAM2016.github.io/blob/master/content/http/cacheHttp.md)
+
+    * [http题目](https://github.com/iSAM2016/iSAM2016.github.io/blob/master/content/http/httpques.md)
 
 7. [专题系列目录](https://github.com/mqyqingfeng/Blog)
 
-8. [js 面试题目] 阅读[前端开发面试题](https://juejin.im/entry/5781b8db0a2b58005765e628) js 部分
 
 * [前端面试题链接](https://github.com/qiu-deqing/FE-interview)
 * [面试题目](https://github.com/chenjinxinlove/javascriptInterview)
-* [牛客网](https://zhuanlan.zhihu.com/p/28911400?utm_source=wechat_session&utm_medium=social)
 
 
 ## js
