@@ -48,3 +48,6 @@ new Promise((res,rej)=>{
 
 ```
 https://juejin.im/post/5afe6d3bf265da0b9e654c4b?utm_source=gold_browser_extension
+
+
+## 记忆点
