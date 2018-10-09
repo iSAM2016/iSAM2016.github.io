@@ -342,5 +342,3 @@ node 是单线程，可以利用事件环处理. 当然也存在多线程，比�
 ### 微任务 宏任务
 
 ### mysql 的缺点、 mongoos 的 缺钱
-
-brew 安装 mysql[https://www.jianshu.com/p/7dce881eaa62]

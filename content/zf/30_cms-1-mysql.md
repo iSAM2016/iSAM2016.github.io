@@ -1,28 +1,100 @@
-# 数据库
+_和 mongdb 比较 有啥优缺点_
 
-### 2.5 SQL 规范
+# 1. 数据库能够做什么
+
+存储大量数据，方便检索和访问
+保持数据信息的一致、完整
+共享和安全
+通过组合分析，产生新的有用信息
+
+# 2. 数据库的基本概念
+
+## 2.1 实体
+
+只要是在客观世界存在的、可以被描述出来的都是实体
+
+## 2.2 数据库(DB)
+
+数据库就是数据的仓库，可以存放结构化的数据
+
+## 2.3 数据库管理系统(DBMS)
+
+是一种系统软件，提供操作数据库的环境，可以通过数据库管理系统对数据进行插入、修改、删除和查询等操作。
+
+## 2.4 SQL
+
+结构化查询语言 专门用来和数据库进行交流的语言,几乎所有的 DBMS 都支持 SQL
+
+## InnoDB 和 MyISAM
+
+> 我们基本不会使用约束
+> MySQL 有两种常用的引擎类型：MyISAM 和 InnoDB。目前只有 InnoDB 引擎类型支持外键约束和事务。InnoDB 中外键约束定义的语法如下
+
+CASCADE
+在父表上 update/delete 记录时，同步 update/delete 掉子表的匹配记录
+
+SET NULL
+在父表上 update/delete 记录时，将子表上匹配记录的列设为 null (要注意子表的外键列不能为 not null)
+
+NO ACTION
+如果子表中有匹配的记录,则不允许对父表对应候选键进行 update/delete 操作
+
+RESTRICT
+同 no action, 都是立即检查外键约束
+
+SET NULL
+父表有变更时,子表将外键列设置成一个默认的值 但 Innodb 不能识别
+
+## 安装
+
+![brew 安装 mysql](https://www.jianshu.com/p/7dce881eaa62)
+
+## 2.5 SQL 规范
 
 - SQL 语句不区分大小写，建议 SQL 关键字大写，表名和列表小写
 - 命令用分号结尾
 - 命令可以缩进和换行，一种类型的关键字放在一行
 - 可以写单行和多行注释 , #和--是单行注释，/\*/多行注释
 
-### 4.1 MYSQL 特点
+# 4.MYSQL 简介
+
+## 4.1 MYSQL 特点
 
 - 开源免费
 - 性能高
 - 安装使用都简单
 
-_和 mongdb 比较 有啥优缺点_
+## 4.2 MYSQL 安装
 
-### 4.4 MYSQL 启动和停止
+mysql 下载
+安装 MYSQL
+
+## 4.3 MYSQL 配置
+
+`mysql.server start`
+
+```
+C:\Program Files\MySQL\MySQL Server 5.5\my.ini
+
+port 端口号
+basedir 安装目录
+datadir 数据存放访目录
+charcter-set-server 字符集
+default-storage-engine 存储引擎
+sql-mode 语法模式
+max-connections 最大连接数
+```
+
+## 4.4 MYSQL 启动和停止
 
 ```
 net start MySQL
 net stop MySQL
 ```
 
-### 4.5 通过命令行连接 MYSQL
+## 4.5 通过命令行连接 MYSQL
+
+> mysql -h 127.0.0.1 -u root -p lhaGH168%
 
 ```
 mysql -h 127.0.0.1 -P 3306 -uroot -p123456
@@ -80,6 +152,8 @@ exit
 #### 7.1.2 外键
 
 成绩表中的学生 ID 应该在学生表中是存在的 我们应该让成绩表中的 ID 只能引用学生表中的 ID，它们的值应该是一一对应的，也就是说成绩表中的 ID 是成绩表中的外键，对应学生表的主键 ，这样就可以保证数据的引用完整性
+
+命名的时候可以 `fk_表名_字段名` eg: `fk_score_student_id`
 
 #### 7.1.3 唯一约束
 
@@ -191,6 +265,48 @@ CREATE TABLE `score` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 ```
 
+#### 8.4.1 列类型讲解
+
+列类型:
+
+整型:
+
+- tinyint (0~255/-128~127)
+- smallint (0~65535/-32768~32767)
+- mediumint
+- int
+- bigint (参考手册 11.2)
+
+参数解释:
+
+unsigned 无符号(不能为负) zerofill 0 填充 M 填充后的宽度
+举例:tinyint unsigned;
+
+tinyint(6) zerofill;
+数值型
+
+浮点型:float double
+
+格式:float(M,D) unsigned\zerofill;
+
+字符型
+char(m) 定长
+varchar(m)变长
+text
+
+列 实存字符 i 实占空间 利用率
+
+char(M) 0<=i<=M M i/m<=100%
+
+varchar(M) 0<=i<=M i+1,2 i/i+1/2<100%
+
+           year       YYYY  范围:1901~2155. 可输入值2位和4位(如98,2012)
+
+日期时间类型 date YYYY-MM-DD 如:2010-03-14
+time HH:MM:SS 如:19:26:32
+datetime YYYY-MM-DD HH:MM:SS 如:2010-03-14 19:26:32
+timestamp YYYY-MM-DD HH:MM:SS 特性:不用赋值,该列会为自己赋当前的具体时间
+
 #### 8.5 常规操作
 
 - 删除列
@@ -288,35 +404,6 @@ alter table tbName add primary key(主键所在列名);
 #### 2.8 清空表的数据
 
 `truncate tableName;`
-
-4:列类型讲解
-列类型:
-整型:tinyint (0~255/-128~127) smallint (0~65535/-32768~32767) mediumint int bigint (参考手册 11.2)
-参数解释:
-unsigned 无符号(不能为负) zerofill 0 填充 M 填充后的宽度
-举例:tinyint unsigned;
-tinyint(6) zerofill;
-数值型
-浮点型:float double
-格式:float(M,D) unsigned\zerofill;
-
-字符型
-char(m) 定长
-varchar(m)变长
-text
-
-列 实存字符 i 实占空间 利用率
-
-char(M) 0<=i<=M M i/m<=100%
-
-varchar(M) 0<=i<=M i+1,2 i/i+1/2<100%
-
-           year       YYYY  范围:1901~2155. 可输入值2位和4位(如98,2012)
-
-日期时间类型 date YYYY-MM-DD 如:2010-03-14
-time HH:MM:SS 如:19:26:32
-datetime YYYY-MM-DD HH:MM:SS 如:2010-03-14 19:26:32
-timestamp YYYY-MM-DD HH:MM:SS 特性:不用赋值,该列会为自己赋当前的具体时间
 
 #### 3 增删改查基本操作
 
