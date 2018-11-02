@@ -94,7 +94,7 @@ net stop MySQL
 
 ## 4.5 通过命令行连接 MYSQL
 
-> mysql -h 127.0.0.1 -u root -p lhaGH168%
+> mysql -h 127.0.0.1 -P 3306 -u root -p
 
 ```
 mysql -h 127.0.0.1 -P 3306 -uroot -p123456
