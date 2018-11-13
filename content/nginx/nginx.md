@@ -10,6 +10,16 @@
 
 - IO 多路复用： 多个描述符的 IO 操作
 
+## 常用命令
+
+添加配置一般在
+
+`/usr/local/etc/nginx/servers/`
+
+`- sudo brew services start nginx`
+
+`- nginx -s reload 重新加载 nginx`
+
 ## 创建 centos 系统环境
 
 1. 环境

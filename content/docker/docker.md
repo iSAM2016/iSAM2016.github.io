@@ -1,3 +1,16 @@
+# 容器化
+
+- 环境复杂
+- 解决开发和运维之间的关系
+
+* 对软件和其依赖的标准化打包
+* 应用之间相互隔离
+
+#docker
+
+Docker 一直是以客户端和服务器的模式运行的.可以远程连接。以阿里云为例
+[腾讯云](https://cloud.tencent.com/developer/article/1030184)
+
 # 镜像
 
 > 国内镜像地址 https://www.daocloud.io/mirror#accelerator-doc
@@ -201,6 +214,70 @@ docker network inspect NAME`
 * 删除数据卷
   - `docker valume rm NAME`
 
+# docekrfile
+
+### RUN
+
+执行命令并创建新的 IMage layer
+
+### CMD
+
+- 设置容器启动后默认执行的命令
+
+* 如果 docker run 指定了其他的命令，CMD 将被忽略
+* 如果定义了多个 CMD ，只有最后一个会执行
+
+```
+FROM centos
+ENV name Docker
+CMD echo "hello $name"
+```
+
+```
+docker run [image] 输出 ？
+# hello Docker
+```
+
+```
+docker run  -t [image] /bin/bash ？
+# 不在输出
+```
+
+### ENTRYPOINT
+
+- 让容器以应用程序或者服务的形式运行
+
+* 不会被或略
+* 最佳实践： 写一个 shell 脚本为 entrypoint
+
+```
+COPY docker-entrypoint.sh /usr/local/bin/
+ENTRYPOINT ["docker-entrypoint.sh"]
+
+EXPOSE 27017
+CMD ["mongod"]
+```
+
+## 书写的格式
+
+为两种，
+
+- shell
+
+```
+FROM centos
+ENV name Docker
+CMD echo "hello $name"
+```
+
+- exec
+
+```
+FROM centos
+ENV name Docker
+ENTRYPOINT ["/bin/bash","-c","echo hello $name"]
+```
+
 # 容器互联
 
 [项目地址]（前端地址）
@@ -256,6 +333,10 @@ docker 会将源容器的 host 更新到目标容器的/etc/hosts 中
 ```
 cat /etc/hosts
 ```
+
+# 发布流程
+
+![](./img/QQ20181103-155836@2x.png)
 
 ### Docker Compose
 

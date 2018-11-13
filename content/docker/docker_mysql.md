@@ -199,3 +199,9 @@ $ innobackupex --user=root --password=abc123456 /data/backup/full   执行备份
 ```
 
 ```
+## 客户端连接
+
+# use mysql \
+# update user set password_expired = "Y" where user="root" \
+# ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY '123qweasd'
+

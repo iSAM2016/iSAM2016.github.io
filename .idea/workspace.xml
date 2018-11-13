@@ -2,11 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e8684bb8-ecb7-4765-a28d-9a956fbc5536" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/docker/demo.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/docker/docker.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/docker/docker.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/docker/docker_mysql.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/docker/docker_mysql.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/content/http/network.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/http/network.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/zf/30_cms-1-mysql.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/zf/30_cms-1-mysql.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/zf/31_cms-2mysql.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/nginx/nginx.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/nginx/nginx.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/shell/hello.sh" beforeDir="false" afterPath="$PROJECT_DIR$/content/shell/hello.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/shell/shell.md" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -18,48 +20,52 @@
     <session id="627892728">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="4" />
+          <entry key="project.closed" value="9" />
+          <entry key="project.open.time.1" value="2" />
           <entry key="project.open.time.10" value="1" />
+          <entry key="project.open.time.11" value="1" />
+          <entry key="project.open.time.12" value="1" />
           <entry key="project.open.time.2" value="1" />
+          <entry key="project.open.time.3" value="1" />
           <entry key="project.open.time.5" value="1" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="4" />
+          <entry key="project.opened" value="9" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="conf" value="1" />
-          <entry key="md" value="5" />
+          <entry key="md" value="6" />
           <entry key="png" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Image" value="2" />
-          <entry key="Markdown" value="5" />
+          <entry key="Markdown" value="6" />
           <entry key="PLAIN_TEXT" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="md" value="1697" />
+          <entry key="md" value="1742" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Markdown" value="1697" />
+          <entry key="Markdown" value="1742" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/content/nginx/nginx.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="615">
-                <caret line="41" column="3" selection-start-line="41" selection-start-column="3" selection-end-line="41" selection-end-column="3" />
+              <first_editor relative-caret-position="198">
+                <caret line="18" column="33" selection-start-line="18" selection-start-column="3" selection-end-line="18" selection-end-column="33" />
               </first_editor>
               <second_editor />
             </state>
@@ -67,23 +73,11 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/content/docker/docker_java.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="1260">
-                <caret line="84" column="14" selection-start-line="84" selection-start-column="14" selection-end-line="84" selection-end-column="14" />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/content/docker/demo.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="510">
-                <caret line="34" column="19" selection-start-line="34" selection-start-column="19" selection-end-line="34" selection-end-column="19" />
+              <first_editor relative-caret-position="315">
+                <caret line="21" column="4" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="4" />
                 <folding>
                   <element signature="e#1954#1964#0" />
                 </folding>
@@ -97,8 +91,8 @@
         <entry file="file://$PROJECT_DIR$/content/docker/docker_mysql.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="1515">
-                <caret line="101" column="38" selection-start-line="101" selection-start-column="38" selection-end-line="101" selection-end-column="38" />
+              <first_editor relative-caret-position="2985">
+                <caret line="199" selection-start-line="199" selection-end-line="199" />
               </first_editor>
               <second_editor />
             </state>
@@ -120,11 +114,24 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/content/learn/30_cms-1-mysql.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="915">
+                <caret line="61" lean-forward="true" selection-start-line="61" selection-end-line="61" />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
     </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
       <find>-p</find>
+      <find>net</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -133,8 +140,9 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/content/nginx/nginx.md" />
         <option value="$PROJECT_DIR$/content/docker/demo.md" />
+        <option value="$PROJECT_DIR$/content/docker/docker_mysql.md" />
+        <option value="$PROJECT_DIR$/content/nginx/nginx.md" />
       </list>
     </option>
   </component>
@@ -145,9 +153,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="x" value="1440" />
-    <option name="width" value="1920" />
-    <option name="height" value="1080" />
+    <option name="width" value="1440" />
+    <option name="height" value="900" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -172,12 +179,30 @@
               <item name="content" type="462c0819:PsiDirectoryNode" />
               <item name="docker" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="iSAM2016.github.io" type="b2602c69:ProjectViewProjectNode" />
+              <item name="iSAM2016.github.io" type="462c0819:PsiDirectoryNode" />
+              <item name="content" type="462c0819:PsiDirectoryNode" />
+              <item name="learn" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="iSAM2016.github.io" type="b2602c69:ProjectViewProjectNode" />
+              <item name="iSAM2016.github.io" type="462c0819:PsiDirectoryNode" />
+              <item name="content" type="462c0819:PsiDirectoryNode" />
+              <item name="nginx" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="iSAM2016.github.io" type="b2602c69:ProjectViewProjectNode" />
+              <item name="iSAM2016.github.io" type="462c0819:PsiDirectoryNode" />
+              <item name="content" type="462c0819:PsiDirectoryNode" />
+              <item name="shell" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -214,16 +239,22 @@
       <workItem from="1540538764472" duration="29000" />
       <workItem from="1540781425583" duration="6965000" />
       <workItem from="1540879253029" duration="40000" />
+      <workItem from="1541253982001" duration="201000" />
+      <workItem from="1541402044139" duration="2444000" />
+      <workItem from="1541414596989" duration="898000" />
+      <workItem from="1541471885312" duration="63000" />
+      <workItem from="1541642851980" duration="466000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8137000" />
+    <option name="totallyTimeSpent" value="12209000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1440" y="0" width="1920" height="1080" extended-state="0" />
+    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16187434" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17167382" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -241,6 +272,7 @@
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="10" />
+      <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -265,21 +297,24 @@
     <entry file="file://$PROJECT_DIR$/content/docker/img/1.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/content/nginx/nginx.md">
+    <entry file="file://$PROJECT_DIR$/content/docker/docker_java.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="615">
-            <caret line="41" column="3" selection-start-line="41" selection-start-column="3" selection-end-line="41" selection-end-column="3" />
+          <first_editor relative-caret-position="413">
+            <caret line="56" column="3" lean-forward="true" selection-start-line="56" selection-start-column="3" selection-end-line="56" selection-end-column="3" />
           </first_editor>
           <second_editor />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/content/docker/docker_java.md">
+    <entry file="file://$PROJECT_DIR$/content/docker/demo.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="1260">
-            <caret line="84" column="14" selection-start-line="84" selection-start-column="14" selection-end-line="84" selection-end-column="14" />
+          <first_editor relative-caret-position="315">
+            <caret line="21" column="4" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="4" />
+            <folding>
+              <element signature="e#1954#1964#0" />
+            </folding>
           </first_editor>
           <second_editor />
         </state>
@@ -288,8 +323,8 @@
     <entry file="file://$PROJECT_DIR$/content/docker/docker_mysql.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="1515">
-            <caret line="101" column="38" selection-start-line="101" selection-start-column="38" selection-end-line="101" selection-end-column="38" />
+          <first_editor relative-caret-position="2985">
+            <caret line="199" selection-start-line="199" selection-end-line="199" />
           </first_editor>
           <second_editor />
         </state>
@@ -306,14 +341,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/content/docker/demo.md">
+    <entry file="file://$PROJECT_DIR$/content/learn/30_cms-1-mysql.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="510">
-            <caret line="34" column="19" selection-start-line="34" selection-start-column="19" selection-end-line="34" selection-end-column="19" />
-            <folding>
-              <element signature="e#1954#1964#0" />
-            </folding>
+          <first_editor relative-caret-position="915">
+            <caret line="61" lean-forward="true" selection-start-line="61" selection-end-line="61" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/content/nginx/nginx.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="198">
+            <caret line="18" column="33" selection-start-line="18" selection-start-column="3" selection-end-line="18" selection-end-column="33" />
           </first_editor>
           <second_editor />
         </state>
