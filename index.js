@@ -1,5 +1,9 @@
 let fs = require("fs");
-
+// console.log(this);
+// console.log(global);
+console.log(process.pid);
+console.log(process.cwd());
+// console.log(window);
 // let EventEmitter = require("events");
 // let eve = new EventEmitter();
 // let html = {};
@@ -20,25 +24,25 @@ let fs = require("fs");
 // render();
 
 // 哨兵模式
-let after = function(times, callback) {
-  let result = {};
-  return function(key, value) {
-    result[key] = value;
+// let after = function(times, callback) {
+//   let result = {};
+//   return function(key, value) {
+//     result[key] = value;
 
-    if (Object.keys(result).length == times) {
-      callback(result);
-    }
-  };
-};
+//     if (Object.keys(result).length == times) {
+//       callback(result);
+//     }
+//   };
+// };
 
-let done = after(1, function(result) {
-  console.log(result);
-});
+// let done = after(1, function(result) {
+//   console.log(result);
+// });
 
-function render() {
-  fs.readFile("info.md", "utf8", function(err, template) {
-    done("ready", template);
-  });
-}
+// function render() {
+//   fs.readFile("info.md", "utf8", function(err, template) {
+//     done("ready", template);
+//   });
+// }
 
-render();
+// render();

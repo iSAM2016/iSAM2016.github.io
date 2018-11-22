@@ -19,9 +19,17 @@ console.log(2);
 Promise.resolve().then(()=>{
     console.log('1')
 })
- then 是微任务
- setTimeout 是宏任务
+
 ```
+
+- 是微任务
+  - then
+  * prcess.next
+  * MutationObserve 微任务
+
+* 是宏任务
+  - setTimeout
+  * setImmediate MessageChannel
 
 默认先调用主栈，主栈调用完后 清空微任务 在取出宏任务队列中的第一个执行，并且执行完之后在清空微任务，在取第二个环
 
@@ -79,9 +87,21 @@ Promise.resolve().then(()=>{
 console.log(2)
 ```
 
+- MessageChannel
+
 ### node
 
 node 是单线程，可以利用事件环处理. 当然也存在多线程，比如开启一个 setTimeout. 但是不适合 cpu 密集操作，大量计算。node 适合异步 io 操作。
+
+1. 在浏览器中默认 this 指向 window
+2. 在浏览器中 window 代理了 global
+3. 在文件中默认这个 this 不是 global,在 node 环境中 this 是 global
+4.  在文件中 this 指向是被更改的指向 module.exports
+
+- process
+  process.cwd();// 进程当前工作的目录。
+
+## webworker 工作线程
 
 ### 中间层
 
