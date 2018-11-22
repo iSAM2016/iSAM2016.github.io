@@ -4,6 +4,7 @@ node_modules/*
 npm-debug.log
 rev
 rev/
+.idea/
 
 note/module/node_modules/
 note/module/node_modules/*

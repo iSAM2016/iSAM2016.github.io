@@ -85,6 +85,22 @@ Promise.resolve().then(()=>{
     },0)
 })
 console.log(2)
+<<<<<<< HEAD
+
+```
+
+宏任务
+
+```
+setImmediate / setTimeout /  messageChannel
+```
+
+微任务
+
+```
+promise.then / mutationObserver
+=======
+>>>>>>> e4e5c2ab907d5ed316021c83cde7493e92c4c1c3
 ```
 
 - MessageChannel
