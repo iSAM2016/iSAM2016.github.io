@@ -41,7 +41,7 @@ Promise.resolve().then(()=>{
 })
 ```
 
-![](../../img/QQ20181108-160631@2x.png)
+![](../../img/WX20181127-153401@2x.png)
 
 ```
 console.log(1)
@@ -77,7 +77,6 @@ Promise.resolve().then(()=>{
     },0)
 })
 console.log(2)
-<<<<<<< HEAD
 
 ```
 
@@ -91,13 +90,22 @@ setImmediate / setTimeout /  messageChannel
 
 ```
 promise.then / mutationObserver
-=======
->>>>>>> e4e5c2ab907d5ed316021c83cde7493e92c4c1c3
 ```
 
 ### node
 
+### node 有自己的事件环
+
 node 是单线程，可以利用事件环处理. 当然也存在多线程，比如开启一个 setTimeout. 但是不适合 cpu 密集操作，大量计算。node 适合异步 io 操作。
+
+### 模块
+
+- 方便维护，仿版管理 代理统一
+- cmd seajs amd requiresjs umd
+- 自己实现模块化 let obj= {}单例
+- 闭包 let fn= (function(){return {}})
+- esModule es6 的模块化
+- commonjs 规范 node (原理闭包的形式)
 
 ### 中间层
 
