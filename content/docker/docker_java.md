@@ -97,3 +97,6 @@ server {
 ```
 docker run -it -d --name n1 -v /home/n1/nginx.conf:/ect/nginx/nginx.conf --net=host --privileged nginx
 ```
+
+/usr/lib/jvm/java-8-openjdk-amd64
+/var/jenkins_home/maven

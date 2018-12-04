@@ -19,8 +19,15 @@
   - [Jenkins 自动构建教程二 ---私有 Git 仓库帐号配置](https://www.jianshu.com/p/22cc65462e8b)
 
 * 版本回滚
+
   - [使用 jenkins 进行项目的自动构建部署](https://www.jianshu.com/p/dceaa1c7bb49)
   - [Jenkins 版本回滚](https://www.longs.cc/743.html)
+
+* 节点控制
+  - [Jenkins 的分布式构建及部署——节点](https://my.oschina.net/lienson/blog/1548903)
+  - [Jenkins 节点配置](https://blog.csdn.net/ouyanggengcheng/article/details/76093861)
+  - [Jenkins 创建 slave 节点----Linux 平台](https://blog.csdn.net/jiang1986829/article/details/51141731)
+  - []()
 
 脚本备份
 
@@ -49,9 +56,5 @@ esac
 ```
 
 ```
-cd /home/wwwroot/test.isam2016.top
-tar -zxvf dist.tar.gz
-rm -rf dist.tar.gz
-```
-
 java -jar agent.jar -jnlpUrl http://build.ibs-bj.com.cn/computer/isam2016_server_node/slave-agent.jnlp -secret bcb046e5efe8b237d53619dc4d0b5817a0eac29ab009955b13af2a68149c3828 -workDir "/home/wwwroot/test.isam2016.top"
+```

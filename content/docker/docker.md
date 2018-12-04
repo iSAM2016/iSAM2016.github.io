@@ -23,10 +23,10 @@ Docker 一直是以客户端和服务器的模式运行的.可以远程连接。
 
 > 为了解决 docker 命令 sudo 授权问题可以把 docker 赋予权限添加到用户组
 
-- 启动镜像 `server docker start`
-- 停止镜像 `server docker stop`
+- 启动镜像 `service docker start`
+- 停止镜像 `service docker stop`
 
-* 重启镜像 `server docker restart`
+* 重启镜像 `service docker restart`
 
 - 获取镜像 `git pull NAME[:tag]`
 

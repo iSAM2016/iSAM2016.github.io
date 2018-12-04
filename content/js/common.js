@@ -16,10 +16,12 @@
  */
 
 
- ES6 class 继承与原生js 继承区别
+//  ES6 class 继承与原生js 继承区别
   
- 在es5 中，继承实质上子类先创建属于自己的this, 然后在将父类的方法添加到this，（也就是使用Parent.apply(this)的方法）或者this.__proto__
- 而在ES6 中，则是先创建父类的实例对象this,然后在用子类的构造函数修改this
+//  在es5 中，继承实质上子类先创建属于自己的this, 然后在将父类的方法添加到this，（也就是使用Parent.apply(this)的方法）或者this.__proto__
+//  而在ES6 中，则是先创建父类的实例对象this,然后在用子类的构造函数修改this
+
+console.log(90)
 
 function PubSub() {
     this.handles = {};
