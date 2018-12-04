@@ -27,7 +27,9 @@ Promise.resolve().then(()=>{
   * prcess.next
   * MutationObserve 微任务
 
-* 是宏任务
+nextTick(优先级) > then
+
+- 是宏任务
   - setTimeout
   * setImmediate MessageChannel
 
@@ -85,25 +87,27 @@ Promise.resolve().then(()=>{
     },0)
 })
 console.log(2)
-<<<<<<< HEAD
 
 ```
 
-宏任务
-
 ```
-setImmediate / setTimeout /  messageChannel
+setTimeout(function(){
+    console.log('setTimeout1')
+    Promise.resolve().then(()=>{
+        console.log('then1')
+    })
+},0)
+Promise.resolve().then(()=>{
+    console.log('then2')
+    Promise.resolve().then(()=>{
+        console.log('then3')
+    })
+    setTimeout(function(){
+        console.log("setTImeout2")
+    },0)
+})
+then2
 ```
-
-微任务
-
-```
-promise.then / mutationObserver
-=======
->>>>>>> e4e5c2ab907d5ed316021c83cde7493e92c4c1c3
-```
-
-- MessageChannel
 
 ### node
 
@@ -137,6 +141,16 @@ node 是单线程，可以利用事件环处理. 当然也存在多线程，比�
 - NodeJS 提供了一个 Buffer 对象来提供对二进制数据的操作
 - 是一个表示固定内存分配的全局对象，也就是说要放到缓存区中的字节数需要提前确定
 - Buffer 好比由一个 8 位字节元素组成的数组，可以有效的在 JavasScript 中表示二进制数据
+
+global 是全局，可以赋值拿到东西
+
+process.stdout.wirte('hellow')
+
+process.argv; 运行的参数
+eg: webpack --port 3000
+process.env; 环境变量
+porcess.cwd(); 获取当前目录
+process.exit() 退出
 
 ### 定义 buffer 的三种方式
 
