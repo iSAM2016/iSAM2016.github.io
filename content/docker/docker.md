@@ -212,7 +212,7 @@ docker network inspect NAME`
   - docker volume ls
 
 * 删除数据卷
-  - `docker valume rm NAME`
+  - `docker valume rm NAME`ss
 
 # docekrfile
 

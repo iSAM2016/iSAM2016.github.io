@@ -27,6 +27,15 @@ process.stdout.wirte("hellow");
 
 // render();
 
+let a = 1;
+let b = 3;
+function sum(a, b) {
+  return function() {
+    return a + b;
+  };
+}
+let total = sum(a, b);
+let c = total(0);
 // 哨兵模式
 // let after = function(times, callback) {
 //   let result = {};
