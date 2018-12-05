@@ -143,10 +143,10 @@ function teacherIn(thing){
     console.log(`老师带${thing}进教室`);
 }
 function studentIn(thing){
-console.log(`学生带${thing}进教室`);
+    console.log(`学生带${thing}进教室`);
 }
 function masterIn(thing){
-console.log(`校长带${thing}进教室`);
+    console.log(`校长带${thing}进教室`);
 }
 bell.on('响',teacherIn);
 bell.on('响',studentIn);
@@ -218,3 +218,60 @@ console.log(util.isRegExp(/\d/));
 console.log(util.isDate(new Date()));
 console.log(util.isError(new Error));
 ```
+
+### node 核心
+
+node 在处理路径的时候一般是处理为绝对路径
+
+/\_\_dirname 父路径 不是 global 的属性
+
+```
+let r = readFileSync(path.join(**dirname, "1ndex.js"), "utf8");
+let exits = exitsSync(path.join(**dirname, "1ndex.js")); // 文件是否存在
+
+// 模块
+console.log(path.join(**dirname, "common.js", "a")); //获取文件路径
+console.log(path.basename("common.js.jk", ".js.jk")); // 去除基本名字
+console.log(path.extname("1.main.aas.js")); // 取后缀名字
+console.log(path.dirname(\_\_dirname)); // 获取父路径
+```
+
+# 让字符串执行
+
+```
+// 1> 第一种
+let a = 100;
+evel("console.log(a)"); // 沙箱
+
+// 2> 第二种
+let str = "console.log(1)";
+let fn = new Function("a", str);
+fn(1);
+
+// 3) node 执行字符串
+let vm = require("vm");
+let str = "console.log(a)";
+vm.runInNewContext(str);
+```
+
+# process
+
+global 是全局，可以赋值拿到东西
+
+process.stdout.wirte('hellow')
+
+process.argv; 运行的参数
+eg: webpack --port 3000
+process.env; 环境变量
+porcess.cwd(); 获取当前目录
+process.exit() 退出
+
+# node 中 this 指向
+
+1. 在浏览器中默认 this 指向 window
+2. 在浏览器中 window 代理了 global
+3. 在文件中默认这个 this 不是 global,在 node 环境中 this 是 global
+4. 在文件中 this 指向是被更改的指向 module.exports
+
+
+

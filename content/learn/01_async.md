@@ -1,4 +1,30 @@
-# 珠峰架构师成长计划
+- [问题](#%E9%97%AE%E9%A2%98)
+  - [mysql 的缺点、 mongoos 的 缺钱](#mysql-%E7%9A%84%E7%BC%BA%E7%82%B9-mongoos-%E7%9A%84-%E7%BC%BA%E9%92%B1)
+  - [webworker 工作线程](#webworker-%E5%B7%A5%E4%BD%9C%E7%BA%BF%E7%A8%8B)
+- [0.Async](#0async)
+  - [1.异步](#1%E5%BC%82%E6%AD%A5)
+  - [2 高阶函数](#2-%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0)
+  - [异步编程的语法目标，就是怎样让它更像同步编程,有以下几种](#%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B%E7%9A%84%E8%AF%AD%E6%B3%95%E7%9B%AE%E6%A0%87%E5%B0%B1%E6%98%AF%E6%80%8E%E6%A0%B7%E8%AE%A9%E5%AE%83%E6%9B%B4%E5%83%8F%E5%90%8C%E6%AD%A5%E7%BC%96%E7%A8%8B%E6%9C%89%E4%BB%A5%E4%B8%8B%E5%87%A0%E7%A7%8D)
+  - [5 回调的问题](#5-%E5%9B%9E%E8%B0%83%E7%9A%84%E9%97%AE%E9%A2%98)
+    - [5.1 异常处理](#51-%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86)
+    - [5.2 回调地狱 异步多级依赖的情况下嵌套非常深，代码难以阅读的维护](#52-%E5%9B%9E%E8%B0%83%E5%9C%B0%E7%8B%B1-%E5%BC%82%E6%AD%A5%E5%A4%9A%E7%BA%A7%E4%BE%9D%E8%B5%96%E7%9A%84%E6%83%85%E5%86%B5%E4%B8%8B%E5%B5%8C%E5%A5%97%E9%9D%9E%E5%B8%B8%E6%B7%B1%E4%BB%A3%E7%A0%81%E9%9A%BE%E4%BB%A5%E9%98%85%E8%AF%BB%E7%9A%84%E7%BB%B4%E6%8A%A4)
+  - [6. 异步流程解决方案](#6-%E5%BC%82%E6%AD%A5%E6%B5%81%E7%A8%8B%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88)
+    - [6.1 事件发布/订阅模型](#61-%E4%BA%8B%E4%BB%B6%E5%8F%91%E5%B8%83%E8%AE%A2%E9%98%85%E6%A8%A1%E5%9E%8B)
+    - [6.2 哨兵变量](#62-%E5%93%A8%E5%85%B5%E5%8F%98%E9%87%8F)
+    - [6.3 Promise/Deferred 模式](#63-promisedeferred-%E6%A8%A1%E5%BC%8F)
+    - [6.4 生成器 Generators/ yield](#64-%E7%94%9F%E6%88%90%E5%99%A8-generators-yield)
+      - [6.4.1 生成器的使用](#641-%E7%94%9F%E6%88%90%E5%99%A8%E7%9A%84%E4%BD%BF%E7%94%A8)
+      - [6.4.2 co](#642-co)
+  - [async/await](#asyncawait)
+    - [6.5.1 Async 的优点](#651-async-%E7%9A%84%E4%BC%98%E7%82%B9)
+    - [6.5.2 async 函数的实现](#652-async-%E5%87%BD%E6%95%B0%E7%9A%84%E5%AE%9E%E7%8E%B0)
+- [vscode 调试](#vscode-%E8%B0%83%E8%AF%95)
+
+## 问题
+
+### mysql 的缺点、 mongoos 的 缺钱
+
+### webworker 工作线程
 
 ## 0.Async
 
