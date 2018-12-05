@@ -18,7 +18,7 @@
 
 `- sudo brew services start nginx`
 
-`- nginx -s reload 重新加载 nginx`
+`- sudo nginx -s reload 重新加载 nginx`
 
 ## 创建 centos 系统环境
 

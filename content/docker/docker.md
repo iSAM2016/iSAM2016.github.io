@@ -357,9 +357,3 @@ web:
   ports:
     - "127.0.0.1:8080:80"
 ```
-
-wget http://nodejs.org/dist/v8.11.0/node-v8.11.0.tar.gz
-
-wget http://nodejs.org/dist/v10.9.0/node-v10.9.0-linux-x64.tar.xz
-
-sudo ln -s /var/jenkins_home/node-v10.9.0-linux-x64/bin/npm /usr/local/bin/

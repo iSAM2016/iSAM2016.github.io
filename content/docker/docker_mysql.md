@@ -1,6 +1,7 @@
 # docker 部署 mysql 实现 热备份
 
 > 注意： 创建了镜像不要在镜像中保存业务数据,应该放在宿主机上面,我们需要把 mysql 的数据保存到宿主机上
+> docker run -d --name my-mysql -p 3306:3306 MYSQL_ROOT_PASSWORD=abc123456 mysql:5.6
 
 # 步骤
 
@@ -199,9 +200,11 @@ $ innobackupex --user=root --password=abc123456 /data/backup/full   执行备份
 ```
 
 ```
+
 ## 客户端连接
 
 # use mysql \
-# update user set password_expired = "Y" where user="root" \
-# ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY '123qweasd'
 
+# update user set password_expired = "Y" where user="root" \
+
+# ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY '123qweasd'
