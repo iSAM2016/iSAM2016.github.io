@@ -1,4 +1,4 @@
-let fs = require("fs");
+let fs = require('fs');
 // console.log(this);
 // console.log(global);
 console.log(process.pid);
@@ -6,7 +6,7 @@ console.log(process.cwd());
 // console.log(global);
 global.a = 12;
 console.log(a);
-process.stdout.wirte("hellow");
+process.stdout.wirte('hellow');
 // console.log(window);
 // let EventEmitter = require("events");
 // let eve = new EventEmitter();
@@ -27,12 +27,16 @@ process.stdout.wirte("hellow");
 
 // render();
 
+/**
+ *
+ */
 let a = 1;
 let b = 3;
+
 function sum(a, b) {
-  return function() {
-    return a + b;
-  };
+    return function() {
+        return a + b;
+    };
 }
 let total = sum(a, b);
 let c = total(0);
