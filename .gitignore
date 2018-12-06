@@ -5,6 +5,7 @@ npm-debug.log
 rev
 rev/
 .idea/
+dist/
 
 note/module/node_modules/
 note/module/node_modules/*
