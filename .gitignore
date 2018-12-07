@@ -5,6 +5,7 @@ npm-debug.log
 rev
 rev/
 .idea/
+.vscode/
 dist/
 
 note/module/node_modules/
