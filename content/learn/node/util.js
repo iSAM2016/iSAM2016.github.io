@@ -25,7 +25,6 @@ function mypromisify(fn) {
   }
 }
 
-
 const readFileAsync = mypromisify(fs.readFile);
 readFileAsync(path.join(__dirname, "./test.js"), {
     encoding: "utf8"
