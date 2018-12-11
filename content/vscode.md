@@ -1,60 +1,104 @@
 # 配置
 ```
 {
-"workbench.activityBar.visible": true,
-"workbench.sideBar.location": "right",
-// 启用后，按下 TAB 键，将展开 Emmet 缩写。
-"emmet.triggerExpansionOnTab": true,
 
-    "gitlens.advanced.messages": {
-      "suppressShowKeyBindingsNotice": true
-    },
-    "workbench.colorTheme": "One Dark Pro",
-    // 保存时设置文件的格式。格式化程序必须可用，不能自动保存文件，并且不能关闭编辑器。
-    "editor.formatOnSave": true,
-    // Link file types to the beautifier type
-    "beautify.language": {
-      "js": {
-        "type": [
-          "javascript",
-          "json",
-          "jsonc",
-          "jsx"
-        ],
-        "filename": [
-          ".jshintrc",
-          ".jsbeautifyrc"
-        ]
-      },
-      "css": [
-        "css",
-        "scss"
+  // 图标样式
+  "workbench.iconTheme": "vscode-icons",
+  "workbench.sideBar.location": "right",
+  // 字体
+  "editor.fontSize": 14,
+  // vscode避免rg.exe卡内存
+  "search.followSymlinks": false,
+  "beautify.language": {
+    "js": {
+      "type": [
+        "javascript",
+        "json",
+        "jsonc",
+        "jsx"
       ],
-      "html": [
-        "htm",
-        "html",
-        "vue"
+      "filename": [
+        ".jshintrc",
+        ".jsbeautifyrc"
       ]
     },
-    "files.associations": {
-      "*.js": "javascriptreact",
-      "*.cjson": "jsonc",
-      "*.wxss": "css",
-      "*.wxs": "javascript"
-    },
-    "explorer.confirmDelete": false,
-    "px2rem.rootFontSize": 50,
-    "explorer.confirmDragAndDrop": false,
+    "css": [
+      "css",
+      "scss"
+    ],
+    "html": [
+      "htm",
+      "html",
+      "vue"
+    ]
+  },
+  "files.associations": {
+    "*.js": "javascriptreact",
+    "*.cjson": "jsonc",
+    "*.wxss": "css",
+    "*.wxs": "javascript"
+  },
 
-    // Enable per-language
-    "[javascript]": {
-      "editor.formatOnSave": true
+  // 在默认不支持 Emmet 的语言中启用 Emmet 缩写功能。在此添加该语言与受支持的语言间的映射。
+  // 示例: `{"vue-html": "html", "javascript": "javascriptreact"}`
+  "emmet.includeLanguages": {
+    "wxml": "html"
+  },
+  // 小程序自动配置项开启
+  "minapp-vscode.disableAutoConfig": true,
+  // 启用后，按下 TAB 键，将展开 Emmet 缩写。
+  "emmet.triggerExpansionOnTab": true,
+  // 控制在资源管理器内拖放移动文件或文件夹时是否进行确认。
+  "explorer.confirmDragAndDrop": false,
+  // Enable per-language
+  "[javascript]": {
+    "editor.formatOnSave": true
+  },
+  // An array of language ids which should be validated by ESLint
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    {
+      "language": "html",
+      "autoFix": true
     },
-    "emmet.includeLanguages": {
-      "wxml": "html"
-    },
-    "minapp-vscode.disableAutoConfig": true
+    {
+      "language": "vue",
+      "autoFix": true
+    }
+  ],
 
+  // #region Prettier配置
+  // 分号
+  "prettier.semi": true,
+  // 单引号
+  "prettier.singleQuote": true,
+  // prettier配置，tab空格为4 
+  "prettier.tabWidth": 4,
+  // #endregion
+
+  // 保存的时候自动格式化
+  "eslint.autoFixOnSave": true,
+  "editor.formatOnSave": true,
+  // #region git bash终端调试
+  // #endregion
+
+  // vscode同步
+  // todo
+  "todohighlight.isEnable": true,
+  // todo-tree
+  "todo-tree.defaultHighlight": {
+    "foreground": "green",
+    "type": "none"
+  },
+  // todo-tree
+  "todo-tree.customHighlight": {
+    "TODO": {},
+    "FIXME": {}
+  },
+  "fileheader.Author": "isam2016",
+  "fileheader.LastModifiedBy": "isam2016",
+  "workbench.colorTheme": "One Dark Pro"
 }
 
 ```
