@@ -132,7 +132,7 @@ java -jar agent.jar -jnlpUrl http://build.ibs-bj.com.cn/computer/isam2016_server
 
 > 镜像中包含 java 环境,无需在宿主机上二次安装
 
--   下载镜像
+- 下载镜像
 
 ```
 # docker pull jenkins/jenkins
@@ -140,7 +140,7 @@ java -jar agent.jar -jnlpUrl http://build.ibs-bj.com.cn/computer/isam2016_server
 
 ### 1.1.2 创建容器
 
--   创建 jenkins 容器
+- 创建 jenkins 容器
 
 ```
 # docker run -d -v jenkins_home:/var/jenkins_home -p 8088:8080 -p 50000:50000 jenkins/jenkins
@@ -148,12 +148,12 @@ java -jar agent.jar -jnlpUrl http://build.ibs-bj.com.cn/computer/isam2016_server
 
 参数解释：
 
--   `-v jenkins_home:/var/jenkins_home`
-    -   创建`jenkins_home` 数据卷，映射到容器内部的目录是`/var/jenkins_home`
-    -   在宿主机上执行`docker inspect jenkins_home` 查看 数据卷 在宿主机的目录
+- `-v jenkins_home:/var/jenkins_home`
+  - 创建`jenkins_home` 数据卷，映射到容器内部的目录是`/var/jenkins_home`
+  - 在宿主机上执行`docker inspect jenkins_home` 查看 数据卷 在宿主机的目录
 
-*   `-p 8088:8080`
-    -   将容器内 8080 端口映射到主机的 8088 端口,主机端口可更换为其他
+* `-p 8088:8080`
+  - 将容器内 8080 端口映射到主机的 8088 端口,主机端口可更换为其他
 
 ### 1.1.3 防火墙放行
 
@@ -206,9 +206,9 @@ Jenkins 自身采用 Java 开发，所以要必须安装 JDK; 并配置环境变
 
 #### 1.2.2.3 基于 Tomcat 安装
 
--   安装并启动 Tomcat；
--   从官网下载 jenkins.war 至 \$CATALINA_BASE/webapps，Tomcat 会自动部署；
--   浏览器访问：http://centos:8080/jenkins/
+- 安装并启动 Tomcat；
+- 从官网下载 jenkins.war 至 \$CATALINA_BASE/webapps，Tomcat 会自动部署；
+- 浏览器访问：http://centos:8080/jenkins/
 
 #### 1.2.2.4 免安装方式
 
@@ -285,19 +285,19 @@ sudo systemctl restart jenkins
 
 ### 1.3.1 进入数据卷
 
--   查看运行容器的 ID
+- 查看运行容器的 ID
 
 ```
 # docker ps  // domo容器的ID为 345aa0753269
 ```
 
--   进入容器
+- 进入容器
 
 ```
 docker exec -it --user root 345aa0753269 /bin/bash
 ```
 
--   安装 vim
+- 安装 vim
 
 ```
 # apt-get update
@@ -359,7 +359,7 @@ mvn -v
 
 首次进入需要输入初始密码来解锁，
 
--   docker 下安装，密码存储在数据卷中，
+- docker 下安装，密码存储在数据卷中，
 
 ```
 # 查看Mountpoint /var/lib/docker/volumes/jenkins_home/_data
@@ -373,7 +373,7 @@ mvn -v
 
 ```
 
--   centos
+- centos
 
 初始密码查看方法: `sudo cat /var/lib/jenkins/secrets/initialAdminPassword`
 
@@ -519,10 +519,10 @@ package -Dmaven.test.skip=true
 
 ![](./img/QQ20181204-135958@2x.png)
 
--   name 随意
--   hostname ip 地址
--   username 用户名字
--   Remote Directory 服务器路径，可以不用再全局这填写，再集体构建填写即可
+- name 随意
+- hostname ip 地址
+- username 用户名字
+- Remote Directory 服务器路径，可以不用再全局这填写，再集体构建填写即可
 
 点击 高级按钮， 单选 Use password authentication, or use a different key
 
@@ -642,8 +642,8 @@ Default Content: 为以下
 
     点击 Default Triggers，比较好的方案是选中两项：
 
--   Failure - Any ## 可定义“编译失败时”才向哪些人员发邮件(比如最近代码提交者)
--   Success ## 可定义“构建成功时”才向哪些人员发邮件(比如所有产品关注者)
+- Failure - Any ## 可定义“编译失败时”才向哪些人员发邮件(比如最近代码提交者)
+- Success ## 可定义“构建成功时”才向哪些人员发邮件(比如所有产品关注者)
 
 ### 5.2.5 邮件可用变量
 
@@ -660,8 +660,8 @@ Default Content: 为以下
 
 构建后操作步骤: 增加 Editable Email Notification(来自插件 Email Extension Plugin)。下图设置的效果是：
 
--   构建失败时，向上次成功构建之后导致构建失败的 SVN 提交的人员发送邮件；
--   构建成功时，向上次成功构建之后有 SVN 提交的人员、还有“Project Recipient List”中的人员发送邮件；
+- 构建失败时，向上次成功构建之后导致构建失败的 SVN 提交的人员发送邮件；
+- 构建成功时，向上次成功构建之后有 SVN 提交的人员、还有“Project Recipient List”中的人员发送邮件；
 
 ![](./img/emails_1.png)
 
@@ -669,9 +669,9 @@ Default Content: 为以下
 
 分别按以下三种情形触发构建，都能看到构建报告邮件：
 
--   手工触发：进入工程后，点击“立即构建”；
--   定时触发构建：“构建触发器”只选中 Build periodically；
--   版本提交触发构建：“构建触发器”只选中 Poll SCM。
+- 手工触发：进入工程后，点击“立即构建”；
+- 定时触发构建：“构建触发器”只选中 Build periodically；
+- 版本提交触发构建：“构建触发器”只选中 Poll SCM。
 
 ![](./img/jkjk.png)
 
@@ -758,3 +758,27 @@ nohup  java -jar agent.jar -jnlpUrl http://101.200.123.5:8080/computer/node%E7%8
 ```
 
 等待一分钟
+
+```
+case $deploy_env in
+    deploy)
+        echo "deploy:$deploy_env"
+        npm config set registry http://registry.npm.taobao.org/
+        cd dist
+        pwd && ls
+        tar -zcvf dist.tar.gz *
+        ;;
+    rollback)
+        echo "rollback:$deploy_env"
+        echo "version:$version"
+        cd dist
+        pwd && ls
+        rm -rf *
+        cp -R ${JENKINS_HOME}/jobs/testTask/builds/${version}/archive/dist/* .
+        pwd && ls
+        ;;
+     *)
+     exit
+        ;;
+esac
+```
