@@ -1,67 +1,67 @@
-- [0 CI/CD](#0-cicd)
-  - [脚本备份](#%E8%84%9A%E6%9C%AC%E5%A4%87%E4%BB%BD)
-- [1 安装 Jenkins](#1-%E5%AE%89%E8%A3%85-jenkins)
-  - [1.1 docker 镜像 安装 jenkins](#11-docker-%E9%95%9C%E5%83%8F-%E5%AE%89%E8%A3%85-jenkins)
-    - [1.1.1 下载 Jenkins 官方 docker 镜像](#111-%E4%B8%8B%E8%BD%BD-jenkins-%E5%AE%98%E6%96%B9-docker-%E9%95%9C%E5%83%8F)
-    - [1.1.2 创建容器](#112-%E5%88%9B%E5%BB%BA%E5%AE%B9%E5%99%A8)
-    - [1.1.3 防火墙放行](#113-%E9%98%B2%E7%81%AB%E5%A2%99%E6%94%BE%E8%A1%8C)
-    - [1.1.4 销毁容器](#114-%E9%94%80%E6%AF%81%E5%AE%B9%E5%99%A8)
-  - [1.2 其他安装 jenkins 方法](#12-%E5%85%B6%E4%BB%96%E5%AE%89%E8%A3%85-jenkins-%E6%96%B9%E6%B3%95)
-    - [1.2.1 安装 java JDK](#121-%E5%AE%89%E8%A3%85-java-jdk)
-    - [1.2.2 其他四中方法](#122-%E5%85%B6%E4%BB%96%E5%9B%9B%E4%B8%AD%E6%96%B9%E6%B3%95)
-      - [1.2.2.1 离线安装](#1221-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85)
-      - [1.2.2.2 在线安装](#1222-%E5%9C%A8%E7%BA%BF%E5%AE%89%E8%A3%85)
-      - [1.2.2.3 基于 Tomcat 安装](#1223-%E5%9F%BA%E4%BA%8E-tomcat-%E5%AE%89%E8%A3%85)
-      - [1.2.2.4 免安装方式](#1224-%E5%85%8D%E5%AE%89%E8%A3%85%E6%96%B9%E5%BC%8F)
-    - [1.2.3 调整配置文件](#123-%E8%B0%83%E6%95%B4%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6)
-    - [1.2.4 启动](#124-%E5%90%AF%E5%8A%A8)
-    - [1.2.5 防火墙放行](#125-%E9%98%B2%E7%81%AB%E5%A2%99%E6%94%BE%E8%A1%8C)
-    - [1.2.6 卸载](#126-%E5%8D%B8%E8%BD%BD)
-  - [1.3 安装必要环境 Maven/Node](#13-%E5%AE%89%E8%A3%85%E5%BF%85%E8%A6%81%E7%8E%AF%E5%A2%83-mavennode)
-    - [1.3.1 进入数据卷](#131-%E8%BF%9B%E5%85%A5%E6%95%B0%E6%8D%AE%E5%8D%B7)
-    - [1.3.2 安装 node](#132-%E5%AE%89%E8%A3%85-node)
-    - [1.3.3 安装 maven](#133-%E5%AE%89%E8%A3%85-maven)
-- [2 基本配置](#2-%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE)
-  - [2.1 登录](#21-%E7%99%BB%E5%BD%95)
-  - [2.2 安全设置](#22-%E5%AE%89%E5%85%A8%E8%AE%BE%E7%BD%AE)
-  - [2.3 插件安装方法](#23-%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85%E6%96%B9%E6%B3%95)
-    - [2.3.1 离线安装](#231-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85)
-    - [2.3.2 在线安装](#232-%E5%9C%A8%E7%BA%BF%E5%AE%89%E8%A3%85)
-  - [2.4 工具设置](#24-%E5%B7%A5%E5%85%B7%E8%AE%BE%E7%BD%AE)
-- [3 项目接入-私有 Git 仓库帐号配置（通用版）](#3-%E9%A1%B9%E7%9B%AE%E6%8E%A5%E5%85%A5-%E7%A7%81%E6%9C%89-git-%E4%BB%93%E5%BA%93%E5%B8%90%E5%8F%B7%E9%85%8D%E7%BD%AE%E9%80%9A%E7%94%A8%E7%89%88)
-  - [3.1 配置 SSH Key 登录配置](#31-%E9%85%8D%E7%BD%AE-ssh-key-%E7%99%BB%E5%BD%95%E9%85%8D%E7%BD%AE)
-  - [3.2 在 Jenkins 配置 git ssh](#32-%E5%9C%A8-jenkins-%E9%85%8D%E7%BD%AE-git-ssh)
-  - [3.2 插件安装](#32-%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85)
-  - [3.3 新建构建项目](#33-%E6%96%B0%E5%BB%BA%E6%9E%84%E5%BB%BA%E9%A1%B9%E7%9B%AE)
-    - [3.3.1 开始创建](#331-%E5%BC%80%E5%A7%8B%E5%88%9B%E5%BB%BA)
-    - [3.3.2 源码管理](#332-%E6%BA%90%E7%A0%81%E7%AE%A1%E7%90%86)
-    - [3.3.4 版本提交触发构建](#334-%E7%89%88%E6%9C%AC%E6%8F%90%E4%BA%A4%E8%A7%A6%E5%8F%91%E6%9E%84%E5%BB%BA)
-    - [3.3.5 构建](#335-%E6%9E%84%E5%BB%BA)
-  - [3.4 手工触发构建](#34-%E6%89%8B%E5%B7%A5%E8%A7%A6%E5%8F%91%E6%9E%84%E5%BB%BA)
-- [4 部署](#4-%E9%83%A8%E7%BD%B2)
-  - [4.1 Publish Over SSH](#41-publish-over-ssh)
-  - [4.2 工程配置服务器](#42-%E5%B7%A5%E7%A8%8B%E9%85%8D%E7%BD%AE%E6%9C%8D%E5%8A%A1%E5%99%A8)
-- [5 开启 开启邮件报告](#5-%E5%BC%80%E5%90%AF-%E5%BC%80%E5%90%AF%E9%82%AE%E4%BB%B6%E6%8A%A5%E5%91%8A)
-  - [5.1 安装相关插件](#51-%E5%AE%89%E8%A3%85%E7%9B%B8%E5%85%B3%E6%8F%92%E4%BB%B6)
-  - [5.2 全局统一设置](#52-%E5%85%A8%E5%B1%80%E7%BB%9F%E4%B8%80%E8%AE%BE%E7%BD%AE)
-    - [5.2.1 设置管理员邮箱](#521-%E8%AE%BE%E7%BD%AE%E7%AE%A1%E7%90%86%E5%91%98%E9%82%AE%E7%AE%B1)
-    - [5.2.2 设置发件人帐号](#522-%E8%AE%BE%E7%BD%AE%E5%8F%91%E4%BB%B6%E4%BA%BA%E5%B8%90%E5%8F%B7)
-    - [5.2.4 设置邮件触发时机](#524-%E8%AE%BE%E7%BD%AE%E9%82%AE%E4%BB%B6%E8%A7%A6%E5%8F%91%E6%97%B6%E6%9C%BA)
-    - [5.2.5 邮件可用变量](#525-%E9%82%AE%E4%BB%B6%E5%8F%AF%E7%94%A8%E5%8F%98%E9%87%8F)
-    - [5.2.6 邮件未发送问题排查](#526-%E9%82%AE%E4%BB%B6%E6%9C%AA%E5%8F%91%E9%80%81%E9%97%AE%E9%A2%98%E6%8E%92%E6%9F%A5)
-  - [5.3 项目设置中启用邮件](#53-%E9%A1%B9%E7%9B%AE%E8%AE%BE%E7%BD%AE%E4%B8%AD%E5%90%AF%E7%94%A8%E9%82%AE%E4%BB%B6)
-  - [5.4 验证构建报告邮件](#54-%E9%AA%8C%E8%AF%81%E6%9E%84%E5%BB%BA%E6%8A%A5%E5%91%8A%E9%82%AE%E4%BB%B6)
-- [6 开启 钉钉通知 （不全）](#6-%E5%BC%80%E5%90%AF-%E9%92%89%E9%92%89%E9%80%9A%E7%9F%A5-%E4%B8%8D%E5%85%A8)
-  - [6.1 创建机器人](#61-%E5%88%9B%E5%BB%BA%E6%9C%BA%E5%99%A8%E4%BA%BA)
-  - [6.1 工程添加机器人](#61-%E5%B7%A5%E7%A8%8B%E6%B7%BB%E5%8A%A0%E6%9C%BA%E5%99%A8%E4%BA%BA)
-- [7 开启 Java 代码静态检查 （不全）](#7-%E5%BC%80%E5%90%AF-java-%E4%BB%A3%E7%A0%81%E9%9D%99%E6%80%81%E6%A3%80%E6%9F%A5-%E4%B8%8D%E5%85%A8)
-- [8 Java/JUnit 单元测试（不全）](#8-javajunit-%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E4%B8%8D%E5%85%A8)
-- [9 单元测试覆盖率报告](#9-%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E8%A6%86%E7%9B%96%E7%8E%87%E6%8A%A5%E5%91%8A)
-  - [9.1 安装插件](#91-%E5%AE%89%E8%A3%85%E6%8F%92%E4%BB%B6)
-  - [9.2 调整工程 pom.xml](#92-%E8%B0%83%E6%95%B4%E5%B7%A5%E7%A8%8B-pomxml)
-  - [9.3 调整项目的构建设置](#93-%E8%B0%83%E6%95%B4%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9E%84%E5%BB%BA%E8%AE%BE%E7%BD%AE)
-  - [9.4 构建并查看报告](#94-%E6%9E%84%E5%BB%BA%E5%B9%B6%E6%9F%A5%E7%9C%8B%E6%8A%A5%E5%91%8A)
-- [10 添加节点](#10-%E6%B7%BB%E5%8A%A0%E8%8A%82%E7%82%B9)
+-   [0 CI/CD](#0-cicd)
+    -   [脚本备份](#%E8%84%9A%E6%9C%AC%E5%A4%87%E4%BB%BD)
+-   [1 安装 Jenkins](#1-%E5%AE%89%E8%A3%85-jenkins)
+    -   [1.1 docker 镜像 安装 jenkins](#11-docker-%E9%95%9C%E5%83%8F-%E5%AE%89%E8%A3%85-jenkins)
+        -   [1.1.1 下载 Jenkins 官方 docker 镜像](#111-%E4%B8%8B%E8%BD%BD-jenkins-%E5%AE%98%E6%96%B9-docker-%E9%95%9C%E5%83%8F)
+        -   [1.1.2 创建容器](#112-%E5%88%9B%E5%BB%BA%E5%AE%B9%E5%99%A8)
+        -   [1.1.3 防火墙放行](#113-%E9%98%B2%E7%81%AB%E5%A2%99%E6%94%BE%E8%A1%8C)
+        -   [1.1.4 销毁容器](#114-%E9%94%80%E6%AF%81%E5%AE%B9%E5%99%A8)
+    -   [1.2 其他安装 jenkins 方法](#12-%E5%85%B6%E4%BB%96%E5%AE%89%E8%A3%85-jenkins-%E6%96%B9%E6%B3%95)
+        -   [1.2.1 安装 java JDK](#121-%E5%AE%89%E8%A3%85-java-jdk)
+        -   [1.2.2 其他四中方法](#122-%E5%85%B6%E4%BB%96%E5%9B%9B%E4%B8%AD%E6%96%B9%E6%B3%95)
+            -   [1.2.2.1 离线安装](#1221-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85)
+            -   [1.2.2.2 在线安装](#1222-%E5%9C%A8%E7%BA%BF%E5%AE%89%E8%A3%85)
+            -   [1.2.2.3 基于 Tomcat 安装](#1223-%E5%9F%BA%E4%BA%8E-tomcat-%E5%AE%89%E8%A3%85)
+            -   [1.2.2.4 免安装方式](#1224-%E5%85%8D%E5%AE%89%E8%A3%85%E6%96%B9%E5%BC%8F)
+        -   [1.2.3 调整配置文件](#123-%E8%B0%83%E6%95%B4%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6)
+        -   [1.2.4 启动](#124-%E5%90%AF%E5%8A%A8)
+        -   [1.2.5 防火墙放行](#125-%E9%98%B2%E7%81%AB%E5%A2%99%E6%94%BE%E8%A1%8C)
+        -   [1.2.6 卸载](#126-%E5%8D%B8%E8%BD%BD)
+    -   [1.3 安装必要环境 Maven/Node](#13-%E5%AE%89%E8%A3%85%E5%BF%85%E8%A6%81%E7%8E%AF%E5%A2%83-mavennode)
+        -   [1.3.1 进入数据卷](#131-%E8%BF%9B%E5%85%A5%E6%95%B0%E6%8D%AE%E5%8D%B7)
+        -   [1.3.2 安装 node](#132-%E5%AE%89%E8%A3%85-node)
+        -   [1.3.3 安装 maven](#133-%E5%AE%89%E8%A3%85-maven)
+-   [2 基本配置](#2-%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE)
+    -   [2.1 登录](#21-%E7%99%BB%E5%BD%95)
+    -   [2.2 安全设置](#22-%E5%AE%89%E5%85%A8%E8%AE%BE%E7%BD%AE)
+    -   [2.3 插件安装方法](#23-%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85%E6%96%B9%E6%B3%95)
+        -   [2.3.1 离线安装](#231-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85)
+        -   [2.3.2 在线安装](#232-%E5%9C%A8%E7%BA%BF%E5%AE%89%E8%A3%85)
+    -   [2.4 工具设置](#24-%E5%B7%A5%E5%85%B7%E8%AE%BE%E7%BD%AE)
+-   [3 项目接入-私有 Git 仓库帐号配置（通用版）](#3-%E9%A1%B9%E7%9B%AE%E6%8E%A5%E5%85%A5-%E7%A7%81%E6%9C%89-git-%E4%BB%93%E5%BA%93%E5%B8%90%E5%8F%B7%E9%85%8D%E7%BD%AE%E9%80%9A%E7%94%A8%E7%89%88)
+    -   [3.1 配置 SSH Key 登录配置](#31-%E9%85%8D%E7%BD%AE-ssh-key-%E7%99%BB%E5%BD%95%E9%85%8D%E7%BD%AE)
+    -   [3.2 在 Jenkins 配置 git ssh](#32-%E5%9C%A8-jenkins-%E9%85%8D%E7%BD%AE-git-ssh)
+    -   [3.2 插件安装](#32-%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85)
+    -   [3.3 新建构建项目](#33-%E6%96%B0%E5%BB%BA%E6%9E%84%E5%BB%BA%E9%A1%B9%E7%9B%AE)
+        -   [3.3.1 开始创建](#331-%E5%BC%80%E5%A7%8B%E5%88%9B%E5%BB%BA)
+        -   [3.3.2 源码管理](#332-%E6%BA%90%E7%A0%81%E7%AE%A1%E7%90%86)
+        -   [3.3.4 版本提交触发构建](#334-%E7%89%88%E6%9C%AC%E6%8F%90%E4%BA%A4%E8%A7%A6%E5%8F%91%E6%9E%84%E5%BB%BA)
+        -   [3.3.5 构建](#335-%E6%9E%84%E5%BB%BA)
+    -   [3.4 手工触发构建](#34-%E6%89%8B%E5%B7%A5%E8%A7%A6%E5%8F%91%E6%9E%84%E5%BB%BA)
+-   [4 部署](#4-%E9%83%A8%E7%BD%B2)
+    -   [4.1 Publish Over SSH](#41-publish-over-ssh)
+    -   [4.2 工程配置服务器](#42-%E5%B7%A5%E7%A8%8B%E9%85%8D%E7%BD%AE%E6%9C%8D%E5%8A%A1%E5%99%A8)
+-   [5 开启 开启邮件报告](#5-%E5%BC%80%E5%90%AF-%E5%BC%80%E5%90%AF%E9%82%AE%E4%BB%B6%E6%8A%A5%E5%91%8A)
+    -   [5.1 安装相关插件](#51-%E5%AE%89%E8%A3%85%E7%9B%B8%E5%85%B3%E6%8F%92%E4%BB%B6)
+    -   [5.2 全局统一设置](#52-%E5%85%A8%E5%B1%80%E7%BB%9F%E4%B8%80%E8%AE%BE%E7%BD%AE)
+        -   [5.2.1 设置管理员邮箱](#521-%E8%AE%BE%E7%BD%AE%E7%AE%A1%E7%90%86%E5%91%98%E9%82%AE%E7%AE%B1)
+        -   [5.2.2 设置发件人帐号](#522-%E8%AE%BE%E7%BD%AE%E5%8F%91%E4%BB%B6%E4%BA%BA%E5%B8%90%E5%8F%B7)
+        -   [5.2.4 设置邮件触发时机](#524-%E8%AE%BE%E7%BD%AE%E9%82%AE%E4%BB%B6%E8%A7%A6%E5%8F%91%E6%97%B6%E6%9C%BA)
+        -   [5.2.5 邮件可用变量](#525-%E9%82%AE%E4%BB%B6%E5%8F%AF%E7%94%A8%E5%8F%98%E9%87%8F)
+        -   [5.2.6 邮件未发送问题排查](#526-%E9%82%AE%E4%BB%B6%E6%9C%AA%E5%8F%91%E9%80%81%E9%97%AE%E9%A2%98%E6%8E%92%E6%9F%A5)
+    -   [5.3 项目设置中启用邮件](#53-%E9%A1%B9%E7%9B%AE%E8%AE%BE%E7%BD%AE%E4%B8%AD%E5%90%AF%E7%94%A8%E9%82%AE%E4%BB%B6)
+    -   [5.4 验证构建报告邮件](#54-%E9%AA%8C%E8%AF%81%E6%9E%84%E5%BB%BA%E6%8A%A5%E5%91%8A%E9%82%AE%E4%BB%B6)
+-   [6 开启 钉钉通知 （不全）](#6-%E5%BC%80%E5%90%AF-%E9%92%89%E9%92%89%E9%80%9A%E7%9F%A5-%E4%B8%8D%E5%85%A8)
+    -   [6.1 创建机器人](#61-%E5%88%9B%E5%BB%BA%E6%9C%BA%E5%99%A8%E4%BA%BA)
+    -   [6.1 工程添加机器人](#61-%E5%B7%A5%E7%A8%8B%E6%B7%BB%E5%8A%A0%E6%9C%BA%E5%99%A8%E4%BA%BA)
+-   [7 开启 Java 代码静态检查 （不全）](#7-%E5%BC%80%E5%90%AF-java-%E4%BB%A3%E7%A0%81%E9%9D%99%E6%80%81%E6%A3%80%E6%9F%A5-%E4%B8%8D%E5%85%A8)
+-   [8 Java/JUnit 单元测试（不全）](#8-javajunit-%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E4%B8%8D%E5%85%A8)
+-   [9 单元测试覆盖率报告](#9-%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E8%A6%86%E7%9B%96%E7%8E%87%E6%8A%A5%E5%91%8A)
+    -   [9.1 安装插件](#91-%E5%AE%89%E8%A3%85%E6%8F%92%E4%BB%B6)
+    -   [9.2 调整工程 pom.xml](#92-%E8%B0%83%E6%95%B4%E5%B7%A5%E7%A8%8B-pomxml)
+    -   [9.3 调整项目的构建设置](#93-%E8%B0%83%E6%95%B4%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9E%84%E5%BB%BA%E8%AE%BE%E7%BD%AE)
+    -   [9.4 构建并查看报告](#94-%E6%9E%84%E5%BB%BA%E5%B9%B6%E6%9F%A5%E7%9C%8B%E6%8A%A5%E5%91%8A)
+-   [10 添加节点](#10-%E6%B7%BB%E5%8A%A0%E8%8A%82%E7%82%B9)
 
 Jenkins 是一款流行的开源持续集成（Continuous Integration）工具，广泛用于项目开发，具有自动化构建、测试和部署等功能。本文以 jenkins 镜像（docker）为例，总结了 Jenkins 的安装与配置、邮件功能使用，docker 镜像制作。以此演示 Java 项目（gitee+Maven）等常用插件的使用、单元测试及其覆盖率报告等，力求实战性强。
 
@@ -132,7 +132,7 @@ java -jar agent.jar -jnlpUrl http://build.ibs-bj.com.cn/computer/isam2016_server
 
 > 镜像中包含 java 环境,无需在宿主机上二次安装
 
-- 下载镜像
+-   下载镜像
 
 ```
 # docker pull jenkins/jenkins
@@ -140,20 +140,22 @@ java -jar agent.jar -jnlpUrl http://build.ibs-bj.com.cn/computer/isam2016_server
 
 ### 1.1.2 创建容器
 
-- 创建 jenkins 容器
+-   创建 jenkins 容器
 
 ```
 # docker run -d -v jenkins_home:/var/jenkins_home -p 8088:8080 -p 50000:50000 jenkins/jenkins
 ```
 
+docker run -d -u root -p 8080:8080 -v jenkins_home:/var/jenkins_home -v /var/run/docker.sock:/var/run/docker.sock -v "\$HOME":/home jenkinsci/blueocean
+
 参数解释：
 
-- `-v jenkins_home:/var/jenkins_home`
-  - 创建`jenkins_home` 数据卷，映射到容器内部的目录是`/var/jenkins_home`
-  - 在宿主机上执行`docker inspect jenkins_home` 查看 数据卷 在宿主机的目录
+-   `-v jenkins_home:/var/jenkins_home`
+    -   创建`jenkins_home` 数据卷，映射到容器内部的目录是`/var/jenkins_home`
+    -   在宿主机上执行`docker inspect jenkins_home` 查看 数据卷 在宿主机的目录
 
-* `-p 8088:8080`
-  - 将容器内 8080 端口映射到主机的 8088 端口,主机端口可更换为其他
+*   `-p 8088:8080`
+    -   将容器内 8080 端口映射到主机的 8088 端口,主机端口可更换为其他
 
 ### 1.1.3 防火墙放行
 
@@ -206,9 +208,9 @@ Jenkins 自身采用 Java 开发，所以要必须安装 JDK; 并配置环境变
 
 #### 1.2.2.3 基于 Tomcat 安装
 
-- 安装并启动 Tomcat；
-- 从官网下载 jenkins.war 至 \$CATALINA_BASE/webapps，Tomcat 会自动部署；
-- 浏览器访问：http://centos:8080/jenkins/
+-   安装并启动 Tomcat；
+-   从官网下载 jenkins.war 至 \$CATALINA_BASE/webapps，Tomcat 会自动部署；
+-   浏览器访问：http://centos:8080/jenkins/
 
 #### 1.2.2.4 免安装方式
 
@@ -285,19 +287,19 @@ sudo systemctl restart jenkins
 
 ### 1.3.1 进入数据卷
 
-- 查看运行容器的 ID
+-   查看运行容器的 ID
 
 ```
 # docker ps  // domo容器的ID为 345aa0753269
 ```
 
-- 进入容器
+-   进入容器
 
 ```
 docker exec -it --user root 345aa0753269 /bin/bash
 ```
 
-- 安装 vim
+-   安装 vim
 
 ```
 # apt-get update
@@ -359,7 +361,7 @@ mvn -v
 
 首次进入需要输入初始密码来解锁，
 
-- docker 下安装，密码存储在数据卷中，
+-   docker 下安装，密码存储在数据卷中，
 
 ```
 # 查看Mountpoint /var/lib/docker/volumes/jenkins_home/_data
@@ -373,7 +375,7 @@ mvn -v
 
 ```
 
-- centos
+-   centos
 
 初始密码查看方法: `sudo cat /var/lib/jenkins/secrets/initialAdminPassword`
 
@@ -519,10 +521,10 @@ package -Dmaven.test.skip=true
 
 ![](./img/QQ20181204-135958@2x.png)
 
-- name 随意
-- hostname ip 地址
-- username 用户名字
-- Remote Directory 服务器路径，可以不用再全局这填写，再集体构建填写即可
+-   name 随意
+-   hostname ip 地址
+-   username 用户名字
+-   Remote Directory 服务器路径，可以不用再全局这填写，再集体构建填写即可
 
 点击 高级按钮， 单选 Use password authentication, or use a different key
 
@@ -642,8 +644,8 @@ Default Content: 为以下
 
     点击 Default Triggers，比较好的方案是选中两项：
 
-- Failure - Any ## 可定义“编译失败时”才向哪些人员发邮件(比如最近代码提交者)
-- Success ## 可定义“构建成功时”才向哪些人员发邮件(比如所有产品关注者)
+-   Failure - Any ## 可定义“编译失败时”才向哪些人员发邮件(比如最近代码提交者)
+-   Success ## 可定义“构建成功时”才向哪些人员发邮件(比如所有产品关注者)
 
 ### 5.2.5 邮件可用变量
 
@@ -660,8 +662,8 @@ Default Content: 为以下
 
 构建后操作步骤: 增加 Editable Email Notification(来自插件 Email Extension Plugin)。下图设置的效果是：
 
-- 构建失败时，向上次成功构建之后导致构建失败的 SVN 提交的人员发送邮件；
-- 构建成功时，向上次成功构建之后有 SVN 提交的人员、还有“Project Recipient List”中的人员发送邮件；
+-   构建失败时，向上次成功构建之后导致构建失败的 SVN 提交的人员发送邮件；
+-   构建成功时，向上次成功构建之后有 SVN 提交的人员、还有“Project Recipient List”中的人员发送邮件；
 
 ![](./img/emails_1.png)
 
@@ -669,9 +671,9 @@ Default Content: 为以下
 
 分别按以下三种情形触发构建，都能看到构建报告邮件：
 
-- 手工触发：进入工程后，点击“立即构建”；
-- 定时触发构建：“构建触发器”只选中 Build periodically；
-- 版本提交触发构建：“构建触发器”只选中 Poll SCM。
+-   手工触发：进入工程后，点击“立即构建”；
+-   定时触发构建：“构建触发器”只选中 Build periodically；
+-   版本提交触发构建：“构建触发器”只选中 Poll SCM。
 
 ![](./img/jkjk.png)
 
