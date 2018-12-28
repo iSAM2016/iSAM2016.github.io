@@ -1,4 +1,5 @@
 # 配置
+
 ```
 {
 
@@ -73,7 +74,7 @@
   "prettier.semi": true,
   // 单引号
   "prettier.singleQuote": true,
-  // prettier配置，tab空格为4 
+  // prettier配置，tab空格为4
   "prettier.tabWidth": 4,
   // #endregion
 
