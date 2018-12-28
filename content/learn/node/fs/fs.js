@@ -18,6 +18,71 @@ let path = require('path');
 //     }
 // }
 
+//  异步promise 优先
+
+function removePromise(dir) {
+    return new Promise((resolve, reject) => {
+        fs.stat(dir, (err, staObj) => {
+            if (staObj.isDirectory()) {
+                fs.readdir(dir, (err, files) => {
+                    files = files.map(file => path.join(dir, file));
+                    // 删除儿子在删除自己
+                    Promise.all(files.map(file => removePromise(file))).then(
+                        () => {
+                            fs.rmdir(dir, resolve);
+                        }
+                    );
+                });
+            } else {
+                fs.unlink(dir, resolve);
+            }
+        });
+    });
+}
+
+removePromise('a').then(
+    () => {
+        console.log('删除成功');
+    },
+    err => {
+        console.log(err);
+    }
+);
+/**
+ * 异步深度优先
+ * 并行
+ * @param {} dir
+ * @param {*} cb
+ */
+
+function removeDir(dir, cb) {
+    fs.stat(dir, (err, staObj) => {
+        if (staObj.isDirectory()) {
+            fs.readdir(dir, (err, files) => {
+                let paths = files.map(file => path.join(dir, file));
+                // 获取一个路径
+                if (paths.length > 0) {
+                    let i = 0;
+                    function done() {
+                        i++;
+                        if (i === paths.length) {
+                            removeDir(dir, cb);
+                        }
+                    }
+                    paths.forEach(p => {
+                        // 删除某个后通知下 当删除的子目录个数 等于我们的子目录数，删除父级即可
+                        removeDir(p, done);
+                    });
+                } else {
+                    fs.rmdir(dir, cb); // 没有目录可以直接删除
+                }
+            });
+        } else {
+            fs.unlink(dir, cb);
+        }
+    });
+}
+
 /**
  * 异步深度优先
  *
