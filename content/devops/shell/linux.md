@@ -315,3 +315,15 @@ num2=$2;
 declare -i sum=$num1 + $num2;
 echo $sum;
 ```
+
+# 网络
+
+-   netstat -a 查看计算机正在连接的会话
+-   netstat -n
+-   netstat -tunlp 用于显示 tcp，udp 的端口和进程等相关情况，如下图：
+-   telnet 链接自己启动的本地服务(类似dssh)
+    * brew install telnet
+    * telnet localhost 3000
+* curl  -v  --header "Range:bytes=3-6" www.baidu.com
+    * curl -v --header 'a:1' http://localhost:3000(get)
+    * curl  -X POST -v --header "a:isam2016" --data 'a=1' http://localhost:3000(post)
