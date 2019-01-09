@@ -1,20 +1,10 @@
-#!/usr/bin/python 
+#!/usr/bin/python
+def max(list):
+    if len(list) == 2:
+        return list[1] if list[1] > list[0] else list[0]
+    else:
+        return list[0] if list[0] > max(list[1:]) else max(list[1:])
 
-def binary_search(list,item):
-    low = 0
-    height = len(list)-1
-    while low <= height:
-        mid = (low + height) / 2
-        guss = list[mid]
-        if guss == item:
-            return mid
-        if guss > item:
-            height = mid-1
-        else:
-            low = mid + 1
-    return  None
 
-my_list  = [1,3,4,5,9]
+print(max([1, 2, 3, 4]))
 
-print binary_search(my_list,3)
-print binary_search(my_list,3-1)

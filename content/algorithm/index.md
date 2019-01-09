@@ -73,3 +73,31 @@
 - (1) 找出基线条件，这种条件必须尽可能简单。
 
 - (2) 不断将问题分解（或者说缩小规模），直到符合基线条件。”
+
+```
+def sum(arr):
+    total = 0
+    for x in arr:
+        total +=x
+    return  total
+print sum([1,21])
+```
+
+```
+# sum
+def sum(list):
+    if list ==[]:
+        return 0
+    return  list[0] + sum[list[1:]]
+
+# 列表包含的元素
+def count(list):
+    if list ==[]:
+        return 0
+    return  1 + sum[list[1:]]
+```
+
+1. 找出基线，一个元素和 0 个元素
+2. 每次递归调用都必须离空数组更近些
+
+“编写涉及数组的递归函数时，基线条件通常是数组为空或只包含一个元素。陷入困境时，请检查基线条件是不是这样的”
