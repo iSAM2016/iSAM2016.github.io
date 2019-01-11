@@ -2,13 +2,13 @@
 
 > 在 center os 的操作下
 
-- nginx 是一款轻量级的 HTTP 服务器，采用时间驱动的异步非阻塞方式处理框架，具有极好的 IO 性能，用于服务器的反向代理和负载均衡
+-   nginx 是一款轻量级的 HTTP 服务器，采用时间驱动的异步非阻塞方式处理框架，具有极好的 IO 性能，用于服务器的反向代理和负载均衡
 
-* 卡员且性能高，可靠的 http 中间件代理服务器
+*   卡员且性能高，可靠的 http 中间件代理服务器
 
 ## nginx 优势
 
-- IO 多路复用： 多个描述符的 IO 操作
+-   IO 多路复用： 多个描述符的 IO 操作
 
 ## 常用命令
 
@@ -51,13 +51,13 @@ enabled=1
 
 ## 查看 nginx 用到的命令
 
-- yum install nginx -y
+-   yum install nginx -y
 
-* rpm -ql nginx 查看 nginx 安装 所在是文件位置
+*   rpm -ql nginx 查看 nginx 安装 所在是文件位置
 
-* nginx 启动 `systemctl start nginx`
+*   nginx 启动 `systemctl start nginx`
 
-* 程序所占的端口号
+*   程序所占的端口号
 
 `ps -ef | grep nginx` 查看程序占用的端口
 `netstat -lnp`
@@ -141,6 +141,3 @@ upstream zfpx {
     server localhost:3000 weight
 }
 ```
-
-
-
