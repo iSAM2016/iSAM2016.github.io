@@ -248,9 +248,13 @@ aa=${aa}789
 
 #### 环境变量
 
+- 全局变量
+
+* 局部变量
+
 用户自定义变量只在当前的 shell 有效，而环境变量会在当前 shell 和这个 shell 的所写的子 shell 当中有效
 
-- 申明变量
+- 申明变量-设置全局变量
 
 `export 变量名=变量值`
 
@@ -261,6 +265,8 @@ aa=${aa}789
 - 删除变量
 
 `unset 变领名`
+
+要显示个别的环境变量的值，可以使用 printenv 命令,如果要取值需要使用\$,
 
 #### 位置参数变量
 
@@ -316,14 +322,46 @@ declare -i sum=$num1 + $num2;
 echo $sum;
 ```
 
+## 替换命令
+
+命令输出给变量：
+
+1. 反引号符号（`）
+2. \$()
+
 # 网络
 
--   netstat -a 查看计算机正在连接的会话
--   netstat -n
--   netstat -tunlp 用于显示 tcp，udp 的端口和进程等相关情况，如下图：
--   telnet 链接自己启动的本地服务(类似dssh)
-    * brew install telnet
-    * telnet localhost 3000
-* curl  -v  --header "Range:bytes=3-6" www.baidu.com
-    * curl -v --header 'a:1' http://localhost:3000(get)
-    * curl  -X POST -v --header "a:isam2016" --data 'a=1' http://localhost:3000(post)
+- netstat -a 查看计算机正在连接的会话
+- netstat -n
+- netstat -tunlp 用于显示 tcp，udp 的端口和进程等相关情况，如下图：
+- telnet 链接自己启动的本地服务(类似 dssh)
+  - brew install telnet
+  - telnet localhost 3000
+
+* curl -v --header "Range:bytes=3-6" www.baidu.com
+  - curl -v --header 'a:1' http://localhost:3000(get)
+  - curl -X POST -v --header "a:isam2016" --data 'a=1' http://localhost:3000(post)
+
+# 监控信息
+
+- 监控当前的进程信息 ps
+
+- top 是实时监控进程信息
+
+# 使用结构化命令
+
+```
+if commend(退出状态值为0则继续执行，commands)
+then
+    commands
+fi
+```
+
+```
+if command
+then
+    commands
+else
+    commands
+fi
+```

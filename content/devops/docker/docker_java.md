@@ -1,5 +1,7 @@
 # 后端项目
 
+> nohup java -jar shareniu.jar &
+
 ## 后台打包形成 java 包
 
 java 包的端口是 8080
