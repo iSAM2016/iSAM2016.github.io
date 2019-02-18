@@ -69,6 +69,7 @@ docker  run -it -p 127.0.0.1:8080:80 --rm --name  mynginx  nginx
 ```
 
 配置`/etc/nginx/conf.d`
+mac`/usr/local/etc/nginx/nginx.conf`
 
 ```
 server {
@@ -129,7 +130,7 @@ server{
     listen 80;
     server_name www.jw.cn;
     location / {
-        proxy_pass http:// loccalhost:3000
+        proxy_pass http://localhost:3000;
     }
 }
 ```
