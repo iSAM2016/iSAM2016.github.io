@@ -1,10 +1,10 @@
 # 容器化
 
-- 环境复杂
-- 解决开发和运维之间的关系
+-   环境复杂
+-   解决开发和运维之间的关系
 
-* 对软件和其依赖的标准化打包
-* 应用之间相互隔离
+*   对软件和其依赖的标准化打包
+*   应用之间相互隔离
 
 #docker
 
@@ -23,32 +23,32 @@ Docker 一直是以客户端和服务器的模式运行的.可以远程连接。
 
 > 为了解决 docker 命令 sudo 授权问题可以把 docker 赋予权限添加到用户组
 
-- 启动镜像 `service docker start`
-- 停止镜像 `service docker stop`
+-   启动镜像 `service docker start`
+-   停止镜像 `service docker stop`
 
-* 重启镜像 `service docker restart`
+*   重启镜像 `service docker restart`
 
-- 获取镜像 `git pull NAME[:tag]`
+-   获取镜像 `git pull NAME[:tag]`
 
-* 查看所有镜像 `docker images`
+*   查看所有镜像 `docker images`
 
-* 用 tag 命令添加标签 `docker tag ubuntu:14.04 myubuntu:latest`
+*   用 tag 命令添加标签 `docker tag ubuntu:14.04 myubuntu:latest`
 
-* 镜像重新起名 `docker tag OLDNAME NEWNAME`
+*   镜像重新起名 `docker tag OLDNAME NEWNAME`
 
-- 查看详情镜像 `docker inspect NAME`
+-   查看详情镜像 `docker inspect NAME`
 
-- 删除镜像 `docker rmi IMAG [IMAGE...](标签或ID)`
+-   删除镜像 `docker rmi IMAG [IMAGE...](标签或ID)`
 
 ### 创建镜像
 
 1. 基于已有的镜像进行创建
    `docker commit -m 'add a new file' -a 'kl' 4771f8bf30cc test:0.1`
 
-   - -a 作者信息
+    - -a 作者信息
 
-   * -m 提交信息
-   * -p 提交时暂停容器运行
+    * -m 提交信息
+    * -p 提交时暂停容器运行
 
 2. 基于本地模板导入
 
@@ -67,8 +67,8 @@ Docker 一直是以客户端和服务器的模式运行的.可以远程连接。
 
 容器中的数据管理有
 
-- 数据卷 : 容器内数据直接映射到本机环境
-- 数据卷容器：使用特定容器维护数据卷
+-   数据卷 : 容器内数据直接映射到本机环境
+-   数据卷容器：使用特定容器维护数据卷
 
 ```
 docker run -it -p 9000:3000 --name koatests --rm -v /Users/suhailong/su/NOTE/async:/demos --privileged koa-demo
@@ -109,12 +109,12 @@ docker run -it -p 9000:3000 --name koatests --rm -v /Users/suhailong/su/NOTE/asy
 
 5. 查看映射关系
 
-   docker port CONTAINER
+    docker port CONTAINER
 
 ## 互联机制
 
 1. 自定义容器命名
-   - `--name`
+    - `--name`
 
 ```
 docker run -d -P --name=web koa-demo
@@ -122,21 +122,21 @@ docker run -d -P --name=web koa-demo
 
 # 容器
 
-- 创建
-  `docker run`
+-   创建
+    `docker run`
 
-  - `-it 启动一个界面（bash）`
-    - `exit 退出 bash`
-  - `-d 后台运行`
-  - `-v 数据卷`
-    - `-v 主机目录：容器目录`
+    -   `-it 启动一个界面（bash）`
+        -   `exit 退出 bash`
+    -   `-d 后台运行`
+    -   `-v 数据卷`
+        -   `-v 主机目录：容器目录`
 
-  * `--privileged 数据卷的读写最高权限`
+    *   `--privileged 数据卷的读写最高权限`
 
-  - `--net 网段`
+    -   `--net 网段`
 
-  * `--name 容器命名`
-  * `--ip 规定的IP地址`
+    *   `--name 容器命名`
+    *   `--ip 规定的IP地址`
 
 ```
 docker run -d -p 3306:3306 -e MYSQL_ROOT_PASSWORD=abc123456 -e CLUSTER_NAME=PXC -e XTRABACKUP_PASSWORD=abc123456 -v v1:/var/lib/mysql --privileged --name=node1 --net=net1 --ip 172.18.0.2 pxc
@@ -160,7 +160,7 @@ docker run -d -p 3309:3306 -e MYSQL_ROOT_PASSWORD=abc123456 -e CLUSTER_NAME=PXC 
 docker run -d -p 3310:3306 -e MYSQL_ROOT_PASSWORD=abc123456 -e CLUSTER_NAME=PXC -e XTRABACKUP_PASSWORD=abc123456  -e CLUSTER_JOIN=node1 -v v5:/var/lib/mysql --privileged --name=node5 --net=net1 --ip 172.18.0.6 pxc
 ```
 
-- 查看
+-   查看
 
 ```
 docker container ls --all 所有容器
@@ -180,39 +180,39 @@ docker network create NAME
 eg: docker network create --subnet=172.18.0.0/24 net1
 ```
 
-- 查看网段信息
+-   查看网段信息
 
 ```
 docker network inspect NAME`
 ```
 
-- 删除网段
+-   删除网段
 
 ```
   docker newwork rm net1
 ```
 
-- 可以创建特定网段
-- `--subnet`
+-   可以创建特定网段
+-   `--subnet`
 
 # Docker 数据管理
 
-- 创建数据卷
+-   创建数据卷
 
-  - `docker volume create NAME`
-    - 在创建容器的时候是 -v
-    - `--name v1`
+    -   `docker volume create NAME`
+        -   在创建容器的时候是 -v
+        -   `--name v1`
 
-* 查看数据卷
+*   查看数据卷
 
-  - `docker inspect NAME`
+    -   `docker inspect NAME`
 
-* 查看所有
+*   查看所有
 
-  - docker volume ls
+    -   docker volume ls
 
-* 删除数据卷
-  - `docker valume rm NAME`ss
+*   删除数据卷
+    -   `docker valume rm NAME`ss
 
 # docekrfile
 
@@ -222,10 +222,10 @@ docker network inspect NAME`
 
 ### CMD
 
-- 设置容器启动后默认执行的命令
+-   设置容器启动后默认执行的命令
 
-* 如果 docker run 指定了其他的命令，CMD 将被忽略
-* 如果定义了多个 CMD ，只有最后一个会执行
+*   如果 docker run 指定了其他的命令，CMD 将被忽略
+*   如果定义了多个 CMD ，只有最后一个会执行
 
 ```
 FROM centos
@@ -245,10 +245,10 @@ docker run  -t [image] /bin/bash ？
 
 ### ENTRYPOINT
 
-- 让容器以应用程序或者服务的形式运行
+-   让容器以应用程序或者服务的形式运行
 
-* 不会被或略
-* 最佳实践： 写一个 shell 脚本为 entrypoint
+*   不会被或略
+*   最佳实践： 写一个 shell 脚本为 entrypoint
 
 ```
 COPY docker-entrypoint.sh /usr/local/bin/
@@ -262,7 +262,7 @@ CMD ["mongod"]
 
 为两种，
 
-- shell
+-   shell
 
 ```
 FROM centos
@@ -270,7 +270,7 @@ ENV name Docker
 CMD echo "hello $name"
 ```
 
-- exec
+-   exec
 
 ```
 FROM centos
@@ -303,8 +303,8 @@ docker run -d --rm --name wordpressdb --env MYSQL_ROOT_PASSWORD=123456 --env MYS
 
 ## 源容器和接收容器之间传递数据是通过以下 2 种方式：
 
-- 设置环境变量
-- 更新/etc/hosts 文件
+-   设置环境变量
+-   更新/etc/hosts 文件
 
 #### 2.1 设置环境变量
 
@@ -356,4 +356,58 @@ web:
     - WORDPRESS_DB_PASSWORD=123456
   ports:
     - "127.0.0.1:8080:80"
+```
+
+# TCP 端口打开
+
+> [链接](https://blog.csdn.net/onlyshenmin/article/details/81069047#1%E5%BC%80%E5%90%AFtcp%E7%AE%A1%E7%90%86%E7%AB%AF%E5%8F%A3)
+
+1. 开启 TCP 管理端口
+
+-   1.1 创建目录/etc/systemd/system/docker.service.d
+
+```
+mkdir /etc/systemd/system/docker.service.d
+```
+
+-   1.2. 在这个目录下创建 tcp.conf 文件,增加以下内容
+
+```
+Ubuntu和CentOS7 通用版
+cat > /etc/systemd/system/docker.service.d/tcp.conf <<EOF
+[Service]
+ExecStart=
+ExecStart=/usr/bin/dockerd -H unix:///var/run/docker.sock -H tcp://0.0.0.0:2375
+EOF
+```
+
+上面两个版本的区别在于用何种方式指定 Docker 守护进程本地套接字监听
+
+```
+-H fd://                                    仅Ubuntu可用
+-H unix:///var/run/docker.sock              CentOS和Ubuntu通用
+```
+
+-   1.3. Daemon 重新 reload ，并重启 docker
+
+```
+systemctl daemon-reload
+systemctl restart docker
+```
+
+-   1.4. 查看端口是否打开
+
+```
+ps aux |grep dockerd
+或者
+netstat -an | grep 2375
+```
+
+-   1.5 关闭 TCP 管理端口
+
+```
+   rm /etc/systemd/system/docker.service.d/tcp.conf -rf
+   systemctl daemon-reload
+   systemctl restart docker
+   ps aux |grep dockerd
 ```
