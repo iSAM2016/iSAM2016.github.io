@@ -122,41 +122,12 @@ rm -rf dist.tar.gz
 java -jar agent.jar -jnlpUrl http://build.ibs-bj.com.cn/computer/isam2016_server_node/slave-agent.jnlp -secret bcb046e5efe8b237d53619dc4d0b5817a0eac29ab009955b13af2a68149c3828 -workDir "/home/wwwroot/test.isam2016.top"
 ```
 
-# 1 安装 Jenkins Git
+# 1 安装 Jenkins
 
 > cenntos 系统
 > 官网: https://jenkins.io/
 
-## 1.1 docker 镜像 安装 jenkins
-
-### 1.1.1 下载 Jenkins 官方 docker 镜像
-
-> 镜像中包含 java 环境,无需在宿主机上二次安装
-
-- 下载镜像
-
-```
-# docker pull jenkins/jenkins
-```
-
-### 1.1.2 创建容器
-
-- 创建 jenkins 容器
-
-```
-# docker run -d -v jenkins_home:/var/jenkins_home -p 8088:8080 -p 50000:50000 jenkins/jenkins
-```
-
-参数解释：
-
-- `-v jenkins_home:/var/jenkins_home`
-  - 创建`jenkins_home` 数据卷，映射到容器内部的目录是`/var/jenkins_home`
-  - 在宿主机上执行`docker inspect jenkins_home` 查看 数据卷 在宿主机的目录
-
-* `-p 8088:8080`
-  - 将容器内 8080 端口映射到主机的 8088 端口,主机端口可更换为其他
-
-### 1.1.3 防火墙放行
+### 1.2.0 防火墙放行
 
 ```
 	### sudo vim /etc/sysconfig/iptables
@@ -164,47 +135,7 @@ java -jar agent.jar -jnlpUrl http://build.ibs-bj.com.cn/computer/isam2016_server
 	### 重启生效: sudo systemctl restart iptables
 ```
 
-### 1.1.4 销毁容器
-
-```
-docker kill CONTAINER_ID
-```
-
-## 1.2 其他安装 jenkins 方法
-
-> 在 centos 环境下
-
-其他安装方法相对 docker 比较繁琐，并需要提前安装 java JDK.
-
-### 1.2.1 安装 java JDK
-
-Jenkins 自身采用 Java 开发，所以要必须安装 JDK; 并配置环境变量。请自行百度
-**如果 docker 自带 java 环境**
-
-```
-1. export JAVA_HOME=/usr/java/jdk1.8.0_111
-```
-
-### 1.2.2 其他四中方法
-
-> [RedHat Linux RPM packages for Jenkins](http://pkg.jenkins-ci.org/redhat/)
-
-#### 1.2.2.1 离线安装
-
-```
-# wget http://pkg.jenkins-ci.org/redhat/jenkins-2.39-1.1.noarch.rpm ## 下载(也可以 Windows 下载再转过来)
-# sudo rpm --import http://pkg.jenkins-ci.org/redhat/jenkins.io.key ## 公钥
-# sudo yum -y install jenkins-\*.noarch.rpm
-```
-
-<a class="list-group-item list-group-item-action" href="http://mirrors.jenkins.io/war/latest/jenkins.war">
-<span class="title"></span>
-Generic Java package (.war)
-</a>
-
-wget http://mirrors.jenkins.io/war/latest/jenkins.war
-
-#### 1.2.2.2 在线安装
+#### 1.2.1 在线安装
 
 ```
 # sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat/jenkins.repo
@@ -212,28 +143,33 @@ wget http://mirrors.jenkins.io/war/latest/jenkins.war
 # sudo yum -y install jenkins
 ```
 
-#### 1.2.2.3 基于 Tomcat 安装
-
-- 安装并启动 Tomcat；
-- 从官网下载 jenkins.war 至 \$CATALINA_BASE/webapps，Tomcat 会自动部署；
-- 浏览器访问：http://centos:8080/jenkins/
-
-#### 1.2.2.4 免安装方式
-
-```
-# wget http://mirrors.jenkins.io/war-stable/latest/jenkins.war
-# sudo java -jar jenkens.war ## 启动服务，直至看到日志 `Jenkins is fully up and running`
-# curl http://localhost:8080/ ## Jenkins 已就绪
-```
-
 ### 1.2.3 调整配置文件
 
 ```
+
 1. ## sudo vim /etc/sysconfig/jenkins
 2. JENKINS_USER="root" ## 原值 "jenkins" 必须修改，否则权限不足
 3. JENKINS_PORT="8080" ## 原值 "8080" 可以不修改
 4. ## 还有开启 HTTPS 相关参数，此处不打算开启，故不作说明
+5. 配置 java
 
+vim  /etc/init.d/jenkins
+
+candidates="
+/setup/tools/jdk1.8.0_144/bin/java #此处为加入的java路径
+/etc/alternatives/java
+/usr/lib/jvm/java-1.8.0/bin/java
+/usr/lib/jvm/jre-1.8.0/bin/java
+/usr/lib/jvm/java-1.7.0/bin/java
+/usr/lib/jvm/jre-1.7.0/bin/java
+/usr/bin/java
+
+
+vim /etc/sysconfig/jenkins
+
+do  
+  [ -x "$JENKINS_JAVA_CMD" ] && break  
+  JENKINS_JAVA_CMD="$candidate"  
 ```
 
 安装目录: /usr/lib/jenkins
@@ -243,30 +179,37 @@ wget http://mirrors.jenkins.io/war/latest/jenkins.war
 ### 1.2.4 启动
 
 ```
+
 sudo systemctl enable jenkins
 sudo systemctl restart jenkins
+
 ```
 
 查看日志文件: `sudo tail -f /var/log/jenkins/jenkins.log`启动后会生成文件 hudson.model.UpdateCenter.xml，需要修改它，否则浏览器首次进入时会卡在“Jenkins 正在启动，请稍后…”
 
 ```
+
 1. ## 原值: http://updates.jenkins-ci.org/update-center.json
 2. ## 新值: http://mirror.xmission.com/jenkins/updates/update-center.json
 3. ## 或者: http://mirror.xmission.com/jenkins/updates/current/update-center.json
 
+4) sudo cat /var/lib/jenkins/hudson.model.UpdateCenter.xml
+5) sudo sed -i 's/updates.jenkins-ci.org/mirror.xmission.com\/jenkins\/updates/g' /var/lib/jenkins/hudson.model.UpdateCenter.xml
+6) sudo cat /var/lib/jenkins/hudson.model.UpdateCenter.xml
+7) sudo systemctl restart jenkins
 
-4. sudo cat /var/lib/jenkins/hudson.model.UpdateCenter.xml
-5. sudo sed -i 's/updates.jenkins-ci.org/mirror.xmission.com\/jenkins\/updates/g' /var/lib/jenkins/hudson.model.UpdateCenter.xml
-6. sudo cat /var/lib/jenkins/hudson.model.UpdateCenter.xml
-7. sudo systemctl restart jenkins
 ```
 
 ### 1.2.5 防火墙放行
 
 ```
- ### sudo vim /etc/sysconfig/iptables
- -A INPUT -m state --state NEW -m tcp -p tcp --dport 8080 -j ACCEPT
- ### 重启生效: sudo systemctl restart iptables
+
+### sudo vim /etc/sysconfig/iptables
+
+-A INPUT -m state --state NEW -m tcp -p tcp --dport 8080 -j ACCEPT
+
+### 重启生效: sudo systemctl restart iptables
+
 ```
 
 ### 1.2.6 卸载
@@ -274,11 +217,17 @@ sudo systemctl restart jenkins
 如果要重装，或者本机不需要 Jenkins，可卸载：
 
 ```
+
 # sudo systemctl stop jenkins
+
 # sudo systemctl disable jenkins
+
 # sudo yum -y remove jenkins
+
 # sudo rm -rf /var/{lib,log,cache}/jenkins /usr/lib/jenkins /root/.jenkins
+
 # sudo rm -rf `sudo find /{etc,var,run} -name "jenkins*"`
+
 ```
 
 ## 1.3 安装必要环境 Maven
@@ -294,20 +243,27 @@ sudo systemctl restart jenkins
 - 查看运行容器的 ID
 
 ```
-# docker ps  // domo容器的ID为 345aa0753269
+
+# docker ps // domo 容器的 ID 为 345aa0753269
+
 ```
 
 - 进入容器
 
 ```
+
 docker exec -it --user root 345aa0753269 /bin/bash
+
 ```
 
 - 安装 vim
 
 ```
+
 # apt-get update
+
 # apt-get install vim
+
 ```
 
 ### 1.3.3 安装 maven
@@ -315,31 +271,41 @@ docker exec -it --user root 345aa0753269 /bin/bash
 1. 下载
 
 ```
+
 wget -o- http://mirrors.hust.edu.cn/apache/maven/maven-3/3.6.0/binaries/apache-maven-3.6.0-bin.tar.gz
+
 ```
 
 2. 配置
 
 ```
+
 #移动文件到 /usr/local/
-# mv apache-maven-3.6.0-bin.tar.gz  /usr/local/
+
+# mv apache-maven-3.6.0-bin.tar.gz /usr/local/
 
 # 解压
+
 tar -zxvf apache-maven-3.6.0-bin.tar.gz
 
 # 重命名
+
 mv apache-maven-3.6.0 maven
 
-# 配置环境变量，编辑/etc/profile文件，添加如下代码
+# 配置环境变量，编辑/etc/profile 文件，添加如下代码
+
 MAVEN_HOME=/usr/local/maven
 export MAVEN_HOME
 export PATH=${PATH}:${MAVEN_HOME}/bin
 
 # 保存文件，并运行如下命令使环境变量生效
+
 source /etc/profile
 
-# 在控制台输入如下命令，如果能看到Maven相关版本信息，则说明Maven已经安装成功
+# 在控制台输入如下命令，如果能看到 Maven 相关版本信息，则说明 Maven 已经安装成功
+
 mvn -v
+
 ```
 
 ## 1.4 node 环境 安装 node
@@ -367,13 +333,17 @@ mvn -v
 - docker 下安装，密码存储在数据卷中，
 
 ```
-# 查看Mountpoint /var/lib/docker/volumes/jenkins_home/_data
+
+# 查看 Mountpoint /var/lib/docker/volumes/jenkins_home/\_data
+
 # docker inspect jenkins_home
 
-# 进入Mountpoint 目录
-# cd /var/lib/docker/volumes/jenkins_home/_data
+# 进入 Mountpoint 目录
+
+# cd /var/lib/docker/volumes/jenkins_home/\_data
 
 # 查看密码
+
 # sudo cat secrets/initialAdminPassword
 
 ```
@@ -432,7 +402,9 @@ Maven 下不勾选“自动安装”，指定别名=Maven, MAVEN_HOME=/usr/local
 1. 生成 SSH 密钥打开终端命令工具，输入命令：
 
 ```
+
 ssh-keygen -t rsa -C "码云邮箱“
+
 ```
 
 公钥内容在 ~/.ssh/id_rsa.pub
@@ -556,7 +528,9 @@ Remote directory：（相对路径，相对代码工作目录）： 目标服务
 Exec command：代码传送玩执行脚本（绝对路径），例如
 
 ```
+
 java -jar example.jar
+
 ```
 
 ![](../../../img/QQ20181204-140832@2x.png)
@@ -586,6 +560,7 @@ Jenkins 自带邮件插件(Mailer Plugin)的功能很弱且无法自定制，需
 进入：`系统管理 / 系统设置 / Extended E-mail Notification`
 
 ```
+
 “SMTP server” 设为 smtp.company.com
 “Default user E-mail suffix” 设为 @company.com
 “Use SMTP Authentication” 选中
@@ -598,10 +573,13 @@ Jenkins 自带邮件插件(Mailer Plugin)的功能很弱且无法自定制，需
 5.2.3 设置邮箱模板
 Default Subject: 构建通知：BUILD_NUMBER - \$BUILD_STATUS
 Default Content: 为以下
+
 ```
 
 ```
-  本邮件由系统自动发出，请勿回复！<br/>
+
+本邮件由系统自动发出，请勿回复！<br/>
+
 <h2><font color="#CC0000">构建结果 - ${BUILD_STATUS}</font></h2>
 <h4><font color="#0B610B">构建信息</font></h4>
 <hr size="2" width="100%" />
@@ -617,14 +595,16 @@ Default Content: 为以下
  <h4><font color="#0B610B">失败用例</font></h4>
  <hr size="2" width="100%" />
 
- $FAILED_TESTS<br/>
+\$FAILED_TESTS<br/>
+
  <h4><font color="#0B610B">最近提交(#$SVN_REVISION)</font></h4>
  <hr size="2" width="100%" />
  <ul>
  ${CHANGES_SINCE_LAST_SUCCESS, reverse=true, format="%c", changesFormat="<li>%d [%a] %m</li>"}
  </ul>
 
- 详细提交: <a href="${PROJECT_URL}changes">\${PROJECT_URL}changes</a><br/>
+详细提交: <a href="${PROJECT_URL}changes">\${PROJECT_URL}changes</a><br/>
+
  <h4><font color="#0B610B">代码检查</font></h4>
 
  <hr size="2" width="100%" />
@@ -761,3 +741,9 @@ JaCoCo plugin：与插件 Cobertura 一样，用于生成覆盖率报告，但�
 nohup  java -jar agent.jar -jnlpUrl http://101.200.123.5:8080/computer/node%E7%8E%AFcurl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | bash
 %E5%A2%83/slave-agent.jnlp -secret 6b503173f6ba7e6542a9519659c2584affabc59ec0e230114e3f8d23672c9b92 -workDir "/root/home" &
 ```
+
+JAVA_HOME=/usr/jdk1.8.0_201
+JRE_HOME=/usr/jdk1.8.0_201/jre
+PATH=$PATH:$JAVA_HOME/bin:$JRE_HOME/bin
+CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar:$JRE_HOME/lib
+export JAVA_HOME JRE_HOME PATH CLASSPATH
