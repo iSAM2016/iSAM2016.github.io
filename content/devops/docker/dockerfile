@@ -6,8 +6,8 @@
 #   docker run -it -v <project-resource-directory>:/workspace \
 #                  --name <container-name> [image-name]
 #
-#   docker run -it --name test-nvm ijse/nvm bash (CMD 是在run 要执行的)
-#
+#   docker run -it --name test-nvm isam2016/node 
+#   docker run -it --name test-nvm isam2016/node bash(注意bash)
 #  制作前端镜像 包含 nvm node expect
 FROM  centos
 MAINTAINER isam2016
@@ -26,12 +26,10 @@ RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh
     && source $NVM_DIR/nvm.sh \
     && nvm install v$NODE_VERSION \
     && nvm use v$NODE_VERSION \
-    && nvm alias default v$NODE_VERSION
+    && nvm alias default v$NODE_VERSION 
 ENV NODE_PATH $NVM_DIR/v$NODE_VERSION/lib/node_modules  
-ENV PATH      $NVM_DIR/v$NODE_VERSION/bin:$PATH
+ENV PATH      $NVM_DIR/versions/node/v$NODE_VERSION/bin:$PATH
 # 设置工作目录
 WORKDIR $WORK_DIR
 # 公开镜像的80端口
 EXPOSE 80
-
-#CMD node
