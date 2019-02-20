@@ -33,7 +33,7 @@
 // 服务器 监听一个指定端口IP
 // http 模块是基于net 模块的
 
-let http = require('http');
+let http = require("http");
 let server = http.createServer();
 
 // server.on('connection',function (socket) {
@@ -43,25 +43,25 @@ let server = http.createServer();
 // });
 
 // req代表的是客户端（可读流 on('data')）  res.write end 可写流
-server.on('request', (req, res) => {
-    // req是代表的客户端的请求，当客户端发过来数据后(请求体) 才会触发on('data')事件
-    console.log(req.method);
-    console.log(req.url)
-    console.log(req.httpVersion)
-    console.log(req.headers)
-    req.setEncoding('utf8');
-    // 发送请求体 post 
-    req.on('data', data => {
-        console.log('data', data);
-    });
+server.on("request", (req, res) => {
+  // req是代表的客户端的请求，当客户端发过来数据后(请求体) 才会触发on('data')事件
+  console.log(req.method);
+  console.log(req.url);
+  console.log(req.httpVersion);
+  console.log(req.headers);
+  req.setEncoding("utf8");
+  // 发送请求体 post
+  req.on("data", data => {
+    console.log("data", data);
+  });
 
-    req.on('end', (data) => {
-        console.log('end')
-        res.statusCode = 204;
-        res.end();
-    });
+  req.on("end", data => {
+    console.log("end");
+    res.statusCode = 204;
+    res.end();
+  });
 });
 
 server.listen(3000, () => {
-    console.log('server start');
+  console.log("server start");
 });

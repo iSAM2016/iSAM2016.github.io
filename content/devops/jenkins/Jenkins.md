@@ -1,6 +1,6 @@
 - [0 CI/CD](#0-cicd)
   - [脚本备份](#%E8%84%9A%E6%9C%AC%E5%A4%87%E4%BB%BD)
-- [1 安装 Jenkins](#1-%E5%AE%89%E8%A3%85-jenkins)
+- [1 安装 Jenkins Git](#1-%E5%AE%89%E8%A3%85-jenkins-git)
   - [1.1 docker 镜像 安装 jenkins](#11-docker-%E9%95%9C%E5%83%8F-%E5%AE%89%E8%A3%85-jenkins)
     - [1.1.1 下载 Jenkins 官方 docker 镜像](#111-%E4%B8%8B%E8%BD%BD-jenkins-%E5%AE%98%E6%96%B9-docker-%E9%95%9C%E5%83%8F)
     - [1.1.2 创建容器](#112-%E5%88%9B%E5%BB%BA%E5%AE%B9%E5%99%A8)
@@ -17,10 +17,11 @@
     - [1.2.4 启动](#124-%E5%90%AF%E5%8A%A8)
     - [1.2.5 防火墙放行](#125-%E9%98%B2%E7%81%AB%E5%A2%99%E6%94%BE%E8%A1%8C)
     - [1.2.6 卸载](#126-%E5%8D%B8%E8%BD%BD)
-  - [1.3 安装必要环境 Maven/Node](#13-%E5%AE%89%E8%A3%85%E5%BF%85%E8%A6%81%E7%8E%AF%E5%A2%83-mavennode)
+  - [1.3 安装必要环境 Maven](#13-%E5%AE%89%E8%A3%85%E5%BF%85%E8%A6%81%E7%8E%AF%E5%A2%83-maven)
     - [1.3.1 进入数据卷](#131-%E8%BF%9B%E5%85%A5%E6%95%B0%E6%8D%AE%E5%8D%B7)
-    - [1.3.2 安装 node](#132-%E5%AE%89%E8%A3%85-node)
     - [1.3.3 安装 maven](#133-%E5%AE%89%E8%A3%85-maven)
+  - [1.4 node 环境 安装 node](#14-node-%E7%8E%AF%E5%A2%83-%E5%AE%89%E8%A3%85-node)
+  - [1.5 cnetos 安装 git](#15-cnetos-%E5%AE%89%E8%A3%85-git)
 - [2 基本配置](#2-%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE)
   - [2.1 登录](#21-%E7%99%BB%E5%BD%95)
   - [2.2 安全设置](#22-%E5%AE%89%E5%85%A8%E8%AE%BE%E7%BD%AE)
@@ -122,9 +123,10 @@ rm -rf dist.tar.gz
 java -jar agent.jar -jnlpUrl http://build.ibs-bj.com.cn/computer/isam2016_server_node/slave-agent.jnlp -secret bcb046e5efe8b237d53619dc4d0b5817a0eac29ab009955b13af2a68149c3828 -workDir "/home/wwwroot/test.isam2016.top"
 ```
 
-# 1 安装 Jenkins
+# 1 安装 Jenkins Git
 
-官网: https://jenkins.io/
+> cenntos 系统
+> 官网: https://jenkins.io/
 
 ## 1.1 docker 镜像 安装 jenkins
 
@@ -145,8 +147,6 @@ java -jar agent.jar -jnlpUrl http://build.ibs-bj.com.cn/computer/isam2016_server
 ```
 # docker run -d -v jenkins_home:/var/jenkins_home -p 8088:8080 -p 50000:50000 jenkins/jenkins
 ```
-
-docker run -d -u root -p 8080:8080 -v jenkins_home:/var/jenkins_home -v /var/run/docker.sock:/var/run/docker.sock -v "\$HOME":/home jenkinsci/blueocean
 
 参数解释：
 
@@ -197,6 +197,13 @@ Jenkins 自身采用 Java 开发，所以要必须安装 JDK; 并配置环境变
 # sudo rpm --import http://pkg.jenkins-ci.org/redhat/jenkins.io.key ## 公钥
 # sudo yum -y install jenkins-\*.noarch.rpm
 ```
+
+<a class="list-group-item list-group-item-action" href="http://mirrors.jenkins.io/war/latest/jenkins.war">
+<span class="title"></span>
+Generic Java package (.war)
+</a>
+
+wget http://mirrors.jenkins.io/war/latest/jenkins.war
 
 #### 1.2.2.2 在线安装
 
@@ -275,15 +282,13 @@ sudo systemctl restart jenkins
 # sudo rm -rf `sudo find /{etc,var,run} -name "jenkins*"`
 ```
 
-## 1.3 安装必要环境 Maven/Node
+## 1.3 安装必要环境 Maven
 
-> 如果 docker 容器安装 jenkins,则需要到 docker 容器中安装 node/maven
-
-安装 node ， 兼容前端项目
+> 如果 docker 容器安装 jenkins,则需要到 docker 容器中安装 maven
 
 本文集成的项目基于 Maven 构架，所以 Maven 也必须安装；
 
-这里介绍在 docker 环境下安装 maven 和 node。
+这里介绍在 docker 环境下安装 maven
 
 ### 1.3.1 进入数据卷
 
@@ -304,21 +309,6 @@ docker exec -it --user root 345aa0753269 /bin/bash
 ```
 # apt-get update
 # apt-get install vim
-```
-
-### 1.3.2 安装 node
-
-```
-# wget https://nodejs.org/dist/v10.9.0/node-v10.9.0-linux-x64.tar.xz    // 下载
-# tar xf  node-v10.9.0-linux-x64.tar.xz       // 解压
-# cd node-v10.9.0-linux-x64/                  // 进入解压目录
-# ./bin/node -v                               // 执行node命令 查看版本
-v10.9.0
-```
-
-```
-ln -s /usr/software/nodejs/bin/npm   /usr/local/bin/
-ln -s /usr/software/nodejs/bin/node   /usr/local/bin/
 ```
 
 ### 1.3.3 安装 maven
@@ -353,6 +343,20 @@ source /etc/profile
 mvn -v
 ```
 
+## 1.4 node 环境 安装 node
+
+安装 Nodejs 插件，然后在构建项目的时候选择不同的 NodeJS 版本。
+
+![](../../../img/jenkins-nodejs.png)
+
+-   构建环境
+
+注意这里需要选择“Provide Node & npm bin/ folder to PATH”，并在下面选择上面步骤安装的 NodeJS 对应版本。否则会由于找不到 npm 命令的错误而构建失败。
+
+## 1.5 cnetos 安装 git
+
+请自行解决
+
 # 2 基本配置
 
 ## 2.1 登录
@@ -385,7 +389,7 @@ mvn -v
 
 **注意**
 
-如果遇到，如图问题，请多次重试点击 `使用admin账户继续`, 并进入 `系统管理/全局安全配置` 中，把`CSRF Protection` 选项关掉如果关不掉，请勾选允许用户注册，然后点击应用按钮,保存按钮交叉点击，应用按钮 多点击。直到成功
+如果遇到，如图问题，请多次重试点击 `使用admin账户继续`, 并进入 `系统管理/全局安全配置` 中，把`CSRF Protection` 选项关掉,如果关不掉，请勾选`允许用户注册`，然后点击`应用按钮`,`保存按钮`交叉点击，`应用按钮` 多点击。直到成功
 
 ![](../../../img/QQ20181203-0.png)
 
@@ -524,7 +528,7 @@ package -Dmaven.test.skip=true
 -   name 随意
 -   hostname ip 地址
 -   username 用户名字
--   Remote Directory 服务器路径，可以不用再全局这填写，再集体构建填写即可
+-   Remote Directory 服务器路径，尽量在全局配置路径，比较稳定
 
 点击 高级按钮， 单选 Use password authentication, or use a different key
 
@@ -757,30 +761,4 @@ JaCoCo plugin：与插件 Cobertura 一样，用于生成覆盖率报告，但�
 ```
 nohup  java -jar agent.jar -jnlpUrl http://101.200.123.5:8080/computer/node%E7%8E%AFcurl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | bash
 %E5%A2%83/slave-agent.jnlp -secret 6b503173f6ba7e6542a9519659c2584affabc59ec0e230114e3f8d23672c9b92 -workDir "/root/home" &
-```
-
-等待一分钟
-
-```
-case $deploy_env in
-    deploy)
-        echo "deploy:$deploy_env"
-        npm config set registry http://registry.npm.taobao.org/
-        cd dist
-        pwd && ls
-        tar -zcvf dist.tar.gz *
-        ;;
-    rollback)
-        echo "rollback:$deploy_env"
-        echo "version:$version"
-        cd dist
-        pwd && ls
-        rm -rf *
-        cp -R ${JENKINS_HOME}/jobs/testTask/builds/${version}/archive/dist/* .
-        pwd && ls
-        ;;
-     *)
-     exit
-        ;;
-esac
 ```

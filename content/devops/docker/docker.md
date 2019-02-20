@@ -324,7 +324,7 @@ docker exec -it mynginx /bin/bash
 env | grep -i MYSQL
 ```
 
-![](./img/QQ20181031-151400.png)
+![](../../../img/QQ20181031-151400.png)
 
 #### 2.2 更新/etc/hosts 文件
 
@@ -336,7 +336,7 @@ cat /etc/hosts
 
 # 发布流程
 
-![](./img/QQ20181103-155836@2x.png)
+![](../../../img/QQ20181103-155836@2x.png)
 
 ### Docker Compose
 
