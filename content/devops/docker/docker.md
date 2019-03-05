@@ -358,7 +358,11 @@ web:
     - "127.0.0.1:8080:80"
 ```
 
-# TCP 端口打开
+# 通用配置
+
+> （如果是 jenkis 记得重启）
+
+## TCP 端口打开
 
 > [链接](https://blog.csdn.net/onlyshenmin/article/details/81069047#1%E5%BC%80%E5%90%AFtcp%E7%AE%A1%E7%90%86%E7%AB%AF%E5%8F%A3)
 
@@ -410,4 +414,106 @@ netstat -an | grep 2375
    systemctl daemon-reload
    systemctl restart docker
    ps aux |grep dockerd
+```
+
+## 其他用户使用 docker
+
+1. 如果还没有 docker group 就添加一个：
+
+`sudo groupadd docker`
+
+2. 将用户加入该 group 内。然后退出并重新登录就生效啦。
+
+`sudo gpasswd -a ${USER} docker`
+
+3. 重启 docker 服务
+
+`sudo service docker restart`
+
+4. 切换当前会话到新 group 或者重启 X 会话
+
+`newgrp - docker`
+
+## 远程 c/s
+
+1. 配置
+
+`cat /lib/systemd/system/docker.service`
+
+```
+[Unit]
+Description=Docker Application Container Engine
+Documentation=https://docs.docker.com
+After=network-online.target firewalld.service
+Wants=network-online.target
+
+[Service]
+Type=notify
+
+# the default is not to use systemd for cgroups because the delegate issues still
+
+# exists and systemd currently does not support the cgroup feature set required
+
+# for containers run by docker
+
+ExecStart=/usr/bin/dockerd
+ExecReload=/bin/kill -s HUP \$MAINPID
+
+# Having non-zero Limit\*s causes performance problems due to accounting overhead
+
+# in the kernel. We recommend using cgroups to do container-local accounting.
+
+LimitNOFILE=infinity
+LimitNPROC=infinity
+LimitCORE=infinity
+
+# Uncomment TasksMax if your systemd version supports it.
+
+# Only systemd 226 and above support this version.
+
+#TasksMax=infinity
+TimeoutStartSec=0
+
+# set delegate yes so that systemd does not reset the cgroups of docker containers
+
+Delegate=yes
+
+# kill only the docker process, not all processes in the cgroup
+
+KillMode=process
+
+# restart the docker process if it exits prematurely
+
+Restart=on-failure
+StartLimitBurst=3
+StartLimitInterval=60s
+
+[Install]
+WantedBy=multi-user.target
+```
+
+2. 将以上配置中的
+
+```
+ExecStart=/usr/bin/dockerd
+
+修改为
+ExecStart=/usr/bin/dockerd -H unix:///var/run/docker.sock -H tcp://0.0.0.0:2375
+```
+
+3. 通用部分
+
+```
+重启 docker 网络
+systemctl daemon-reload
+```
+
+4.  重启 docker 服务
+
+`systemctl restart docker`
+
+5. test
+
+```
+docker -H <IP>  images
 ```
