@@ -146,6 +146,7 @@ sudo yum update
 sudo yum -y install git yum-utils device-mapper-persistent-data lvm2 expect
 ```
 
+wget  https://download.oracle.com/otn-pub/java/jdk/8u201-b09/42970487e3af4f5aa5bca3f542482c60/jdk-8u201-linux-x64.tar.gz
 ```
 # sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat/jenkins.repo
 # sudo rpm --import https://pkg.jenkins.io/redhat/jenkins.io.key
