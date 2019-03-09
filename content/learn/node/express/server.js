@@ -7,11 +7,15 @@ let express = require('./express.js');
 let app = express(); // app 是监听函数
 console.log(app.listen);
 //  方法=》 路由 =》 handle
-app.get('/', function (req, res) {
+app.get('/test', function (req, res) {
     res.end('home');
 });
 
-app.post('/', function (req, res) {
+app.get('/test', function (req, res) {
+    res.end('home');
+});
+
+app.post('/user/:name/:id', function (req, res) {
     res.end('post home');
 });
 //  路径参数路由， 在路径参数 /user/:name/:id  => /user/1/2 => {name:1,id:2} => req.params
@@ -24,8 +28,23 @@ app.get('user/:name/:id', function (req, res) {
 app.listen(3000);
 
 let path = 'user/:name/:id';
-let real = '/user/1/2';
+let realPath = '/user/1/2';
+let param = []
 
-path.replace(/:([^\/]*)/g, function () {
-    param.push();
+let regstr = path.replace(/:([^\/]*)/g, function (match, part1) {
+    param.push(arguments[1]);
+    return '([^\/]*)'
 });
+
+let reg = new RegExp(regstr)
+let [, ...args] = realPath.match(reg);
+console.log(reg)
+console.log(param)
+console.log(args)
+
+let source = param.reduce((memo, key, index) => {
+    memo[key] = args[index];
+    return memo
+}, {})
+
+console.log(source)
