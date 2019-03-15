@@ -7,11 +7,15 @@ let express = require('./express.js');
 let app = express(); // app 是监听函数
 console.log(app.listen);
 //  方法=》 路由 =》 handle
-app.get('/', function (req, res) {
+app.get('/test', function (req, res) {
     res.end('home');
 });
 
-app.post('/', function (req, res) {
+app.get('/test', function (req, res) {
+    res.end('home');
+});
+
+app.post('/user/:name/:id', function (req, res) {
     res.end('post home');
 });
 //  路径参数路由， 在路径参数 /user/:name/:id  => /user/1/2 => {name:1,id:2} => req.params

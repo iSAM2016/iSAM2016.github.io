@@ -213,6 +213,7 @@ wget http://mirrors.jenkins.io/war/latest/jenkins.war
 
 #### 1.2.2.2 在线安装
 
+wget  https://download.oracle.com/otn-pub/java/jdk/8u201-b09/42970487e3af4f5aa5bca3f542482c60/jdk-8u201-linux-x64.tar.gz
 ```
 # sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat/jenkins.repo
 # sudo rpm --import https://pkg.jenkins.io/redhat/jenkins.io.key
