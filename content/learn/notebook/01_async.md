@@ -20,11 +20,7 @@
     - [6.5.2 async 函数的实现](#652-async-%E5%87%BD%E6%95%B0%E7%9A%84%E5%AE%9E%E7%8E%B0)
 - [vscode 调试](#vscode-%E8%B0%83%E8%AF%95)
 
-## 问题
-
-### mysql 的缺点、 mongoos 的 缺钱
-
-### webworker 工作线程
+# 问题
 
 ## 0.Async
 
@@ -327,3 +323,160 @@ function read(){
 ```
 
 ## vscode 调试
+
+# promise 实现
+
+[](https://juejin.im/post/5affc3976fb9a07aab2a1dc6)
+
+```
+function Promise(callback){
+    var self = this;
+    self.status = 'PENDING';// 开始状态
+    self.data = undefined;
+    self.onResolvedCallback = [] //resolve 回调的结果
+    self.onRejectedCallback = [] //reject 回调
+    callback(resolve,reject)//执行executor 病传入想想的参数
+
+    function resolve(value){
+        if (self.status === 'PENDING'){
+            self.status == 'FULFILLED';// 成功转态
+            self.data = value;
+             // 依次执行成功之后的函数栈
+            for(var i = 0; i < self.onResolvedCallback.length; i++) {
+                self.onResolvedCallback[i](value)
+            }
+        }
+
+    }
+    function reject(error) {
+        if(self.status === 'PENDING'){
+            self.status == 'REJECTED',
+            self.data = error
+              // 依次执行失败之后的函数栈
+           for(var i = 0; i < self.onRejectedCallback.length; i++) {
+               self.onRejectedCallback[i](error)
+            }
+
+        }
+
+    }
+
+}
+
+// then
+Promise.prototype.then = function(){
+
+}
+
+new Promise((res,rej)=>{
+   res(s);
+}).then((data)=>{
+    console.log(data)
+})
+
+```
+
+https://juejin.im/post/5afe6d3bf265da0b9e654c4b?utm_source=gold_browser_extension
+
+## 记忆点
+
+#javascript
+
+##### async/await
+
+1. 处理其中的错误
+
+```
+async function getData() {
+    try{
+        const url = '/index.php?m=home&c=login';
+        const res = await axios.get('/index.php?m=home&c=login');
+        console.log(res.data);
+    } catch(err){
+        console.log(err);
+    }
+
+}
+getData();
+```
+
+2. 处理 await 中的并行串行
+
+```
+const sleep = (timeout = 2000) => new Promise(resolve => {
+  setTimeout(resolve, timeout);
+})
+
+async function getData() {
+  await sleep(2000);
+  const url = '/index.php?m=home&c=login';
+  const res = await axios.get('/index.php?m=home&c=login');
+  console.log(res.data);
+}
+
+const show = async() => {
+  console.log('begin');
+  const feweekly = await getData();
+  const tool = await getData();
+}
+show();
+```
+
+3. promise.all 和 await 的使用
+   实现多个异步操作的并行，适合多个请求的
+
+```
+const sleep = (timeout = 2000) => new Promise(resolve => {
+  setTimeout(resolve, timeout);
+})
+
+async function getData() {
+  const url = '/index.php?m=home&c=login';
+  const res = await axios.get('/index.php?m=home&c=login');
+  return res.data.message;
+}
+async function getDatas() {
+  const url = '/index.php?m=home&c=logi';
+  const res = await axios.get('/index.php?m=home&c=login');
+  return res.data.message;
+}
+
+const show = async() => {
+  console.log('begin');
+  const [feweekly, tool] = await Promise.all([getData(), getDatas()])
+  console.log(feweekly);
+  console.log(tool);
+}
+show();
+
+```
+
+4. await 和 for
+
+```
+const fetch = require('node-fetch');
+const bluebird = require('bluebird');
+
+async function getZhihuColumn(id) {
+  await bluebird.delay(1000);
+  const url = `https://zhuanlan.zhihu.com/api/columns/${id}`;
+  const response = await fetch(url);
+  return await response.json();
+}
+
+const showColumnInfo = async () => {
+  console.time('showColumnInfo');
+
+  const names = ['feweekly', 'toolingtips'];
+  const promises = names.map(x => getZhihuColumn(x));
+  for (const promise of promises) {
+    const column = await promise;
+    console.log(`Name: ${column.name}`);
+    console.log(`Intro: ${column.intro}`);
+  }
+
+  console.timeEnd('showColumnInfo');
+};
+
+showColumnInfo();
+```
