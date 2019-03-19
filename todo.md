@@ -8,7 +8,7 @@ Iframe 嵌套问题
 Webweoker
 避免接口暴露
 
--         Github =>start
+-                 Github =>start
 -   书签收藏
     -   github+>fork
 -   知乎
@@ -46,9 +46,3 @@ Webweoker
 4. 组件分享
 5. 2019 年形式分析
 6. vue 源码
-
-## node
-
-进程— 资源分配的最小单位
-
-线程— 程序执行的最小单位
