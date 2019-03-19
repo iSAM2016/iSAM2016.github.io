@@ -33,5 +33,6 @@
 ##### 其他
 
 1. [\*《美团旅行前端技术体系的思考与实践》知乎 live 文字稿](https://zhuanlan.zhihu.com/p/29373613?utm_source=wechat_session&utm_medium=social)
-2. ae30c16e5b91757357bacd6262f5218ef5ce0d3b
-3. shift + alt + d
+2. 52e01e9ac52d7234b6bd62daab5315d4a91a40a9
+3. id:8f2bb7e05a984d87d466889adb0b71ae
+4. shift + alt + d
