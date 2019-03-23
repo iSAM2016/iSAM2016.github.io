@@ -1,4 +1,15 @@
-# 配置
+# 其他
+
+[MarginNote X(Pro) Ma](https://www.zhinin.com/marginnote_pro-mac.html)
+[Navicat Premium Mac 12 破解](https://blog.csdn.net/xhd731568849/article/details/79751188)
+
+# vscode 配置
+
+[vscode 插件推荐 - 献给所有前端工程师（2](https://segmentfault.com/a/1190000006697219)
+
+2. 52e01e9ac52d7234b6bd62daab5315d4a91a40a9
+3. id:8f2bb7e05a984d87d466889adb0b71ae
+4. shift + alt + d
 
 ```
 {
@@ -45,6 +56,7 @@
   "emmet.includeLanguages": {
     "wxml": "html"
   },
+  TODO://
   // 小程序自动配置项开启
   "minapp-vscode.disableAutoConfig": true,
   // 启用后，按下 TAB 键，将展开 Emmet 缩写。
