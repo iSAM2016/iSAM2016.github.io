@@ -21,7 +21,7 @@ int main(int argc, char *argv[])
         exit(1);
     }
     //  1. 调用socket
-    sock = socket(PE_INET, SOCK_STREAM, 0);
+    sock = socket(PF_INET, SOCK_STREAM, 0);
     if (sock == -1)
         error_handling("socket() error");
 

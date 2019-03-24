@@ -1,9 +1,9 @@
-/* 服务端 
+/* 服务端 tcp 套接字示例
  * 服务器端套接字或监听套接字
  * @Author: isam2016 
  * @Date: 2019-03-23 20:04:34 
  * @Last Modified by: isam2016
- * @Last Modified time: 2019-03-23 20:38:46
+ * @Last Modified time: 2019-03-24 09:59:06
  */
 
 #include <stdio.h>
@@ -31,12 +31,8 @@ int main(int argc, char *argv[])
         exit(1);
     }
 
-    // if (WSAStartup(MAKEWORD(2, 2), &wsaData) != 0)
-    //     ErrorHandling("WSAStartup() error");
-    int PE_INET;
-    PE_INET = 20;
     //  1.调用docket 套接字
-    serv_sock = socket(PE_INET, SOCK_STREAM, 0);
+    serv_sock = socket(PF_INET, SOCK_STREAM, 0);
 
     if (serv_sock == -1)
     {
