@@ -10,6 +10,23 @@
 
 -   IO 多路复用： 多个描述符的 IO 操作
 
+Nginx 配置信息
+网站文件存放默认目录
+
+/usr/share/nginx/html
+网站默认站点配置
+
+/etc/nginx/conf.d/default.conf
+自定义 Nginx 站点配置文件存放目录
+
+/etc/nginx/conf.d/
+Nginx 全局配置
+
+/etc/nginx/nginx.conf
+Nginx 启动
+
+nginx -c nginx.conf
+
 ## 常用命令
 
 添加配置一般在
