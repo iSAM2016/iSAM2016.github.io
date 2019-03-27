@@ -56,6 +56,7 @@
   "emmet.includeLanguages": {
     "wxml": "html"
   },
+  TODO://
   // 小程序自动配置项开启
   "minapp-vscode.disableAutoConfig": true,
   // 启用后，按下 TAB 键，将展开 Emmet 缩写。

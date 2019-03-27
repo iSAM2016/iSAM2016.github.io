@@ -1,0 +1,7 @@
+{
+  "devDependencies": {
+    "cheerio": "^1.0.0-rc.2",
+    "eventproxy": "^1.0.0",
+    "superagent": "^4.1.0"
+  }
+}
