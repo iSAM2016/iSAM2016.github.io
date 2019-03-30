@@ -20,7 +20,7 @@ int main(int argc, char *argv[])
         printf("Usage: %s <IP><port>\n", argv[0]);
         exit(1);
     }
-    //  1. 调用socket
+    //  1. 调用socket, 创建准备连接服务器的套接字，此时创建的是TCP 套接字
     sock = socket(PF_INET, SOCK_STREAM, 0);
     if (sock == -1)
         error_handling("socket() error");
