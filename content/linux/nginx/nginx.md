@@ -82,7 +82,7 @@ enabled=1
 ## nginx 配置
 
 ```
-docker  run -it -p 127.0.0.1:8080:80 --rm --name  mynginx  nginx
+docker  run -d -p 127.0.0.1:8080:80 --rm --name  mynginx  nginx
 ```
 
 配置`/etc/nginx/conf.d`
