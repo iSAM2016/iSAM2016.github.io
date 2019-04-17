@@ -1,2 +1,3 @@
-
-let app = express(); // app 是监听函数
+app.use(bodyParser.urlencoded({
+    extended: false
+}))
