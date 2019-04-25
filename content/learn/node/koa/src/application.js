@@ -4,7 +4,7 @@ let EventEmitter = require('events');
 let request = require('./request');
 let response = require('./response');
 let context = require('./context');
-
+let Stream = require('stream');
 class Koa extends EventEmitter {
     constructor() {
         super();
@@ -64,9 +64,22 @@ class Koa extends EventEmitter {
             this.middlewares
         );
         p.then(() => {
-            console.log('90');
             let body = ctx.body; // 当所有的函数都执行完后取出body的值，响应回去即可
-            res.end(body);
+            console.log(typeof body);
+            if (body instanceof Stream) {
+                body.pipe(res);
+            } else if (typeof body === 'number') {
+                res.setHeader('Content-Type', 'text/plain;charset=utf8');
+                res.end(body.toString());
+            } else if (typeof body === 'object') {
+                res.setHeader('Content-type', 'application/json;charset=utf8');
+                res.end(JSON.stringify(body));
+            } else if (typeof body === 'string' || Buffer.isBuffer(body)) {
+                res.setHeader('Content-Type', 'text/plain;charset=utf8');
+                res.end(body);
+            } else {
+                res.end('not found');
+            }
         }).catch(err => {
             this.emit('error', err);
         });
