@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css">
+</head>
+
+<body>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="col-md-6 col-md-offset-3">
+                <div class="panel panel-danger">
+                    <div class="panel-heading">
+                        <h2>反射xss</h2>
+                    </div>
+                    <div class="panel-body">
+                        <form onsubmit="login(event)">
+                            <div class=" form-group">
+                                <label for="username" class="control-label"> 用户名</label>
+                                <input type="text" id="username" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="password" class="control-label"> 密码</label>
+                                <input type="text" id="password" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <input type="submit">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <input type="text" id="web">
+    <button id="add"> 添加图片</button>
+    <div class="box"></div>
+</body>
+
+</html>
+<script src="/node_modules/jquery/dist/jquery.js"> </script>
+<script>
+    /**
+     * * 反射型 xss-form
+     * 
+     * 恶意注册代码段
+     * 我们可以 encodeURIComponent() 接受参数
+     * http://localhost:3000/welcome?type=<script>alert(document.cookie)<\/script>encodeURIComponent
+     * 
+     * 即时性，不经过服务器存储，直接通过 HTTP 的 GET 和 POST 请求就能完成一次攻击，拿到用户隐私数据。
+     * 攻击者需要诱骗点击,必须要通过用户点击链接才能发起
+     * 盗取用户敏感保密信息
+     * 
+     */
+    function login(e) {
+        e.preventDefault()
+        let username = $("#username").val();
+        let password = $("#password").val();
+        $.post('/api/login', {
+            username,
+            password
+        }).then(res => {
+            if (res.code === 0) {
+                location.href = '/welcome';
+            } else {
+                alert(1)
+            }
+        })
+    }
+    // 反射型 xss-dom
+    /***
+     * 基于 Dom-base 修改属性 插入内容 document.wi
+     * 可以 encodeURI
+     */
+
+    $('#add').on('click', function () {
+        // <img src="xxx" onerror="alert(1)" id="">
+        //<img src="xxx"><script>alert(1)<\/script> 
+        $('.box').html(`<img src="${$('#web').val()}">`)
+    })
+</script>

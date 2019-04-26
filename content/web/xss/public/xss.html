@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css">
+</head>
+
+<body>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="col-md-6 col-md-offset-3">
+                <div class="panel panel-danger">
+                    <div class="panel-heading">
+                        <h2>存储型xss</h2>
+                    </div>
+                    <div class="panel-body">
+                        <ul class="list-group">
+
+                        </ul>
+                        <form onsubmit="addComment(event)">
+                            <div class=" form-group">
+                                <label for="username" class="control-label"> 内容</label>
+                                <input type="text" id="username" class="form-control">
+                            </div>
+
+                            <div class="form-group">
+                                <input type="submit">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+<script src="/node_modules/jquery/dist/jquery.js"> </script>
+<script>
+    function getList() {
+        $.get('/api/list').then(res => {
+            if (res.code === 0) {
+                let html = '';
+                res.comment.forEach(element => {
+                    html += `<li class="list-group-item">${element.username} ${element.connect}</li>`
+                });
+                $('.list-group').html(html)
+            }
+        })
+    }
+    getList();
+
+    function addComment(e) {
+        e.preventDefault();
+        let content = $('#username').val();
+        // 如果输入脚本，第二个在登录，直接攻击
+        //  <script>alert(1)<\/script>
+        $.post('/api/addComment', {
+            content
+        }).then(res => {
+            if (res.code === 0) {
+                getList();
+            }
+        })
+    }
+</script>

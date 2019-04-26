@@ -5,6 +5,7 @@
     "depd": "^2.0.0",
     "eventproxy": "^1.0.0",
     "express": "^4.16.4",
+    "jquery": "^3.4.0",
     "mime": "^2.4.2",
     "superagent": "^4.1.0"
   },
