@@ -63,7 +63,15 @@
 
 6. 页面生成的过程
 
-https://gitee.com/jw-speed/201806
+7. [优化页面的打开速度，要不要了解一下~](https://juejin.im/post/5afd6a88f265da0b9127a879?utm_source=gold_browser_extension)
+8. [Web性能的方方面面](https://github.com/laoqiren/web-performance)
 
-3028213607@qq.com
-密码 zf1234567
+
+
+### 调试
+
+[Charles 从入门到精通](http://blog.devtang.com/2015/11/14/charles-introduction/)
+[Mac OS 下Charles+Chrome Omega配置方法](https://blog.csdn.net/liu251/article/details/52096142)
+[chrome-performance页面性能分析使用教程](https://www.cnblogs.com/zjjing/p/9106111.html)
+[9102了，你还不会移动端真机调试？](https://segmentfault.com/a/1190000018613578)
+[前端 WEBVIEW 指南之调试篇](https://imnerd.org/webview-debug.html)

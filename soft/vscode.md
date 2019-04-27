@@ -7,9 +7,11 @@
 
 [vscode 插件推荐 - 献给所有前端工程师（2](https://segmentfault.com/a/1190000006697219)
 
-2. 52e01e9ac52d7234b6bd62daab5315d4a91a40a9
-3. id:8f2bb7e05a984d87d466889adb0b71ae
-4. shift + alt + d
+```
+GitHub Token: 74163f61aaca925e057ba7da29b2965c2640afd5
+GitHub Gist: b13440e45245bde3c108f2c9b3794b1f
+GitHub Gist Type: Secret
+```
 
 ```
 {

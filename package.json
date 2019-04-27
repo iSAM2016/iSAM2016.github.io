@@ -1,7 +1,29 @@
 {
   "devDependencies": {
+    "body-parser": "^1.18.3",
     "cheerio": "^1.0.0-rc.2",
+    "depd": "^2.0.0",
     "eventproxy": "^1.0.0",
+    "express": "^4.16.4",
+    "jquery": "^3.4.0",
+    "mime": "^2.4.2",
     "superagent": "^4.1.0"
-  }
+  },
+  "name": "isam2016.github.io-master",
+  "description": "> 不敢说是博客，只是记录学习的进程吧，结一番吧哈也是为写博客做准备吧！",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iSAM2016/iSAM2016.github.io.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iSAM2016/iSAM2016.github.io/issues"
+  },
+  "homepage": "https://github.com/iSAM2016/iSAM2016.github.io#readme"
 }
