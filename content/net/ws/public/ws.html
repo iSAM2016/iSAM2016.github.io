@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+</body>
+
+</html>
+<script src="/node_modules/jquery/dist/jquery.js"> </script>
+<script>
+    let socket = new WebSocket('ws://localhost:8888');
+    socket.onopen = function () {
+        console.log('1 客户端开始连接服务器');
+        socket.send('3-你好');
+
+    }
+
+    socket.onmessage = function (event) {
+        console.log('6 服务端发来的消息' + event.data);
+    }
+</script>
