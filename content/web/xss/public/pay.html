@@ -16,24 +16,25 @@
             <div class="col-md-6 col-md-offset-3">
                 <div class="panel panel-danger">
                     <div class="panel-heading">
-                        <h2>存储型xss</h2>
+                        <h2>转账页面</h2>
+                        <p> 用户： <span id="u"></span></p>
+                        <p> 金额： <span id="m"></span></p>
                     </div>
                     <div class="panel-body">
-                        <ul class="list-group">
-
-                        </ul>
-                        <form onsubmit="addComment(event)">
+                        <form onsubmit="trans(event)">
                             <div class=" form-group">
-                                <label for="username" class="control-label"> 内容</label>
+                                <label for="username" class="control-label"> 收款人</label>
                                 <input type="text" id="username" class="form-control">
                             </div>
-
+                            <div class="form-group">
+                                <label for="value" class="control-label"> 金额</label>
+                                <input type="text" id="value" class="form-control">
+                            </div>
                             <div class="form-group">
                                 <input type="submit">
                             </div>
                         </form>
                     </div>
-                    <a href="./pay.html">pay.html</a>
                 </div>
             </div>
         </div>
@@ -43,29 +44,36 @@
 </html>
 <script src="/node_modules/jquery/dist/jquery.js"> </script>
 <script>
-    function getList() {
-        $.get('/api/list').then(res => {
-            if (res.code === 0) {
-                let html = '';
-                res.comment.forEach(element => {
-                    html += `<li class="list-group-item">${element.username} ${element.connect}</li>`
-                });
-                $('.list-group').html(html)
+    /**
+     */
+    function getuserinfo() {
+        $.get('/api/userinfo').then(res => {
+            if (res.code !== 0) {
+                // location.href = '/welcome';
+            } else {
+                let {
+                    username,
+                    money
+                } = res.user;
+                $('#u').html(username)
+                $("#m").html(money)
             }
         })
     }
-    getList();
+    getuserinfo();
 
-    function addComment(e) {
-        e.preventDefault();
-        let content = $('#username').val();
-        // 如果输入脚本，第二个在登录，直接攻击
-        //  <script>alert(1)<\/script>
-        $.post('/api/addComment', {
-            content
+    function trans(e) {
+        e.preventDefault()
+        let target = $("#username").val();
+        let money = $("#value").val();
+        $.post('/api/transfer', {
+            target,
+            money
         }).then(res => {
             if (res.code === 0) {
-                getList();
+                getuserinfo();
+            } else {
+
             }
         })
     }

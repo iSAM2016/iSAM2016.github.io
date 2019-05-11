@@ -1,6 +1,7 @@
 {
   "devDependencies": {
     "body-parser": "^1.18.3",
+    "bootstrap": "^3.4.1",
     "cheerio": "^1.0.0-rc.2",
     "depd": "^2.0.0",
     "eventproxy": "^1.0.0",
@@ -25,5 +26,8 @@
   "bugs": {
     "url": "https://github.com/iSAM2016/iSAM2016.github.io/issues"
   },
-  "homepage": "https://github.com/iSAM2016/iSAM2016.github.io#readme"
+  "homepage": "https://github.com/iSAM2016/iSAM2016.github.io#readme",
+  "dependencies": {
+    "cookie-parser": "^1.4.4"
+  }
 }
