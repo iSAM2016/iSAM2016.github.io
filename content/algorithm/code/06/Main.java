@@ -47,8 +47,8 @@ class SinglyLinkedList {
             header = newNode;
         }
     }
-    // 向特定的数据后插入数据
 
+    // 向特定的数据后插入数据
     public void insertAfter(Node p, int value) {
         Node newNode = new Node(value, null);
         insertAfter(p, newNode);
@@ -59,9 +59,74 @@ class SinglyLinkedList {
         p.next = newNode;
 
     }
-    // insertBefore
-    // deleteByNode
-    // deleteByValue
+    // 把特定的数据放到一个节点之前
+
+    public void  insertBefore(Node p, int value){
+        Node newNode = new Node(value,null);
+        insertBefore(Node p, Node newNode);
+    }
+
+    public void insertBefore(Node p, Node newNode) {
+        if (p == null) {
+            return;
+        }
+        if (header == null) {
+            insertToHead(newNode);
+            return false;
+        }
+        Node q = hand;
+        while (q != null && q.next != p) {
+            q = q.next;
+        }
+        if (q == null) {
+            return;
+        }
+        newNode.next = p;
+        q.next = newNode;
+    }
+
+    public void deleteByNode(Node p) {
+        if (p == null || head == null)
+            return;
+
+        if (p == head) {
+            head = head.next;
+            return;
+        }
+
+        Node q = head;
+        while (q != null && q.next != p) {
+            q = q.next;
+        }
+
+        if (q == null) {
+            return;
+        }
+
+        q.next = q.next.next;
+    }
+
+    public void deleteByValue(int value) {
+        if (head == null)
+            return;
+
+        Node p = head;
+        Node q = null;
+        while (p != null && p.data != value) {
+            q = p;
+            p = p.next;
+        }
+
+        if (p == null)
+            return;
+
+        if (q == null) {
+            head = head.next;
+        } else {
+            q.next = q.next.next;
+        }
+
+    }
 
     // 插入数据
     public void insertTail(int value) {
@@ -85,6 +150,13 @@ class SinglyLinkedList {
             System.out.println("p.data is " + p.data);
             p = p.next;
         }
+    }
+
+    // 带节点的链表访问
+    public Node inverseLinkList_head(Node p){
+        // 新创建的头结点
+        Node Head =new Node(9999, null);
+        Head
     }
 
     public static class Node {
