@@ -1,4 +1,3 @@
-import sun.net.www.content.audio.x_aiff;
 
 /***
  * 判断一个字符串是否是回文
@@ -11,6 +10,10 @@ import sun.net.www.content.audio.x_aiff;
 class SinglyLinkedList {
     // 单链表的头
     private Node header = null;
+
+    SinglyLinkedList() {
+        // insertToHead(-1);
+    }
 
     // 通过值查找数据
     public Node findByValue(int value) {
@@ -55,7 +58,7 @@ class SinglyLinkedList {
     }
 
     public void insertAfter(Node p, Node newNode) {
-        newNode.next = insertAfter;
+        newNode.next = p;
         p.next = newNode;
 
     }
@@ -152,11 +155,21 @@ class SinglyLinkedList {
         }
     }
 
-    // 带节点的链表访问
-    public Node inverseLinkList_head(Node p){
-        // 新创建的头结点
-        Node Head =new Node(9999, null);
-        Head
+    // 链表翻转 就地翻转 需要一个空
+    // prev 是保持不变的是第一个几点 next 就是pcur
+    public void inverseLinkList() {
+        Node dummy = new Node(-1, null);
+        dummy.next = header;
+        Node prev = dummy.next;
+        Node pCur = prev.next;
+
+        while (pCur != null) {
+            prev.next = pCur.next;
+            pCur.next = dummy.next;
+            dummy.next = pCur;
+            pCur = prev.next;
+        }
+        header = dummy.next;
     }
 
     public static class Node {
@@ -195,12 +208,13 @@ class Main {
 
     public static void main(String[] args) {
         SinglyLinkedList link = new SinglyLinkedList();
-        int data[] = { 1, 2, 3, 4, 5, 6, 7 };
+        int data[] = { 1, 2, 3 };
         link.insertToHead(8);
 
         for (int i = 0; i < data.length; i++) {
             link.insertTail(data[i]);
         }
+        link.inverseLinkList();
         // System.out.println(link.findByValue(5));
         // System.out.println((link.findByIndex(6)));
         link.printAll();
