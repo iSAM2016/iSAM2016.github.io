@@ -5,13 +5,7 @@
 
 # vscode 配置
 
-[vscode 插件推荐 - 献给所有前端工程师（2](https://segmentfault.com/a/1190000006697219)
-
-```
-GitHub Token: 74163f61aaca925e057ba7da29b2965c2640afd5
-GitHub Gist: b13440e45245bde3c108f2c9b3794b1f
-GitHub Gist Type: Secret
-```
+[vscode 插件推荐 - 献给所有前端工程师（2](https://segmentault.com/a/1190000006697219)
 
 ```
 {
@@ -32,7 +26,7 @@ GitHub Gist Type: Secret
         "jsx"
       ],
       "filename": [
-        ".jshintrc",
+        ".jshintrc",·
         ".jsbeautifyrc"
       ]
     },
