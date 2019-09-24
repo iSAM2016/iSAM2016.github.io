@@ -5,15 +5,15 @@
 #include <arpa/inet.h>
 #include <sys/socket.h>
 
+#define BUF_SIZE 1024
 void error_handling(char *message);
 
 int main(int argc, char *argv[])
 {
-    /* code */
     int sock;
+    char message[1024];
+    int str_len, recv_len, recv_cnt;
     struct sockaddr_in serv_addr;
-    char message[30];
-    int str_len;
 
     if (argc != 3)
     {
@@ -32,13 +32,33 @@ int main(int argc, char *argv[])
 
     if (connect(sock, (struct sockaddr *)&serv_addr, sizeof(serv_addr)) == -1)
         error_handling('connect() error');
+    else
+        puts("connected......");
+    while (1)
+    {
+        fputs("Input message(Q to quit):", stdout);
+        fgets(message, BUF_SIZE, stdin);
+        if (!strcmp(message, "q\n") || !strcmp(message, "Q\n"))
+        {
+            break;
+        }
+        // 可能有错误
+        // 修改之后的问题
+        str_len = write(sock, message, sizeof(message));
+        recv_len = 0;
+        while (recv_len < str_len)
+        {
+            recv_cnt = read(sock, &message[recv_len], BUF_SIZE - 1);
+            if (recv_cnt == -1)
+            {
+                error_handling("read() error");
+                recv_len += recv_cnt;
+            }
+        }
+        message[str_len] = 0;
+        printf("Message from server: %s", message);
+    }
 
-    str_len = read(sock, message, sizeof(message) - 1);
-
-    if (str_len == -1)
-        error_handling('read() error');
-
-    printf("message from server: %s \n", message);
     close(sock);
     return 0;
 }

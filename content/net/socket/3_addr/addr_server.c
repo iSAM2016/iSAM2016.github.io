@@ -28,19 +28,19 @@ int main()
     char message[] = "hello world";
 
     //  1.调用docket 套接字
-    serv_sock = (PF_INET, SOCK_STREAM, 0);
+    serv_sock = socket(PF_INET, SOCK_STREAM, 0);
 
     if (serv_sock == -1)
     {
         error_handling('socket() error');
     }
-
+    // 地址信息初始化
     memset(&serv_addr, 0, sizeof(serv_addr));
-    serv_addr.sin_family = AF_INET;
-    serv_addr.sin_addr.s_addr = htonl(INADDR_ANY);
-    serv_addr.sin_port = htons(atoi(serv_port));
-    //  2. 使用bind 函数分配IP地址 和端口号
+    serv_addr.sin_family = AF_INET;                    // 指定地址族
+    serv_addr.sin_addr.s_addr = inet_addr(INADDR_ANY); // 基于字符串 的IP 地址 初始化
+    serv_addr.sin_port = htons(atoi(serv_port));       // 基于字符串的端口号初始化 htons 字节转换
 
+    //  2. 使用bind 函数分配IP地址 和端口号
     if (bind(serv_sock, (struct sockaddr *)&serv_addr, sizeof(serv_addr)) == -1)
     {
         error_handling('bind() error');

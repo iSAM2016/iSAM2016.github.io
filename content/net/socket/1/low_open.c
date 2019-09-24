@@ -24,11 +24,13 @@ int main(void)
         error_handling('open() error');
 
     printf('file descriptor: %d \n', fd);
+
     //  写入文件
     if (write(fd, buf, sizeof(buf)) == -1)
         error_handling("write() error");
     //  关闭文件
     close(fd);
+
     return 0;
 }
 void error_handling(char *message)
