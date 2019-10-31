@@ -1,4 +1,4 @@
-#nginx
+# nginx
 
 > 在 center os 的操作下
 

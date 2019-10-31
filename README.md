@@ -1,35 +1,83 @@
-# 个人总结
+# 自由地
 
-> 不敢说是博客，只是记录学习的进程吧，结一番吧哈也是为写博客做准备吧！
+## 前端
 
-## 总结
-
-### 个人简历
-
-[简历](https://github.com/iSAM2016/iSAM2016.github.io/issues/1)
-
-### 面试参考
-
-[面试指引](https://github.com/iSAM2016/iSAM2016.github.io/blob/master/interview.md)
-
-## 学习路径
-
-> 网络上找到，感觉特别适合自己吧，大体上是 现代化、工程化、性能优化、插件开发、主要框架使用
 > [职业发展路径](https://github.com/f2e-journey/f2e-journey/blob/master/career-planning.md)
 
-### Vue mvvm&UI 组件
+### 1. Vue UI 组件
 
 [自己写的 vue UI 组件](https://github.com/iSAM2016/UI)
 
-**掌握知识的整体方向**
+### 2. webpack 和 TS
 
-- 基础知识的掌握与深度理解
-- 前端框架的使用与原理分析
-- 前端领域相关知识的广度考察
-- 解决架构能力考察
-- 对前端职业的兴趣和热情程度
-- 沟通和表达能力
+### 3. 前端监控
 
-##### 其他
+[前端监控](./content/monitor/index.md)
 
-1. [\*《美团旅行前端技术体系的思考与实践》知乎 live 文字稿](https://zhuanlan.zhihu.com/p/29373613?utm_source=wechat_session&utm_medium=social)
+### 4.基础知识
+
+[基础知识](./interview.md)
+
+---
+
+## 数据库
+
+1. _和 mongdb 比较 有啥优缺点_
+2. [数据库能够做什么](./content/mysql/30_cms-1-mysql.md)
+
+3. [什么是聚合函数](./content/mysql/30_cms-2-mysql.md)
+
+4. [为什么需要设计数据库](./content/mysql/30_cms-3-mysql.md)
+
+5. [mysql 复习](./content/mysql/30_cms-4-mysql.md)
+
+6. [设置允许远程访问](https://blog.csdn.net/u010758410/article/details/76381632)
+
+7. [数据库表连接的简单解释](http://www.ruanyifeng.com/blog/2019/01/table-join.html)
+
+---
+
+## nginx
+
+[nginx](/content/nginx/nginx.md)
+
+---
+
+## redis
+
+---
+
+## linux
+
+[linux](./content/linux/linux.md)
+
+---
+
+## xss
+
+[安全](./content/xss/readme.md)
+
+---
+
+## 网路
+
+[缓存](./content/net/http/cacheHttp.md)
+[跨域](./content/net/http/httpques.md)
+[https](./content/net/http/httpques.md)
+[七层网络模型](./content/net/http/network.md)
+[ WebSocket 的实现和应用](./content/net/http/httpques.md)
+[ WebSocket 的实现](./content/net/ws/index.md)
+
+---
+
+## MQ
+
+## 正则
+
+[正则](./content/RegExp/index.md)
+
+---
+
+## 个人简历
+
+[简历](https://github.com/iSAM2016/iSAM2016.github.io/issues/1)

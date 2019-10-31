@@ -54,18 +54,17 @@ app.get('/eventSource', function (req, res) {
 });
 // websocket
 
-let WebSockerServer = require('ws').Server;
-let server = new WebSockerServer({
-    port: 8888
-})
-server.on('connection', function (socket) {
-    console.log('2 服务端监听');
-    socket.on('message', function (message) {
-        console.log('4 客户端接过来的消息', message);
-        socket.send('5 服务器说' + message)
-    })
-})
-
+// let WebSockerServer = require('ws').Server;
+// let server = new WebSockerServer({
+//     port: 8888
+// })
+// server.on('connection', function (socket) {
+//     console.log('2 服务端监听');
+//     socket.on('message', function (message) {
+//         console.log('4 客户端接过来的消息', message);
+//         socket.send('5 服务器说' + message)
+//     })
+// })
 
 
 app.listen(3000);

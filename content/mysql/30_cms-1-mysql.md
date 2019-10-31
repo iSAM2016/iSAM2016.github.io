@@ -1,7 +1,3 @@
-_和 mongdb 比较 有啥优缺点_
-[设置允许远程访问](https://blog.csdn.net/u010758410/article/details/76381632)
-[数据库表连接的简单解释](http://www.ruanyifeng.com/blog/2019/01/table-join.html)
-
 # 1. 数据库能够做什么
 
 存储大量数据，方便检索和访问

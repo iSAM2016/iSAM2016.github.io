@@ -12,3 +12,5 @@
 *   反射型 xss-dom
 
 ## 点击劫持
+
+## xss + csrf = xsrf 注入脚本

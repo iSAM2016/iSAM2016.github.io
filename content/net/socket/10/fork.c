@@ -1,26 +1,32 @@
-#include <unistd.h>
 #include <stdio.h>
-// 阅读 https://www.cnblogs.com/dongguolei/p/8086346.html
+#include <unistd.h>
 
-int main()
+int gval = 10;
+int main(int argc, char const *argv[])
 {
-    pid_t fpid; //fpid表示fork函数返回的值
-    int count = 0;
-    fpid = fork();
-    if (fpid < 0)
-        printf("error in fork!");
-    else if (fpid == 0)
+    pid_t pid;
+    int lval = 20;
+    gval++, lval += 5;
+
+    pid = fork();
+
+    if (pid == 0) // if child press
     {
-        printf("i am the child process, my process id is %d \n", getpid());
-        printf("我是爹的儿子\n"); //对某些人来说中文看着更直白。
-        count++;
+        gval += 2, lval += 2;
     }
     else
     {
-        printf("i am the parent process, my process id is %d\n", getpid());
-        printf("我是孩子他爹\n");
-        count++;
+        gval -= 2, lval -= 2;
     }
-    printf("统计结果是: %d\n", count);
+
+    if (pid == 0)
+    {
+        printf("child proc:[%d,%d] \n", gval, lval);
+    }
+    else
+    {
+        printf("parent proc:[%d,%d] \n", gval, lval);
+    }
+
     return 0;
 }

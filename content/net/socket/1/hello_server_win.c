@@ -31,14 +31,16 @@ int main(int argc, char *argv[])
         exit(1);
     }
 
-    //  服务器端实现过程中先要创建套接字  但是此时的套接字尚非真正的服务器套接字
+    //  1.调用docket 套接字
+    //  服务器实现的过程中要创建套接字，此时的套接字并不是真正的服务器套接字
     serv_sock = socket(PF_INET, SOCK_STREAM, 0);
 
     if (serv_sock == -1)
     {
         error_handling('socket() error');
     }
-    // 为了完成套接字 地址分配
+    /*bengin*/
+    // 为了完成套接字地址分配，初始化结构体变量并调用bind函数
     memset(&serv_addr, 0, sizeof(serv_addr));
     serv_addr.sin_family = AF_INET;                //指定地址族
     serv_addr.sin_addr.s_addr = htonl(INADDR_ANY); //基于字符串 的IP 地址 初始化
@@ -49,23 +51,27 @@ int main(int argc, char *argv[])
     {
         error_handling('bind() error');
     }
-    //   3 抵用listen  函数进入等待连接请求状态  此时的套接字才是服务器套接字
+    /*end*/
+
+    //   3 抵用listen 函数转为可接收请求转态
+    //  调用listen 函数进入等待请求状态，连接请求队列的长度为5，此时的套接字为服务器的套接字，（客户端才能进入可发出连接请求的转态，
+    // 才能调用connnet 函数），如果提前会发生错误
     if (listen(serv_sock, 5) == -1)
     {
         error_handling('acept() error');
     }
 
     clnt_addr_size = sizeof(clnt_addr);
-    //   调用accept 函数接收请求连接， 从队头取一个请求连接与客户端建立发链接，并且返回创建的套接字文件描述符，
+    //   调用accept 函数接收请求连接
+    //  从队头取一个连接请求与客户端建立连接，并返回创建的套接字文件描述符。另外，调用accep函数时若等待队列为空,
+    // 则函数不会返回，直到队列出现新的客户端连接
     clnt_sock = accept(serv_sock, (struct sockaddr *)&clnt_addr, &clnt_addr_size);
 
     if (clnt_sock == -1)
         error_handling("accept() error");
     // 调用write f函数向 客户端传送数据 调用close 函数关闭连接
-    write(clnt_sock, message, sizeof(message));
-    close(clnt_sock);
+    //  向客户端传送数据
     close(serv_sock);
-    return 0;
 }
 
 void error_handling(char *message)
