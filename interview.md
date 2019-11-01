@@ -1,6 +1,8 @@
 ## 面试
 
-**掌握知识的整体方向**
+> [职业发展路径](https://github.com/f2e-journey/f2e-journey/blob/master/career-planning.md)
+
+> **掌握知识的整体方向**
 
 -   基础知识的掌握与深度理解
 -   前端框架的使用与原理分析
