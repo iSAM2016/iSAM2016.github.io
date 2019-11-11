@@ -27,6 +27,10 @@ Nginx 启动
 
 nginx -c nginx.conf
 
+## nginx 信号量
+
+USR1 重读日志
+
 ## 常用命令
 
 添加配置一般在
@@ -36,6 +40,211 @@ nginx -c nginx.conf
 `- sudo brew services start nginx`
 
 `- sudo nginx -s reload 重新加载 nginx`
+
+`netstat -lnp`
+
+## nginx 配置
+
+配置`/etc/nginx/conf.d`
+mac`/usr/local/etc/nginx/nginx.conf`
+
+```
+
+// 全局区
+worker_processes auto; // 有一个工作的子进程 可以自行修改
+error_log  /www/wwwlogs/nginx_error.log  crit;
+pid        /www/server/nginx/logs/nginx.pid;
+worker_rlimit_nofile 51200;
+
+// 一般是配置nginx 的特性
+events
+    {
+        use epoll;
+        worker_connections 51200;
+        multi_accept on;
+    }
+
+http
+    {
+        include       mime.types;
+		#include luawaf.conf;
+
+		include proxy.conf;
+
+        default_type  application/octet-stream;
+
+        server_names_hash_bucket_size 512;
+        client_header_buffer_size 32k;
+        large_client_header_buffers 4 32k;
+        client_max_body_size 50m;
+
+        sendfile   on;
+        tcp_nopush on;
+
+        keepalive_timeout 60;
+
+        tcp_nodelay on;
+
+        fastcgi_connect_timeout 300;
+        fastcgi_send_timeout 300;
+        fastcgi_read_timeout 300;
+        fastcgi_buffer_size 64k;
+        fastcgi_buffers 4 64k;
+        fastcgi_busy_buffers_size 128k;
+        fastcgi_temp_file_write_size 256k;
+		fastcgi_intercept_errors on;
+
+        gzip on;
+        gzip_min_length  1k;
+        gzip_buffers     4 16k;
+        gzip_http_version 1.1;
+        gzip_comp_level 2;
+        gzip_types     text/plain application/javascript application/x-javascript text/javascript text/css application/xml;
+        gzip_vary on;
+        gzip_proxied   expired no-cache no-store private auth;
+        gzip_disable   "MSIE [1-6]\.";
+
+        limit_conn_zone $binary_remote_addr zone=perip:10m;
+		limit_conn_zone $server_name zone=perserver:10m;
+
+        server_tokens off;
+        access_log off;
+
+server
+    {
+        listen 888;
+        server_name www.bt.cn;
+        index index.html index.htm index.php;
+        root  /www/server/phpmyadmin; /
+
+        #error_page   404   /404.html;
+        include enable-php.conf;
+
+        location ~ .*\.(gif|jpg|jpeg|png|bmp|swf)$
+        {
+            expires      30d;
+        }
+
+        location ~ .*\.(js|css)?$
+        {
+            expires      12h;
+        }
+
+        location ~ /\.
+        {
+            deny all;
+        }
+
+        access_log  /www/wwwlogs/access.log;
+    }
+include /www/server/panel/vhost/nginx/*.conf;
+}
+
+```
+
+`nginx -s reload` 重新启动
+
+### 反向代理
+
+```
+server{
+    listen 80;
+    server_name www.jw.cn;
+    location / {
+        proxy_pass http://localhost:3000;
+    }
+}
+```
+
+### 负载
+
+```
+upstream zfpx {
+    server localhost:3000 weight
+}
+```
+
+### 虚拟主机位置
+
+```
+server{
+    listen 2000;
+    server_name 47.104.95.186;
+    location / {
+        root /www/wwwroot/mall;
+       	index index.html;
+    }
+}
+```
+
+## 定时任务切割日志
+
+凌晨 00:00:01,把昨天的日志重命名,放在相应的目录下再 USR1 信息号控制 nginx 重新生成新的日志文件
+
+```
+#!/bin/bash
+base_path='/www/wwwlogs'
+log_path=$(date -d yesterday +"%Y%m")
+day=$(date -d yesterday +"%d")
+mkdir -p $base_path/$log_path
+mv $base_path/access.log $base_path/$log_path/access_$day.log
+kill -USR1 `cat /usr/local/nginx/logs/nginx.pid` //发信号
+
+```
+
+```
+Crontab 编辑定时任务
+01 00 * * * sh/xxx/path/b.sh  每天0时1分(建议在02-04点之间,系统负载小)
+```
+
+## location 语法
+
+location 有”定位”的意思, 根据 Uri 来进行不同的定位.
+在虚拟主机的配置中,是必不可少的,location 可以把网站的不同部分,定位到不同的处理方式上.
+比如, 碰到.php, 如何调用 PHP 解释器? --这时就需要 location
+location 的语法
+
+```
+location [=|~|~*|^~] patt {
+}
+```
+
+中括号可以不写任何参数,此时称为一般匹配
+也可以写参数
+因此,大类型可以分为 3 种
+
+```
+location = patt {} [精准匹配]
+location patt{} [一般匹配]
+location ~ patt{} [正则匹配]
+```
+
+如何发挥作用?:
+首先看有没有精准匹配,如果有,则停止匹配过程.
+
+```
+location = patt {
+config A
+}
+```
+
+如果 \$uri == patt,匹配成功，使用 configA
+location = / {
+root /var/www/html/;
+index index.htm index.html;
+}
+
+location / {
+root /usr/local/nginx/html;
+index index.html index.htm;
+}
+
+如果访问　　http://xxx.com/
+定位流程是　
+1: 精准匹配中　”/” ,得到 index 页为　　 index.htm
+2: 再次访问 /index.htm , 此次内部转跳 uri 已经是”/index.htm” ,
+根目录为/usr/local/nginx/html
+3: 最终结果,访问了 /usr/local/nginx/html/index.htm
 
 ## 创建 centos 系统环境
 
@@ -48,114 +257,6 @@ nginx -c nginx.conf
 # docker exec -it centoss /bin/bash
 ```
 
-## 安装 nginx
-
-```
-yum -y install gcc gcc-c++ autoconf pcre pcre-devel make automake openssl openssl-devel  wget httpd-tools vim
-
-<!-- yum -y install wget httpd-tools vim -->
-```
-
-`http://nginx.org/en/linux_packages.html`
-
-```
-[nginx]
-name=nginx repo
-baseurl=http://nginx.org/packages/centos/7/$basearch/
-gpgcheck=0
-enabled=1
-```
-
-## 查看 nginx 用到的命令
-
--   yum install nginx -y
-
-*   rpm -ql nginx 查看 nginx 安装 所在是文件位置
-
-*   nginx 启动 `systemctl start nginx`
-
-*   程序所占的端口号
-
-`ps -ef | grep nginx` 查看程序占用的端口
-`netstat -lnp`
-
-## nginx 配置
-
 ```
 docker  run -d -p 127.0.0.1:8080:80 --rm --name  mynginx  nginx
-```
-
-配置`/etc/nginx/conf.d`
-mac`/usr/local/etc/nginx/nginx.conf`
-
-```
-server {
-    listen       80;
-    server_name  localhost;
-
-    #charset koi8-r;
-    #access_log  /var/log/nginx/host.access.log  main;
-
-    location / {
-        root   /usr/share/nginx/html;
-        index  index.html index.htm;
-    }
-
-    #error_page  404              /404.html;
-
-    # redirect server error pages to the static page /50x.html
-    #
-    error_page   500 502 503 504  /50x.html;
-    location = /50x.html {
-        root   /usr/share/nginx/html;
-    }
-
-    # proxy the PHP scripts to Apache listening on 127.0.0.1:80
-    #
-    #location ~ \.php$ {
-    #    proxy_pass   http://127.0.0.1;
-    #}
-
-    # pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
-    #
-    #location ~ \.php$ {
-    #    root           html;
-    #    fastcgi_pass   127.0.0.1:9000;
-    #    fastcgi_index  index.php;
-    #    fastcgi_param  SCRIPT_FILENAME  /scripts$fastcgi_script_name;
-    #    include        fastcgi_params;
-    #}
-
-    # deny access to .htaccess files, if Apache's document root
-    # concurs with nginx's one
-    #
-    # 允许正则访问
-    #location ~ /\.ht {
-        allow 127.0.0.1;
-        # 禁用
-    #    deny  all;
-    #}
-}
-```
-
-`nginx -s reload` 重新启动
-
-反向代理
-
-```
-server{
-    listen 80;
-    server_name www.jw.cn;
-    location / {
-        proxy_pass http://localhost:3000;
-    }
-}
-```
-
-负载
-
-```
-upstream zfpx {
-    server localhost:3000 weight
-}
 ```
