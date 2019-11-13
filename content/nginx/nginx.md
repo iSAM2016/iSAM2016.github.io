@@ -357,6 +357,29 @@ gzip_vary on|off  # 是否传输gzip压缩标志
 
 ----> 发给浏览器浏览<-----解码 gzip-----接收 gzip 压缩内容----
 
+## 优化
+
+### socket 优化
+
+1. nginx 层面
+
+   - . 子进程允许打开的连接数 worker_connections
+   - 允许打开多个文件 worker_limit_notifiles 1000;
+
+```
+events{
+    worker_connections 10240;
+    worker_limit_notifiles 1000;
+}
+```
+
+2. 系统层面
+
+   1. 增加 socket 的链接数目`/proc/sys/net/core/somaxconn` 的数目 为 2000
+   2. 加快 tcp 链接的回收，修改`/proc/sys/net/ipv4/tcp_ftw_recycle` 改为 1
+   3. 空的 tcp 是否需要回收，修改`/proc/sys/net/ipv4/tcp_ftw_reuse` 为 1
+   4. 不过洪水抵御 `/proc/sys/net/ipv4/tcp_syncookies` 为 0
+
 ## 均衡的算法
 
 1. round robin（默认）#
