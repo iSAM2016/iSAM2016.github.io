@@ -4,25 +4,25 @@
 
 > 在 center os 的操作下
 
-- nginx 是一款轻量级的 HTTP 服务器，采用时间驱动的异步非阻塞方式处理框架，具有极好的 IO 性能，用于服务器的反向代理和负载均衡
+-   nginx 是一款轻量级的 HTTP 服务器，采用时间驱动的异步非阻塞方式处理框架，具有极好的 IO 性能，用于服务器的反向代理和负载均衡
 
-* 卡员且性能高，可靠的 http 中间件代理服务器
+*   卡员且性能高，可靠的 http 中间件代理服务器
 
 ### 最主要的场景
 
-- 静态资源
-- API 服务
-- 反向代理服务
-  - 缓存
-  - 负载均衡
+-   静态资源
+-   API 服务
+-   反向代理服务
+    -   缓存
+    -   负载均衡
 
 ### nginx 优势
 
-- 高并发，高性能 IO 多路复用： 多个描述符的 IO 操作
-- 可扩展性好
-- 高可靠性
-- 热部署
-- bsd 许可证
+-   高并发，高性能 IO 多路复用： 多个描述符的 IO 操作
+-   可扩展性好
+-   高可靠性
+-   热部署
+-   bsd 许可证
 
 ### NGINX 语法
 
@@ -177,7 +177,7 @@ Crontab 编辑定时任务
 location 有”定位”的意思, 根据 Uri 来进行不同的定位.在虚拟主机的配置中,是必不可少的,location 可以把网站的不同部分,定位到不同的处理方式上.
 比如, 碰到.php, 如何调用 PHP 解释器? --这时就需要 location
 
-- location 的语法
+-   location 的语法
 
 ```
 location [=|~|~*|^~] patt {
@@ -226,17 +226,17 @@ location / {
 
 定位流程是
 
-- 精确匹配"/", 得到 index 页 为 index.htm（必须在/var/www/html/存在 index.htm, 才会进行下一步）
-- 再次访问/index.htm 此时内部的 uri 为”/index.htm“,根为 /use/local/nginx/html
-- 最终访问了 /use/local/nginx/html/index.htm
+-   精确匹配"/", 得到 index 页 为 index.htm（必须在/var/www/html/存在 index.htm, 才会进行下一步）
+-   再次访问/index.htm 此时内部的 uri 为”/index.htm“,根为 /use/local/nginx/html
+-   最终访问了 /use/local/nginx/html/index.htm
 
 ### 正则匹配
 
-- 匹配规则
+-   匹配规则
 
-  1. `=`来判断相等, 用于字符串比较
-  2. `~`用正则来匹配(此处的正则区分大小写) `~*` 不区分大小写的正则
-  3. -f -d -e 来判断是否为文件,为目录,是否存在
+    1. `=`来判断相等, 用于字符串比较
+    2. `~`用正则来匹配(此处的正则区分大小写) `~*` 不区分大小写的正则
+    3. -f -d -e 来判断是否为文件,为目录,是否存在
 
 如果没有写 root nginx 会使用默认配置 root 路径；例如 访问 xxx/image/1.png
 
@@ -324,11 +324,11 @@ location ~ \.php$ {
 3. 把请求上下文转交给 9000 端口 PHP 进程,
 4. 并告诉 PHP 进程,当前的脚本是 $document_root$fastcgi_scriptname
 
-- (注:PHP 会去找这个脚本并处理,所以脚本的位置要指对)
+-   (注:PHP 会去找这个脚本并处理,所以脚本的位置要指对)
 
 ## 压缩
 
-- 配置 gzip on 响应头 content-encoding: gzip
+-   配置 gzip on 响应头 content-encoding: gzip
 
 ```
 gzip配置的常用参数
@@ -363,8 +363,8 @@ gzip_vary on|off  # 是否传输gzip压缩标志
 
 1. nginx 层面
 
-   - . 子进程允许打开的连接数 worker_connections
-   - 允许打开多个文件 worker_limit_notifiles 1000;
+    - . 子进程允许打开的连接数 worker_connections
+    - 允许打开多个文件 worker_limit_notifiles 1000;
 
 ```
 events{
@@ -375,10 +375,10 @@ events{
 
 2. 系统层面
 
-   1. 增加 socket 的链接数目`/proc/sys/net/core/somaxconn` 的数目 为 2000
-   2. 加快 tcp 链接的回收，修改`/proc/sys/net/ipv4/tcp_ftw_recycle` 改为 1
-   3. 空的 tcp 是否需要回收，修改`/proc/sys/net/ipv4/tcp_ftw_reuse` 为 1
-   4. 不过洪水抵御 `/proc/sys/net/ipv4/tcp_syncookies` 为 0
+    1. 增加 socket 的链接数目`/proc/sys/net/core/somaxconn` 的数目 为 2000
+    2. 加快 tcp 链接的回收，修改`/proc/sys/net/ipv4/tcp_ftw_recycle` 改为 1
+    3. 空的 tcp 是否需要回收，修改`/proc/sys/net/ipv4/tcp_ftw_reuse` 为 1
+    4. 不过洪水抵御 `/proc/sys/net/ipv4/tcp_syncookies` 为 0
 
 ## 均衡的算法
 

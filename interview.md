@@ -1,49 +1,109 @@
-## 面试
+# 面试
 
 > [职业发展路径](https://github.com/f2e-journey/f2e-journey/blob/master/career-planning.md)
 
-> **掌握知识的整体方向**
+## 方向
 
--   基础知识的掌握与深度理解
--   前端框架的使用与原理分析
--   前端领域相关知识的广度考察
--   解决架构能力考察
--   对前端职业的兴趣和热情程度
--   沟通和表达能力
+1. 专业&基础
+
+-   前端工程师
+-   前端、JavaScritp、CSS 基础能力
+-   数据可视化基础
+-   当下流行框架熟悉度
+-   网络基础
+-   数据结构 & 简单算法
+-   质量保障
+-   研发协作效率
+-   性能优化方案
+-   线上问题排查能力
+-   Node.js 属于加分项
+-   Node.js/GO 工程师
+-   语言基础
+-   常见算法问题
+-   网络基础
+-   Linux 基础
+-   数据库基础
+-   容器化知识
+-   运维能力
+-   云服务器
+-   问题排查能力
+
+2. 综合软实力
+
+-   逻辑思维
+-   沟通表达能力，是否理解面试官的问题，并清楚应对
+-   对自己现状能力有清醒的认知，清楚自己要的是什么，并曾为此付诸行动
+-   抗压能力
+-   对当前负责的业务理解力
+
+3. 行业相关性
+
+-   是否之前有相关技术沉淀，如博客文章、开源项目等
+-   具备相关目标团队类似经验，如工程化、Node.js 应用、数据可视化加分
+
+4. 工作经验 & 个人认知
+
+-   稳定性 OR 丰富程序
+-   稳定性需要考虑是否有成长，有定力
+-   丰富程度多的简历，需要考核的是每次更换工作的合理性，是否和自己专业发展的匹配
+
+5. 其它
+
+-   闲聊过程中有时可以判断一个人对技术的热爱
+-   是否诚信、聪明、有潜力
+-   对我们团队的了解程度以及加入的意愿
+
+## 流程
+
+1.  [计算机基础知识](https://github.com/CyC2018/Interview-Notebook)
+2.  数据库
+3.  node
+4.  Webpact
+5.  react 文档
+
+    1. 虚拟 dom
+    2. fibber
+    3. diff
+
+6.  react hook
+7.  redux
+8.  react 源码
+9.  项目准备
+    1. aouth 授权
+    2. ioc
+    3. jwt
+    4. 架构图
+    5. Nestjs
+    6. 水平切分（mysql）
+    7. 网关
+    8. 浏览器渲染原理
+10. es6
+11. 其他面试题 - isam2016 木易杨 微信收藏 知乎收藏
+12. 浏览器渲染
+13. 微前端
+14. 算法
+15. webworker,
+16. websocket
+17. array string object 方法
 
 ## 其他
 
-1. [\*《美团旅行前端技术体系的思考与实践》知乎 live 文字稿](https://zhuanlan.zhihu.com/p/29373613?utm_source=wechat_session&utm_medium=social)
+1. [美团旅行前端技术体系的思考与实践](https://zhuanlan.zhihu.com/p/29373613?utm_source=wechat_session&utm_medium=social)
 
-### 面试点：
-
--   [计算机基础知识](https://github.com/CyC2018/Interview-Notebook)
--   [2019 前端面试题--这样准备，拿不到 offer 算我输！](https://juejin.im/post/5cbff661e51d456e693f48ec)
--   [中高级前端大厂面试秘籍，为你保驾护航金三银四，直通大厂(上)](https://juejin.im/post/5c64d15d6fb9a049d37f9c20#heading-71)
--   [(中篇)中高级前端大厂面试秘籍，寒冬中为您保驾护航，直通大厂](https://juejin.im/post/5c92f499f265da612647b754?utm_source=gold_browser_extension)
--   [「中高级前端面试」JavaScript 手写代码无敌秘籍](https://mp.weixin.qq.com/s/v3Jb_dDBdX1-Y090v-xxwg)
--   [每个 JavaScript 工程师都应懂的 33 个概念 @leonardomso](https://github.com/stephentian/33-js-concepts)
--   [Promise 与 Async/await 来控制异步和超时问题](https://www.yuque.com/giscafer/felearn/agt7re)
--   [深入 Promise 错误处理](https://juejin.im/post/59dae4b05188252e7547a552)
--   [你可能不知道的 6 件事](https://github.com/dwqs/blog/issues/1)
-
-面试的时候尽量体现你的广度和深度，比如浏览器的兼容性来说，先把这块知识体系罗列出来，考察广度。
-
-### HTML CSS
+## HTML CSS
 
 > 见复习过程第一步
 
-![面试要点](https://github.com/iSAM2016/iSAM2016.github.io/blob/master/img/InterviewMapMind.png)
+![面试要点](./img/InterviewMapMind.png)
 
-### 复习过程
+## 复习过程
 
 1. 阅读[前端开发面试题](https://juejin.im/entry/5781b8db0a2b58005765e628) HTML CSS
 
-2. [js 基础知识](https://github.com/iSAM2016/iSAM2016.github.io/blob/master/content/js/jsbase.md)
+2. [js 基础知识](./content/notebook/jsbase.md)
 
-    - 2.1 [js 面试题](https://github.com/iSAM2016/iSAM2016.github.io/blob/master/content/js/jsbaseques.md)
-
-    - 2.2 [promise](https://github.com/iSAM2016/iSAM2016.github.io/blob/master/content/js/promise.md)
+    - [promise](https://github.com/iSAM2016/iSAM2016.github.io/blob/master/content/js/promise.md)
+    - [Eventloop 不可怕，可怕的是遇上 Promise]()
 
 3. [css](https://github.com/iSAM2016/iSAM2016.github.io/blob/master/content/css.md)
 
@@ -68,12 +128,10 @@
 
 ## js
 
-##### 模块化-AMD
+### 模块化-AMD
 
 [JS 模块加载器加载原理是怎么样的？](https://www.zhihu.com/question/21157540)
-
 [requirejs 的用法和原理分析](https://github.com/HRFE/blog/issues/10)
-
 [浏览器解析](https://www.zhihu.com/question/20027966)
 
 # 文章
@@ -84,10 +142,28 @@
 # HTTP
 
 1. [HTTP 返回码中 301 与 302 的区别](https://blog.csdn.net/qmhball/article/details/7838989)
+2. [HTTP/1 的缺点总结](https://segmentfault.com/a/1190000013519925)
+3. [HTTP2.0 特性](https://blog.csdn.net/qq_32337109/article/details/79975253)
 
 ### 跨域
 
 [解决跨域](https://github.com/hijiangtao/hijiangtao.github.io/blob/master/_posts/2017-06-13-Cross-Origin-Resource-Sharing-Solutions.md)
+
+## 面试点：
+
+-   [2019 前端面试题--这样准备，拿不到 offer 算我输！](https://juejin.im/post/5cbff661e51d456e693f48ec)
+-   [中高级前端大厂面试秘籍，为你保驾护航金三银四，直通大厂(上)](https://juejin.im/post/5c64d15d6fb9a049d37f9c20#heading-71)
+-   [(中篇)中高级前端大厂面试秘籍，寒冬中为您保驾护航，直通大厂](https://juejin.im/post/5c92f499f265da612647b754?utm_source=gold_browser_extension)
+-   [「中高级前端面试」JavaScript 手写代码无敌秘籍](https://mp.weixin.qq.com/s/v3Jb_dDBdX1-Y090v-xxwg)
+-   [每个 JavaScript 工程师都应懂的 33 个概念 @leonardomso](https://github.com/stephentian/33-js-concepts)
+-   [Promise 与 Async/await 来控制异步和超时问题](https://www.yuque.com/giscafer/felearn/agt7re)
+-   [深入 Promise 错误处理](https://juejin.im/post/59dae4b05188252e7547a552)
+-   [你可能不知道的 6 件事](https://github.com/dwqs/blog/issues/1)
+-   [耗时 6 小时的同花顺面试](https://juejin.im/post/5c89b19fe51d45319629382c)
+
+面试的时候尽量体现你的广度和深度，比如浏览器的兼容性来说，先把这块知识体系罗列出来，考察广度。
+
+## 优化
 
 1. 什么是无头浏览器 他的作用是啥
 2. https 抓包原理是什么 如何抓包
@@ -127,7 +203,7 @@
 		top: 10px;
 		width: 100px;
 		height: 100px;
-		background: red;
+		/* background: red; */
 	}
 </style>
 <script>
@@ -605,4 +681,21 @@ JSON.string JSON.parse 的实现
 -   观察者可以是被迫执行的，而发布订阅可以自定义
 -   观察者两个对象之间有很强的依赖关系， 发布订阅之间低耦合
 
-#### 基本的算法
+## 基本的算法
+
+-   自我介绍？
+-   手写代码找出二叉树节点的最长距离？
+-   手写代码实现链表的逆序？
+-   手写代码找出数组中的最长递增序列？（动态规划）
+-   双向循环链表如何最快的找到节点？
+-   解决 Hash 冲突的方式？
+-   B 树和 B+树的特点？
+-   作业调度的算法？
+-   产生死锁的原因？
+-   TCP 和 UDP 的区别？
+-   TCP 三次握手的各个阶段？
+-   TCP 的滑动窗口机制？
+-   TCP 拥塞控制的方式？
+-   浏览器内核渲染的原理？
+-   有没有研究过 Chrome 的源码？
+-   还有什么要问我的？

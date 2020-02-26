@@ -76,11 +76,3 @@
 ## 技能关键字
 
 -   web、javascript、css、html、jquery、html5、js、ajax、css3、php
-
----
-
-# 致谢
-
-感谢您花时间阅读我的简历，期待能有机会和您共事。
-
-请求-
