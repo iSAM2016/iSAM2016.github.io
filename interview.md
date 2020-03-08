@@ -56,7 +56,42 @@
 ## 流程
 
 1.  [计算机基础知识](https://github.com/CyC2018/Interview-Notebook)
-2.  数据库
+
+## 其他
+
+1. [美团旅行前端技术体系的思考与实践](https://zhuanlan.zhihu.com/p/29373613?utm_source=wechat_session&utm_medium=social)
+
+![面试要点](./img/InterviewMapMind.png)
+
+## 复习过程
+
+1. 阅读[前端开发面试题](https://juejin.im/entry/5781b8db0a2b58005765e628) HTML CSS
+
+2. [js 基础知识](./content/notebook/jsbase.md)
+
+    - [promise 实现](./content/notebook/01_async.md)
+
+3. [css](./content/css.md)
+
+4. [移动端](./content/mobile/base.md)
+
+5. [框架](https://github.com/iSAM2016/iSAM2016.github.io/blob/master/content/farmwork.md)
+
+6. http
+
+    - [http 基础](./content/net/http/cacheHttp.md)
+
+    - [http 题目](./content/net/http/httpques.md)
+
+    * [HTTP 返回码中 301 与 302 的区别](https://blog.csdn.net/qmhball/article/details/7838989)
+    * [HTTP/1 的缺点总结](https://segmentfault.com/a/1190000013519925)
+    * [HTTP2.0 特性](https://blog.csdn.net/qq_32337109/article/details/79975253)
+    * [解决跨域](https://github.com/hijiangtao/hijiangtao.github.io/blob/master/_posts/2017-06-13-Cross-Origin-Resource-Sharing-Solutions.md)
+
+7. [专题系列目录](https://github.com/mqyqingfeng/Blog)
+
+---
+
 3.  node
 4.  Webpact
 5.  react 文档
@@ -68,86 +103,23 @@
 6.  react hook
 7.  redux
 8.  react 源码
-9.  项目准备
+9.  [react 性能优化](https://juejin.im/post/5b506ae0e51d45191a0d4ec9)
+10. 项目准备
     1. aouth 授权
     2. ioc
-    3. jwt
+    3. [jwt](https://mp.weixin.qq.com/s/osSlrEgk0uhOoicAH3IGOw)
     4. 架构图
     5. Nestjs
-    6. 水平切分（mysql）
-    7. 网关
-    8. 浏览器渲染原理
-10. es6
-11. 其他面试题 - isam2016 木易杨 微信收藏 知乎收藏
+    6. 网关
+    7. 浏览器渲染原理
+11. es6
 12. 浏览器渲染
 13. 微前端
 14. 算法
-15. webworker,
-16. websocket
-17. array string object 方法
-
-## 其他
-
-1. [美团旅行前端技术体系的思考与实践](https://zhuanlan.zhihu.com/p/29373613?utm_source=wechat_session&utm_medium=social)
-
-## HTML CSS
-
-> 见复习过程第一步
-
-![面试要点](./img/InterviewMapMind.png)
-
-## 复习过程
-
-1. 阅读[前端开发面试题](https://juejin.im/entry/5781b8db0a2b58005765e628) HTML CSS
-
-2. [js 基础知识](./content/notebook/jsbase.md)
-
-    - [promise](https://github.com/iSAM2016/iSAM2016.github.io/blob/master/content/js/promise.md)
-    - [Eventloop 不可怕，可怕的是遇上 Promise]()
-
-3. [css](https://github.com/iSAM2016/iSAM2016.github.io/blob/master/content/css.md)
-
-4. [移动端](https://github.com/iSAM2016/iSAM2016.github.io/blob/master/content/m/base.md)
-
-5. [框架](https://github.com/iSAM2016/iSAM2016.github.io/blob/master/content/farmwork.md)
-
-6. http
-
-    - [http 基础](https://github.com/iSAM2016/iSAM2016.github.io/blob/master/content/http/cacheHttp.md)
-
-    - [http 题目](https://github.com/iSAM2016/iSAM2016.github.io/blob/master/content/http/httpques.md)
-
-7. [专题系列目录](https://github.com/mqyqingfeng/Blog)
-
-8. [面试进阶](https://github.com/iSAM2016/iSAM2016.github.io/blob/master/content/all.md)
-
----
-
--   [前端面试题链接](https://github.com/qiu-deqing/FE-interview)
--   [面试题目](https://github.com/chenjinxinlove/javascriptInterview)
-
-## js
-
-### 模块化-AMD
-
-[JS 模块加载器加载原理是怎么样的？](https://www.zhihu.com/question/21157540)
-[requirejs 的用法和原理分析](https://github.com/HRFE/blog/issues/10)
-[浏览器解析](https://www.zhihu.com/question/20027966)
-
-# 文章
-
-[总结了 17 年初到 18 年初百场前端面试的面试经验](https://juejin.im/post/5b44a485e51d4519945fb6b7)
-[几道高级前端面试题解析](https://juejin.im/post/5aa8a07cf265da238a3022a4?utm_source=gold_browser_extension)
-
-# HTTP
-
-1. [HTTP 返回码中 301 与 302 的区别](https://blog.csdn.net/qmhball/article/details/7838989)
-2. [HTTP/1 的缺点总结](https://segmentfault.com/a/1190000013519925)
-3. [HTTP2.0 特性](https://blog.csdn.net/qq_32337109/article/details/79975253)
-
-### 跨域
-
-[解决跨域](https://github.com/hijiangtao/hijiangtao.github.io/blob/master/_posts/2017-06-13-Cross-Origin-Resource-Sharing-Solutions.md)
+15. webworker
+16. 各种手写函数
+17. websocket
+18. array string object 方法
 
 ## 面试点：
 
@@ -159,15 +131,19 @@
 -   [Promise 与 Async/await 来控制异步和超时问题](https://www.yuque.com/giscafer/felearn/agt7re)
 -   [深入 Promise 错误处理](https://juejin.im/post/59dae4b05188252e7547a552)
 -   [你可能不知道的 6 件事](https://github.com/dwqs/blog/issues/1)
+-   [前端面试题链接](https://github.com/qiu-deqing/FE-interview)
+-   [面试题目](https://github.com/chenjinxinlove/javascriptInterview)
+-   [木容杨](https://github.com/Advanced-Frontend/Daily-Interview-Question/blob/master/datum/summary.md)
+-   [阿里](https://juejin.im/post/5d690c726fb9a06b155dd40d?utm_source=gold_browser_extension)
 -   [耗时 6 小时的同花顺面试](https://juejin.im/post/5c89b19fe51d45319629382c)
-
-面试的时候尽量体现你的广度和深度，比如浏览器的兼容性来说，先把这块知识体系罗列出来，考察广度。
+-   [记一次腾讯社招前端面试](https://mp.weixin.qq.com/s/U9-f_sA651UwSbksdHg_aw)
+    面试的时候尽量体现你的广度和深度，比如浏览器的兼容性来说，先把这块知识体系罗列出来，考察广度。
+-   [手写](https://mp.weixin.qq.com/s/v3Jb_dDBdX1-Y090v-xxwg)
 
 ## 优化
 
 1. 什么是无头浏览器 他的作用是啥
 2. https 抓包原理是什么 如何抓包
-
 3. 重绘和回流是渲染步骤中的一小节，但是这两个步骤对于性能影响很大。
     1. 重绘是当节点需要更改外观而不会影响布局的，比如改变  color  就叫称为重绘
     2. 回流是布局或者几何属性需要改变就称为回流。
@@ -218,14 +194,14 @@
 -   CSS 选择符从右往左匹配查找，避免 DOM 深度过深
 -   将频繁运行的动画变为图层，图层能够阻止该节点回流影响别的元素。比如对于  video  标签，浏览器会自动将该节点变为图层。
 
-4. 今日面试题
+1. 今日面试题
 
     1. 什么是重绘（Repaint）和回流（Reflow）？
     2. 哪些动作可能会导致重绘（Repaint）和回流（Reflow）的发生？
     3. 重绘（Repaint）和回流（Reflow）和 Event loop 的关系？
     4. 如何减少重绘（Repaint）和回流（Reflow）？
 
-5. 请说说浏览器事件机制中事件触发三个阶段
+2. 请说说浏览器事件机制中事件触发三个阶段
    事件触发三阶段
    事件触发有三个阶段
    document  往事件触发处传播，遇到注册的捕获事件会触发
@@ -699,3 +675,43 @@ JSON.string JSON.parse 的实现
 -   浏览器内核渲染的原理？
 -   有没有研究过 Chrome 的源码？
 -   还有什么要问我的？
+
+
+    js 实现一个带并发限制的一部调度器， 保证最多运行2 个任务
+
+```js
+class Scheduler {
+constructor() {
+this.tasks = [];
+this.concurrent = 0;
+}
+add(promiseCreator) {
+return new Promise(resolve => {
+this.tasks.push(() => promiseCreator().then(resolve));
+this.runTask();
+});
+}
+runTask() {
+if (this.concurrent >= 2) return;
+let currentTask = this.tasks.shift();
+if (currentTask) {
+this.concurrent++;
+currentTask().then(() => {
+this.concurrent -= 1;
+this.runTask();
+});
+}
+}
+}
+const timeout = timer => new Promise(resolve => setTimeout(resolve, timer));
+const scheduler = new Scheduler();
+const addTask = (time, order) => {
+scheduler.add(() => timeout(time)).then(() => {console.log(order);});
+};
+addTask(1000, “1”);
+addTask(500, “2”);
+addTask(300, “3”);
+addTask(400, “4”);
+
+// output: 2 3 1 4
+```

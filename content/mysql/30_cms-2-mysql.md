@@ -65,24 +65,24 @@ LIMIT 偏移量,条数
 
 SELECT 列表中只能包含：
 
-- 被分组的列
-- 为每个分组返回一个值的表达式，如聚合函数
+-   被分组的列
+-   为每个分组返回一个值的表达式，如聚合函数
 
 ## 2.2 练习
 
-- 统计每位同学的平均成绩-单列分组
+-   统计每位同学的平均成绩-单列分组
 
-```
+```sql
 select student*id,avg(grade) from score group by student_id;
 ```
 
-- 统计每门课程的最高分，并按分数从高到低排列
+-   统计每门课程的最高分，并按分数从高到低排列
 
-```
+```sql
 select course_id,max(grade) 平均分 from score group by course_id order by max(grade) desc
 ```
 
-- 统计各省的男女同学人数-多列分组
+-   统计各省的男女同学人数-多列分组
 
 ```
 select province,gender,COUNT(*) from student group by province,gender
@@ -101,25 +101,25 @@ ORDER BY {col_name|expr|position} [ASC|DESC]
 LIMIT offset,row_count
 ```
 
-- WHERE 用于过滤掉不符合条件的记录
-- HAVING 用于过滤分组后的记录
-- GROUP BY 用于对筛选后的结果进行分组
+-   WHERE 用于过滤掉不符合条件的记录
+-   HAVING 用于过滤分组后的记录
+-   GROUP BY 用于对筛选后的结果进行分组
 
 ### 2.3.2 练习
 
-- 统计学生人数超过 1 人的省份
+-   统计学生人数超过 1 人的省份
 
 ```
 select province,COUNT(\*) from student group by province having COUNT(_)>1
 ```
 
-- 得到学生的年龄
+-   得到学生的年龄
 
 ```
 select DATEDIFF(dd,birthday,GETDATE())/365 from student
 ```
 
-- 不及格次数大于 1 次的学生
+-   不及格次数大于 1 次的学生
 
 ```
 select student_id,COUNT(_) 不及格次数 from score where grade <60 group by student_id having COUNT(\*)>1
@@ -127,25 +127,25 @@ select student_id,COUNT(_) 不及格次数 from score where grade <60 group by s
 
 # 3. 子查询
 
-- 子查询就是指出现在其它 SQL 语句中的 SELECT 语句
-- Outer Query/ Inner Query
-- 子查询指嵌套在查询内部，且必须始终出现在圆括号中
-- 子查询可以包含多个关键字或条件
-- 子查询的外层查询可以是: SELECT INSERT UPDATE SET 等
-- 子查询可以返回常量、一行数据、一列数据或其它子查询
+-   子查询就是指出现在其它 SQL 语句中的 SELECT 语句
+-   Outer Query/ Inner Query
+-   子查询指嵌套在查询内部，且必须始终出现在圆括号中
+-   子查询可以包含多个关键字或条件
+-   子查询的外层查询可以是: SELECT INSERT UPDATE SET 等
+-   子查询可以返回常量、一行数据、一列数据或其它子查询
 
 ## 3.1 比较运算符的子查询
 
-- = 等于
-- 大于
+-   = 等于
+-   大于
 
-- < 小于
-- = 大于等于
+-   < 小于
+-   = 大于等于
 
-- <= 小于等于
-- <> 不等于
-- != 不等于
-- <=> 安全不等于
+-   <= 小于等于
+-   <> 不等于
+-   != 不等于
+-   <=> 安全不等于
 
 ## 3.2 查询年龄大于平均年龄的学生
 
@@ -157,11 +157,11 @@ SELECT \* from student WHERE age > (SELECT ROUND(AVG(age),2) FROM student)
 
 ## 3.2 ANY SOME ALL
 
-- = < <= = <> !=
+-   = < <= = <> !=
 
-- ANY 任何一个
-- SOME 某些
-- ALL 全部
+-   ANY 任何一个
+-   SOME 某些
+-   ALL 全部
 
 ```
 SELECT _ from student WHERE age > ANY (SELECT age FROM student WHERE province = '陕西省');
@@ -172,15 +172,15 @@ SELECT _ from student WHERE age = ANY (SELECT age FROM student WHERE province = 
 SELECT _ from student WHERE age = SOME (SELECT age FROM student WHERE province = '陕西省')
 ```
 
-- 3.3 查询一下有考试成绩的学生信息
+-   3.3 查询一下有考试成绩的学生信息
 
-* [IN][not in]
+*   [IN][not in]
 
 ```
 SELECT _ FROM student where id in (SELECT distinct student_id from score);
 ```
 
-- [EXISTS][notexists]
+-   [EXISTS][notexists]
 
 ```
 SELECT _ FROM student where EXISTS (SELECT distinct student_id from score where student.id = score.student_id )
@@ -203,8 +203,8 @@ ON 连接条件
 
 使用 ON 关键字来设定连接条件，也可以使用 WHERE 来代替
 
-- ON 来设定连接条件
-- 也可以使用 WHERE 来对结果进行过滤
+-   ON 来设定连接条件
+-   也可以使用 WHERE 来对结果进行过滤
 
 ## ４.3 　内连接
 
