@@ -6,6 +6,7 @@
 //  不能跨域设置cookie 
 //  一级二级域名可以共用cookie
 
+nohup  java -jar agent.jar  &
 
 //  流
 const querystring = require('querystring');

@@ -3,3 +3,4 @@
 [操作系统](https://next.xuetangx.com/course/THU08091000267/1075198)
 [如何加入 OS-Mooc 的 Piazza](https://shimo.im/docs/dxWCCphVvhg9JjCw/read)
 [文档](https://objectkuan.gitbooks.io/ucore-docs/lab0/lab0_1_goals.html)
+[网易云课堂选的操作系统课实验的代码及相关记录 ](https://github.com/Wangzhike/HIT-Linux-0.11)

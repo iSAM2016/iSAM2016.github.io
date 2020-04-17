@@ -89,37 +89,33 @@
     * [解决跨域](https://github.com/hijiangtao/hijiangtao.github.io/blob/master/_posts/2017-06-13-Cross-Origin-Resource-Sharing-Solutions.md)
 
 7. [专题系列目录](https://github.com/mqyqingfeng/Blog)
+8. cookie
 
 ---
 
-3.  node
-4.  Webpact
-5.  react 文档
-
+1.  node
+2.  Webpact
+3.  react 文档
     1. 虚拟 dom
     2. fibber
     3. diff
-
-6.  react hook
-7.  redux
-8.  react 源码
-9.  [react 性能优化](https://juejin.im/post/5b506ae0e51d45191a0d4ec9)
-10. 项目准备
+4.  react hook
+5.  redux
+6.  react 源码
+7.  [react 性能优化](https://juejin.im/post/5b506ae0e51d45191a0d4ec9)
+8.  项目准备
     1. aouth 授权
-    2. ioc
-    3. [jwt](https://mp.weixin.qq.com/s/osSlrEgk0uhOoicAH3IGOw)
-    4. 架构图
-    5. Nestjs
-    6. 网关
-    7. 浏览器渲染原理
-11. es6
-12. 浏览器渲染
-13. 微前端
-14. 算法
-15. webworker
-16. 各种手写函数
-17. websocket
-18. array string object 方法
+    2. [jwt](https://mp.weixin.qq.com/s/osSlrEgk0uhOoicAH3IGOw)
+    3. [前后端分离中的无痛刷新 token 机制](https://www.jianshu.com/p/58f05bf13b7d)
+    4. 浏览器渲染原理
+9.  es6
+10. 网页性能优化
+11. 微前端
+12. 算法
+13. webworker
+14. 各种手写函数
+15. websocket
+16. array string object 方法
 
 ## 面试点：
 
@@ -138,6 +134,8 @@
 -   [耗时 6 小时的同花顺面试](https://juejin.im/post/5c89b19fe51d45319629382c)
 -   [记一次腾讯社招前端面试](https://mp.weixin.qq.com/s/U9-f_sA651UwSbksdHg_aw)
     面试的时候尽量体现你的广度和深度，比如浏览器的兼容性来说，先把这块知识体系罗列出来，考察广度。
+-   [头条面经](https://mp.weixin.qq.com/s/JtdWPnRYxNKawXJm5HeW0w)
+-   [react](https://mp.weixin.qq.com/s/5Fe5pHjjJB5EFKvW0Mv7gg)
 -   [手写](https://mp.weixin.qq.com/s/v3Jb_dDBdX1-Y090v-xxwg)
 
 ## 优化
