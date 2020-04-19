@@ -4,31 +4,58 @@
 
 ## 方向
 
-1. 专业&基础
+简历
+1、简历至少两页
+2、突出重点，引导面试官
+3、项目要有亮点
 
--   前端工程师
--   前端、JavaScritp、CSS 基础能力
--   数据可视化基础
--   当下流行框架熟悉度
--   网络基础
--   数据结构 & 简单算法
--   质量保障
--   研发协作效率
--   性能优化方案
--   线上问题排查能力
--   Node.js 属于加分项
--   Node.js/GO 工程师
--   语言基础
--   常见算法问题
--   网络基础
--   Linux 基础
--   数据库基础
--   容器化知识
--   运维能力
--   云服务器
--   问题排查能力
+前端技术准备
+1、HTML/CSS/JS
+2、框架React和Vue及其周边
+3、前端工具Webpack和Babel
 
-2. 综合软实力
+HTML&CSS
+1、HTML新标签， 语义化
+2、BFC和移动端适配
+
+jS
+1、es6 熟练使用
+2、常见的前端概念，防抖节流，作用域链，闭包，柯里化等等
+3、跨域的解决方案 JSONP至少能口述出来
+
+React
+
+1、setState更新原理，必须彻底理解
+2、事件机制了解
+3、Fiber了解
+4、Redux精通
+
+
+Webpack&Babel
+1、Webpack打包原理和热更新原理了解
+2、Loader和Plugins区别，熟悉，最好自己动手写几个
+3、Babel原理 AST熟悉
+
+网络
+1、输入URL到页面展现
+2、Http三次握手和四次挥手过程 熟练
+3、Https 熟练
+4、cookie 重点必会
+
+数据结构&算法&设计模式
+1、链表和二叉树的遍历 熟悉
+2、常见排序算法 熟悉
+3、发布订阅模式，必会
+
+4 express 中间件和洋葱模型
+
+5.算法
+
+6.网页优化
+
+
+
+1. 综合软实力
 
 -   逻辑思维
 -   沟通表达能力，是否理解面试官的问题，并清楚应对
@@ -47,75 +74,49 @@
 -   稳定性需要考虑是否有成长，有定力
 -   丰富程度多的简历，需要考核的是每次更换工作的合理性，是否和自己专业发展的匹配
 
-5. 其它
 
--   闲聊过程中有时可以判断一个人对技术的热爱
--   是否诚信、聪明、有潜力
--   对我们团队的了解程度以及加入的意愿
+## 
 
 ## 流程
+![面试要点](./img/InterviewMapMind.png)
 
 1.  [计算机基础知识](https://github.com/CyC2018/Interview-Notebook)
 
-## 其他
-
-1. [美团旅行前端技术体系的思考与实践](https://zhuanlan.zhihu.com/p/29373613?utm_source=wechat_session&utm_medium=social)
-
-![面试要点](./img/InterviewMapMind.png)
 
 ## 复习过程
 
 1. 阅读[前端开发面试题](https://juejin.im/entry/5781b8db0a2b58005765e628) HTML CSS
+2. [css](./content/css.md)
+3. [移动端](./content/mobile/base.md)
 
-2. [js 基础知识](./content/notebook/jsbase.md)
-
+4. [js 基础知识](./content/notebook/jsbase.md)
     - [promise 实现](./content/notebook/01_async.md)
-
-3. [css](./content/css.md)
-
-4. [移动端](./content/mobile/base.md)
-
-5. [框架](https://github.com/iSAM2016/iSAM2016.github.io/blob/master/content/farmwork.md)
-
-6. http
-
+5. http
     - [http 基础](./content/net/http/cacheHttp.md)
-
     - [http 题目](./content/net/http/httpques.md)
-
     * [HTTP 返回码中 301 与 302 的区别](https://blog.csdn.net/qmhball/article/details/7838989)
     * [HTTP/1 的缺点总结](https://segmentfault.com/a/1190000013519925)
     * [HTTP2.0 特性](https://blog.csdn.net/qq_32337109/article/details/79975253)
     * [解决跨域](https://github.com/hijiangtao/hijiangtao.github.io/blob/master/_posts/2017-06-13-Cross-Origin-Resource-Sharing-Solutions.md)
+    *  cookie 
+      1. document.cookie = cname + "=" + cvalue + "; " + expires+"; path=/"   访问cookie
+    * DNS 解析过程[https://www.cnblogs.com/liyuanhong/articles/7353974.html]
 
 7. [专题系列目录](https://github.com/mqyqingfeng/Blog)
-8. cookie
 
 ---
 
 1.  node
-2.  Webpact
-3.  react 文档
-    1. 虚拟 dom
-    2. fibber
-    3. diff
 4.  react hook
 5.  redux
-6.  react 源码
 7.  [react 性能优化](https://juejin.im/post/5b506ae0e51d45191a0d4ec9)
 8.  项目准备
     1. aouth 授权
     2. [jwt](https://mp.weixin.qq.com/s/osSlrEgk0uhOoicAH3IGOw)
     3. [前后端分离中的无痛刷新 token 机制](https://www.jianshu.com/p/58f05bf13b7d)
     4. 浏览器渲染原理
-9.  es6
-10. 网页性能优化
-11. 微前端
-12. 算法
 13. webworker
-14. 各种手写函数
-15. websocket
-16. array string object 方法
+14. 各种手写函数（promise 实现原理）
 
 ## 面试点：
 
@@ -137,7 +138,20 @@
 -   [头条面经](https://mp.weixin.qq.com/s/JtdWPnRYxNKawXJm5HeW0w)
 -   [react](https://mp.weixin.qq.com/s/5Fe5pHjjJB5EFKvW0Mv7gg)
 -   [手写](https://mp.weixin.qq.com/s/v3Jb_dDBdX1-Y090v-xxwg)
-
+-   [字节跳动今日头条前端面经（4轮技术面+hr面）](https://juejin.im/post/5e6a14b1f265da572978a1d3?utm_source=gold_browser_extension)
+-   [深入理解 Node.js 进程与线程](https://mp.weixin.qq.com/s/VzXnnfn4gCBMd5wea3LRIg)
+-   [一位前端小姐姐的五万字面试宝典](https://juejin.im/post/5e91b01651882573716a9b23)
+-   [一年半前端跳槽面试经验（](https://juejin.im/post/5e70f5d351882549453882f6?utm_source=gold_browser_extension)
+-   [实战](https://juejin.im/post/5e61c161518825493e5353d1)
+-   [不知名本科菜鸡の春招前端心路历程（阿里，腾讯，美团） | 掘金技术征文](https://juejin.im/post/5e88458df265da4800039ed5)
+-   [百度 WEB前端工程师 连续五面 全程3约个小时](https://www.jianshu.com/p/3433142faa68)
+-   [写给女朋友的中级前端面试秘籍（含详细答案，15k级别](https://juejin.im/post/5e7af0685188255dcf4a497e)
+- [新鲜出炉的头条面经(已拿offer)](https://mp.weixin.qq.com/s/JtdWPnRYxNKawXJm5HeW0w)
+- [阿里社招面经（已过）](https://mp.weixin.qq.com/s/_Gj8l56ow6pyWuJV7iuxMg)
+- [【面试题】 阿里 P6 的面经](https://mp.weixin.qq.com/s/SaxRSgOPCE0DNEpe9ugGQQ)
+- [美团点评 - 到店事业群 前端面经（3轮技术面+hr面）](https://juejin.im/post/5e85b6c46fb9a03c37302e1f)
+- [艺术喵 2 年前端面试心路历程（字节跳动、YY、虎牙、BIGO）| 掘金技术征文](https://juejin.im/post/5e85ec79e51d4547153d0738)
+- [非科班二本前端大厂面试的心路历程和总结（腾讯、头条、阿里、京东） | 掘金技术征文](https://juejin.im/post/5e818e4de51d4546fb276d97)
 ## 优化
 
 1. 什么是无头浏览器 他的作用是啥
