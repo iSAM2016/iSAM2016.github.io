@@ -13,7 +13,8 @@
 > [前端基础进阶系列](http://www.jianshu.com/p/fe5f173276bd)
 
 ## 目录
-- [栈和堆](https://www.cnblogs.com/heioray/p/9487093.html)
+
+-   [栈和堆](https://www.cnblogs.com/heioray/p/9487093.html)
 -   [undefined](#undefined)
 -   [原型](#prototype)
     -   [原型赋值](#assignment)
@@ -174,7 +175,7 @@ Base.call(obj);
 ```
 
 ```js
-var A = function() {};
+var A = function () {};
 var a = new A();
 console.log(a.__proto__); //Object {}（即构造器function A 的原型对象）
 console.log(a.__proto__.__proto__); //Object {}（即构造器function Object 的原型对象）
@@ -232,7 +233,7 @@ console.log(c); // c is not defined
 ```
 
 ```js
-(function() {
+(function () {
     var a = (b = 3);
 })();
 console.log(b);
@@ -323,6 +324,18 @@ function bar() {
 bar();
 ```
 
+```js
+var scope="80";
+function scopeTest(){
+     var scope;
+     console.log(scope);
+     scope="100"
+     console.log(scope);
+ }
+scopeTest();
+console.log(scope);
+```
+
 <h6 id="functionscope">函数作用域</h6>
 立即执行函数表达式
 
@@ -361,11 +374,11 @@ javascript 引擎这是一个函数表达式，不是函数声明，可以在后
 加括号，并立即执行函数的代码。
 
 ```js
-(function(a) {
+(function (a) {
     console.log(a); //firebug输出123,使用（）运算符
 })(123);
 
-(function(a) {
+(function (a) {
     console.log(a); //firebug输出1234，使用（）运算符
 })(1234);
 ```
@@ -445,16 +458,16 @@ a();
 var wall = {}; // 声明定义一个命名空间wall
 
 // 定义方法
-(function(window, WALL, undefined) {
+(function (window, WALL, undefined) {
     // 给wall命名空间绑定方法say
-    WALL.say = function() {
+    WALL.say = function () {
         console.log('hello');
     };
 })(window, wall);
 
-(function(window, WALL, undefined) {
+(function (window, WALL, undefined) {
     // 给wall命名空间绑定方法 whoIam
-    WALL.whoIam = function() {
+    WALL.whoIam = function () {
         console.log('wall');
     };
 })(window, wall);
@@ -469,26 +482,26 @@ wall.whoIam();
 ###### 放大写法
 
 ```js
-var wall = (function(window, WALL, undefined) {
+var wall = (function (window, WALL, undefined) {
     if (typeof WALL == 'undefined') {
         WALL = {};
     }
 
     // 给wall命名空间绑定方法say
-    WALL.say = function() {
+    WALL.say = function () {
         console.log('hello');
     };
 
     return WALL; // 返回引用
 })(window, wall);
 
-var wall = (function(window, WALL, undefined) {
+var wall = (function (window, WALL, undefined) {
     if (typeof WALL == 'undefined') {
         WALL = {};
     }
 
     // 给wall命名空间绑定方法 whoIam
-    WALL.whoIam = function() {
+    WALL.whoIam = function () {
         console.log('wall');
     };
 
@@ -512,16 +525,16 @@ wall.whoIam();
 ##### 宽放大写法
 
 ```js
-(function(window, WALL, undefined) {
+(function (window, WALL, undefined) {
     // 给wall命名空间绑定方法say
-    WALL.say = function() {
+    WALL.say = function () {
         console.log('hello');
     };
 })(window, window.wall || (window.wall = {}));
 
-(function(window, WALL, undefined) {
+(function (window, WALL, undefined) {
     // 给wall命名空间绑定方法 whoIam
-    WALL.whoIam = function() {
+    WALL.whoIam = function () {
         console.log('wall');
     };
 })(window, window.wall || (window.wall = {}));
@@ -543,9 +556,9 @@ wall.whoIam();
 ##### 分文件加载 IIFE 要注意的点
 
 ```js
-(function(window, WALL, undefined) {
+(function (window, WALL, undefined) {
     // 给wall命名空间绑定方法say
-    WALL.say = function() {
+    WALL.say = function () {
         console.log('hello');
     };
 })(window, window.wall || (window.wall = {}));
@@ -558,9 +571,9 @@ wall.whoIam();
 // a.js 文件
 wall.log()(
     // b.js 文件
-    function(window, WALL, undefined) {
+    function (window, WALL, undefined) {
         // 给wall命名空间绑定方法say
-        WALL.say = function() {
+        WALL.say = function () {
             console.log('hello');
         };
     }
@@ -785,12 +798,12 @@ changeColor();
 
 ```js
 var max = 10,
-    fn = function(x) {
+    fn = function (x) {
         if (x > max) {
             console.log(x); // 15
         }
     };
-(function(f) {
+(function (f) {
     var max = 100;
     f(15);
 })(fn);
@@ -877,11 +890,11 @@ ret(); // ???
 var name = 'The Window';
 var object = {
     name: 'My Object',
-    getNameFunc: function() {
-        return function() {
+    getNameFunc: function () {
+        return function () {
             return this.name;
         };
-    }
+    },
 };
 console.log(object.getNameFunc()()); // ???
 ```
@@ -890,12 +903,12 @@ console.log(object.getNameFunc()()); // ???
 var name = 'The Window';
 var object = {
     name: 'My Object',
-    getNameFunc: function() {
+    getNameFunc: function () {
         console.log(this);
-        return function() {
+        return function () {
             return this.name;
         };
-    }
+    },
 };
 console.log(object.getNameFunc()()); // ???
 ```
@@ -919,9 +932,9 @@ var a = 20;
 var obj = {
     a: 10,
     c: this.a + 20,
-    fn: function() {
+    fn: function () {
         return this.a;
-    }
+    },
 };
 
 console.log(obj.c);
@@ -938,9 +951,9 @@ function foo() {
     var obj = {
         a: 10,
         c: this.a + 20,
-        fn: function() {
+        fn: function () {
             return this.a;
-        }
+        },
     };
     return obj.c;
 }
@@ -951,9 +964,9 @@ console.log(foo()); // 运行会报错
 var a = 20;
 var foo = {
     a: 10,
-    getA: function() {
+    getA: function () {
         return this.a;
-    }
+    },
 };
 console.log(foo.getA()); // 10
 
@@ -973,7 +986,7 @@ function active(fn) {
 var a = 20;
 var obj = {
     a: 10,
-    getA: foo
+    getA: foo,
 };
 
 active(obj.getA);
@@ -1214,7 +1227,7 @@ console.log('A' - "B" + 2);
 
 ```js
 // setTimeout 中的回调函数才是进入任务队列的任务
-setTimeout(function() {
+setTimeout(function () {
     console.log('xxxx');
 });
 // 非常多的同学对于 setTimeout 的理解存在偏差。所以大概说一下误解：
@@ -1225,21 +1238,21 @@ demo
 
 ```js
 // 为了方便理解，我以打印出来的字符作为当前的任务名称
-setTimeout(function() {
+setTimeout(function () {
     console.log('timeout1');
 });
 
-new Promise(function(resolve) {
+new Promise(function (resolve) {
     console.log('promise1');
     for (var i = 0; i < 1000; i++) {
         i == 99 && resolve();
     }
     console.log('promise2');
 })
-    .then(function() {
+    .then(function () {
         console.log('then1');
     })
-    .then(function() {
+    .then(function () {
         console.log('then2');
     });
 
@@ -1276,26 +1289,26 @@ script 任务继续往下执行，最后只有一句输出了 globa1，然后，
 ```js
 console.log(1);
 
-setTimeout(function() {
+setTimeout(function () {
     console.log(2);
 }, 0);
 
 \$.ajax({
     url: '../index.php', //假如上一级目录下有 php 文件，并且 echo '3';
     data: 'GET',
-    success: function(data) {
+    success: function (data) {
         console.log(data);
-    }
+    },
 });
 
-new Promise(function(resolve, reject) {
+new Promise(function (resolve, reject) {
     console.log(4);
     resolve();
 })
-    .then(function() {
+    .then(function () {
         console.log(5);
     })
-    .then(function() {
+    .then(function () {
         console.log(6);
     });
 console.log(7);
@@ -1304,7 +1317,7 @@ console.log(7);
 ```js
 for (var i = 0; i < 5; i++) {
     setTimeout(
-        (function(i) {
+        (function (i) {
             console.log(i);
         })(i),
         i * 1000
@@ -1352,7 +1365,7 @@ typeof undefined == 'undefined';
 > typeof fn === 'function'
 
 ```js
-_.isElement = function(obj) {
+_.isElement = function (obj) {
     return obj && obj.nodetype === 1;
 };
 ```
@@ -1365,8 +1378,8 @@ _.isElement = function(obj) {
 // Add some isType methods: isArguments, isFunction, isString, isNumber, isDate, isRegExp, isError.
 _.each(
     ['Arguments', 'Function', 'String', 'Number', 'Date', 'RegExp', 'Error'],
-    function(name) {
-        _['is' + name] = function(obj) {
+    function (name) {
+        _['is' + name] = function (obj) {
             return toString.call(obj) === '[object ' + name + ']';
         };
     }
@@ -1376,7 +1389,7 @@ _.each(
 // null 的类型有些特殊，typeof null == 'object' null == undefined ,检测他就和 null 自身比较，null 用处多是初始化变量，这个变量可能是个对象在没有给变量赋值的时候，理解 null 可以是对象的占位符 可以 var value = null;
 
 ```js
-_.isNull = function(obj) {
+_.isNull = function (obj) {
     return obj === null;
 };
 ```
@@ -1385,7 +1398,7 @@ _.isNull = function(obj) {
 // javascript 函数和 object 都是对象,其中 null 也是 object 要注意使用!!object 来判断
 
 ```js
-_.isObject = function(obj) {
+_.isObject = function (obj) {
     var type = typeof obj;
     return type === 'function' || (type === 'object' && !!obj);
 };
@@ -1393,14 +1406,14 @@ _.isObject = function(obj) {
 
 ```js
 if (typeof /./ != 'function' && typeof Int8Array != 'object') {
-    _.isFunction = function(obj) {
+    _.isFunction = function (obj) {
         return typeof obj == 'function' || false;
     };
 }
 ```
 
 ```js
-_.isBoolean = function(obj) {
+_.isBoolean = function (obj) {
     return (
         obj === true ||
         obj === false ||
@@ -1413,7 +1426,7 @@ _.isBoolean = function(obj) {
 
 ```js
 if (!_.isArguments(arguments)) {
-    _.isArguments = function(obj) {
+    _.isArguments = function (obj) {
         return _.has(obj, 'callee');
     };
 }
@@ -1422,7 +1435,7 @@ if (!_.isArguments(arguments)) {
 // 使用 void 0 原因是 undefined 可以被重写
 
 ```js
-_.isUndefined = function(obj) {
+_.isUndefined = function (obj) {
     return obj === void 0;
 };
 ```
@@ -1450,7 +1463,7 @@ Object(obj)就是将传入 obj 进行对象化
 -   slice() 方法将数组的一部分**浅拷贝**, 返回到从开始到结束（不包括结束）选择的新数组对象。原始数组不会改变\*
 
 ```js
-_.clone = function() {
+_.clone = function () {
     if (_.isObject(obj)) return obj;
     return _.isArray(obj) ? obj.slice() : _.extend({}, obj);
 };
@@ -1473,7 +1486,7 @@ myCar = [
     { color: 'red', wheels: 4, engine: { cylinders: 4, size: 2.2 } },
     2,
     'cherry condition',
-    'purchased 1997'
+    'purchased 1997',
 ];
 newCar = [{ color: 'red', wheels: 4, engine: { cylinders: 4, size: 2.2 } }, 2];
 
@@ -1520,12 +1533,12 @@ newCar = [{ color: 'red', wheels: 4, engine: { cylinders: 4, size: 2.2 } }, 2];
 // 函数防抖 debounce
 window.addEventListenter(
     'scroll',
-    (function() {
+    (function () {
         var timer;
-        return function() {
+        return function () {
             if (timer) {
                 clearTimeout(timer);
-                timer = setTimeout(function() {
+                timer = setTimeout(function () {
                     console.log('do somthing');
                 }, 500);
             }
@@ -1538,13 +1551,13 @@ window.addEventListenter(
 // 函数节流
 window.addEventListenter(
     'scroll',
-    (function() {
+    (function () {
         var timer;
         var startTime = new Date();
-        return function() {
+        return function () {
             var crrtime = new Daate();
             if (crrtime > startTime) {
-                timer = setTimeout(function() {
+                timer = setTimeout(function () {
                     console.log('do somthing');
                 }, 500);
                 starttime = curTime;
