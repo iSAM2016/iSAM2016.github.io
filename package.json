@@ -10,7 +10,7 @@
     "mime": "^2.4.2",
     "ssestream": "^1.0.1",
     "superagent": "^4.1.0",
-    "ws": "^6.2.1"
+    "ws": "^7.4.6"
   },
   "name": "isam2016.github.io-master",
   "description": "> 不敢说是博客，只是记录学习的进程吧，结一番吧哈也是为写博客做准备吧！",
